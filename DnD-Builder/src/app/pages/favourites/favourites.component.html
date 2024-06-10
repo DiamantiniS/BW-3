@@ -1,1 +1,29 @@
-<p>favourites works!</p>
+<div class="container">
+  <h1>Aggiunti ai preferiti</h1>
+  <div class="row p-3 g-2" *ngIf="arrayPgs">
+    <div class="col-12" *ngFor="let pg of arrayPgs">
+      <div class="card">
+        <img [src]="pg.img" class="card-img-top" alt="pg pic" />
+        <div class="card-body">
+          <h5 class="card-title">{{ pg.name }}</h5>
+          <p>Statistiche</p>
+          <table>
+            <tr>
+              <th>Forza</th>
+              <th>Destrezza</th>
+              <th>Intelligenza</th>
+              <th>Cos</th>
+            </tr>
+            <tr>
+              <td>{{ pg.forza }}</td>
+              <td>{{ pg.dext }}</td>
+              <td>{{ pg.int }}</td>
+              <td>{{ pg.cos }}</td>
+            </tr>
+          </table>
+          <button>Toggle favourite</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
