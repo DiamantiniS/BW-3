@@ -10,6 +10,7 @@ import { iPg } from '../../models/i-pg';
 })
 export class InfoComponent {
   pgCurrent!: iPg;
+  isEditing: boolean = false;
   constructor(private router: ActivatedRoute, private pgSvc: PgService) {}
 
   ngOnInit() {
@@ -18,5 +19,12 @@ export class InfoComponent {
         this.pgCurrent = pg;
       });
     });
+  }
+  onEdit() {
+    this.isEditing = true;
+  }
+  onSave() {
+    this.isEditing = false;
+    this.pgSvc.edit(this.pgCurrent).subscribe();
   }
 }

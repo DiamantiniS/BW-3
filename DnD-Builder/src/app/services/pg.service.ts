@@ -13,6 +13,10 @@ export class PgService {
   getAll(): Observable<iPg[]> {
     return this.http.get<iPg[]>(this.apiUrl);
   }
+
+  edit(pg: iPg): Observable<iPg> {
+    return this.http.put<iPg>(`${this.apiUrl}/${pg.id}`, pg);
+  }
   getById(id: number): Observable<iPg> {
     return this.http.get<iPg>(`${this.apiUrl}/${id}`);
   }
