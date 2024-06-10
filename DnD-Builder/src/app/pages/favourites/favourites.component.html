@@ -1,27 +1,32 @@
 <div class="container">
   <h1>Aggiunti ai preferiti</h1>
   <div class="row p-3 g-2" *ngIf="arrayPgs">
-    <div class="col-12" *ngFor="let pg of arrayPgs">
+    <div class="col-12 col-md-6" *ngFor="let pg of arrayPgs">
       <div class="card">
         <img [src]="pg.img" class="card-img-top" alt="pg pic" />
         <div class="card-body">
           <h5 class="card-title">{{ pg.name }}</h5>
+          <p>Classe: {{ pg.classe.name }}</p>
           <p>Statistiche</p>
-          <table>
+          <table class="table">
             <tr>
               <th>Forza</th>
               <th>Destrezza</th>
               <th>Intelligenza</th>
               <th>Cos</th>
+              <th>Armatura</th>
+              <th>Punti ferita</th>
             </tr>
             <tr>
               <td>{{ pg.forza }}</td>
               <td>{{ pg.dext }}</td>
               <td>{{ pg.int }}</td>
               <td>{{ pg.cos }}</td>
+              <td>{{ pg.classe.cA }}</td>
+              <td>{{ pg.classe.pf }}</td>
             </tr>
           </table>
-          <button>Toggle favourite</button>
+          <button class="btn btn-success">Toggle favourite</button>
         </div>
       </div>
     </div>
