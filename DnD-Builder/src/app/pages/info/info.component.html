@@ -1,1 +1,17 @@
-<p>info works!</p>
+<div class="row">
+  <div class="col" *ngIf="pgCurrent">
+    <img [src]="pgCurrent.img" [alt]="pgCurrent.name" />
+    {{ pgCurrent.name }}
+    {{ pgCurrent.cos }}
+    {{ pgCurrent.dext }}
+    {{ pgCurrent.forza }}
+    {{ pgCurrent.int }}
+    <div>
+      {{ pgCurrent.classe.name }}
+      {{ pgCurrent.classe.mossa1 }}
+      {{ pgCurrent.classe.mossa2 }}
+      {{ pgCurrent.classe.mossa3 }}
+      {{ pgCurrent.classe.pf }}
+    </div>
+  </div>
+</div>

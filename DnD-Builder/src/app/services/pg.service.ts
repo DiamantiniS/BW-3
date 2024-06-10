@@ -13,4 +13,7 @@ export class PgService {
   getAll(): Observable<iPg[]> {
     return this.http.get<iPg[]>(this.apiUrl);
   }
+  getById(id: number): Observable<iPg> {
+    return this.http.get<iPg>(`${this.apiUrl}/${id}`);
+  }
 }
