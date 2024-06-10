@@ -1,1 +1,10 @@
-<p>dashboard works!</p>
+<div class="row">
+  <div class="col" *ngFor="let pg of pgArr">
+    <div class="card">
+      <img class="card-img-top" src="" alt="Title" />
+      <div class="card-body">
+        <h4 class="card-title">{{ pg.name }}</h4>
+      </div>
+    </div>
+  </div>
+</div>
