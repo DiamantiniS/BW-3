@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { iFavourites } from '../models/i-favourites';
 import { iPg } from '../models/i-pg';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class FavouritesService {
   favouritesUrl:string ='http://localhost:3000/favoriti'
 
   constructor(
-    private http:HttpClient
+    private http:HttpClient,
+    private AuthSvc:AuthService
   ) { }
 
   getFavouritePgs(idUser:number) {
@@ -37,7 +39,7 @@ export class FavouritesService {
     return this.http.delete(`${this.favouritesUrl}/${id}`)
   }
 
-  /*toggleFavourite(idPersonaggio:number) {
+  toggleFavourite(idPersonaggio:number) {
     const accessData = this.AuthSvc.getAccessData()
     if(!accessData) return
     const userId:number = accessData.user.id
@@ -49,6 +51,6 @@ export class FavouritesService {
         this.createFavourite(idPersonaggio,userId).subscribe()
       }
     })
-  }*/
+  }
 
 }
