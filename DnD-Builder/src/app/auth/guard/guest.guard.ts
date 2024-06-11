@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, GuardResult, MaybeAsync, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, GuardResult, MaybeAsync, RouterStateSnapshot } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GuestGuard implements CanActivate, CanActivateChild {
+export class GuestGuard {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): MaybeAsync<GuardResult> {
@@ -15,5 +15,5 @@ export class GuestGuard implements CanActivate, CanActivateChild {
     state: RouterStateSnapshot): MaybeAsync<GuardResult> {
     return true;
   }
-  
+
 }

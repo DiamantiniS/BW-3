@@ -4,7 +4,8 @@ export interface iPg {
   id: number;
   name: string;
   img: string;
-  classe: number;
+  classeId: number;
+  classe?: iClasse
   forza: number;
   dext: number;
   int: number;
