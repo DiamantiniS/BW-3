@@ -17,8 +17,6 @@ export class AuthService {
     this.restoreUser();
   }
 
-
-
   jwtHelper: JwtHelperService = new JwtHelperService();
   userSubj = new BehaviorSubject<iUser | null>(null);
   loggedIn: boolean = false;
@@ -29,8 +27,8 @@ export class AuthService {
     tap(user => this.loggedIn = !!user)
   );
 
-  registerUrl: string = 'https://api.example.com/register'; // Sostituisci con l'URL reale del tuo endpoint di registrazione
-  loginUrl: string = 'https://api.example.com/login'; // Sostituisci con l'URL reale del tuo endpoint di login
+  registerUrl: string = 'http://localhost:3000/users'; // Endpoint di registrazione
+  loginUrl: string = 'http://localhost:3000/login'; // Endpoint di login
 
   register(newUser: Partial<iUser>): Observable<iAuthResponse> {
     return this.http.post<iAuthResponse>(this.registerUrl, newUser);
@@ -45,31 +43,35 @@ export class AuthService {
       })
     );
   }
-  logout (){
-    this.userSubj.next(null)
-    localStorage.removeItem("accessData")
-    this.router.navigate (["/auth/login"]);
+
+  logout() {
+    this.userSubj.next(null);
+    localStorage.removeItem("accessData");
+    this.router.navigate(["/auth/login"]);
   }
+
   restoreUser() {
-    const userJson = localStorage.getItem("accessData")
-    if (!userJson)return;
-    const accessData: iAuthResponse = JSON.parse (userJson)
-    if (this.jwtHelper.isTokenExpired(accessData.accessToken))return;
-    this.userSubj.next(accessData.user)
-    this.autoLogout(accessData.accessToken)
+    const userJson = localStorage.getItem("accessData");
+    if (!userJson) return;
+    const accessData: iAuthResponse = JSON.parse(userJson);
+    if (this.jwtHelper.isTokenExpired(accessData.accessToken)) return;
+    this.userSubj.next(accessData.user);
+    this.autoLogout(accessData.accessToken);
   }
-  autoLogout(Jwt:string){
-    const expDate = this.jwtHelper.getTokenExpirationDate (Jwt) as Date;
+
+  autoLogout(jwt: string) {
+    const expDate = this.jwtHelper.getTokenExpirationDate(jwt) as Date;
     const expMs = expDate.getTime() - new Date().getTime();
-  setTimeout(() => {
-    this.logout()
-  }, expMs)
+    setTimeout(() => {
+      this.logout();
+    }, expMs);
   }
+
   accessToken(): string {
-    const userJson = localStorage.getItem('accessData')
-    if (!userJson) return ''
-    const accessData: iAuthResponse = JSON.parse(userJson)
-    if (this.jwtHelper.isTokenExpired(accessData.accessToken)) return ''
-    return accessData.accessToken
+    const userJson = localStorage.getItem('accessData');
+    if (!userJson) return '';
+    const accessData: iAuthResponse = JSON.parse(userJson);
+    if (this.jwtHelper.isTokenExpired(accessData.accessToken)) return '';
+    return accessData.accessToken;
   }
 }

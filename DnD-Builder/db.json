@@ -1,5 +1,23 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "asa@example.com",
+      "password": "$2a$10$H1eRao9VzJDQkKQxAgHADu9MCXXWTdzlPI9ZbLvB7tYL/mfCyOhYm",
+      "username": "asa",
+      "id": 1
+    },
+    {
+      "email": "asa@example",
+      "password": "$2a$10$/WNZWRuk/DSKDkblULZEouFgPVsRSxSyF8uLpWbE4mtwxoy6M45la",
+      "id": 2
+    },
+    {
+      "email": "re@example.com",
+      "password": "$2a$10$YoKSuSIwTvyosdYKthdAqeeO3GL31BEYiWj4e/JtEyDTCTFhPVJ9i",
+      "username": "re",
+      "id": 3
+    }
+  ],
   "pg": [
     {
       "id": 1,
@@ -49,21 +67,33 @@
       "name": "Guerriero",
       "cA": 20,
       "pf": 12,
-      "mosse": [1, 2, 3]
+      "mosse": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "id": 2,
       "name": "Guerriero",
       "cA": 20,
       "pf": 12,
-      "mosse": [1, 2, 3]
+      "mosse": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "id": 3,
       "name": "Guerriero",
       "cA": 20,
       "pf": 12,
-      "mosse": [1, 2, 3]
+      "mosse": [
+        1,
+        2,
+        3
+      ]
     }
   ],
   "mosse": [

@@ -1,29 +1,32 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService} from '../auth.service';
-import { iAuthData } from '../../models/i-auth-data';
-
+import { AuthService } from '../auth.service';
+import { iUser } from '../../models/i-user';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  registerData: Partial<iAuthData> = {};
+  registerData: Partial<iUser> = {};
 
   constructor(
     private authSvc: AuthService,
     private router: Router
   ){}
 
-  signUp(){
+  signUp() {
+    console.log('Attempting to register user:', this.registerData);
     this.authSvc.register(this.registerData)
-      .subscribe(data => {
-        // Dopo la registrazione, reindirizza all pagina di login
-        this.router.navigate(['/login']);
+      .subscribe({
+        next: data => {
+          console.log('Registration successful', data);
+          this.router.navigate(['/auth/login']);
+        },
+        error: err => {
+          console.error('Registration error', err);
+        }
       });
   }
 }
-
-
