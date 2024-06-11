@@ -16,4 +16,6 @@ export class DashboardComponent {
       this.pgArr = pg;
     });
   }
+
+  toggleFavourites() {}
 }
