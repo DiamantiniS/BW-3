@@ -1,11 +1,89 @@
 {
-  "users":[
-
+  "users": [],
+  "pg": [
+    {
+      "id": 1,
+      "name": "Tharion",
+      "img": "https://placehold.co/400",
+      "classe": 1,
+      "forza": 17,
+      "dext": 15,
+      "int": 13,
+      "cos": 16
+    },
+    {
+      "id": 2,
+      "name": "Tharion",
+      "img": "https://placehold.co/400",
+      "classe": 3,
+      "forza": 17,
+      "dext": 15,
+      "int": 13,
+      "cos": 16
+    },
+    {
+      "id": 3,
+      "name": "Tharion",
+      "img": "https://placehold.co/400",
+      "classe": 2,
+      "forza": 17,
+      "dext": 15,
+      "int": 13,
+      "cos": 16
+    },
+    {
+      "id": 4,
+      "name": "Tharion",
+      "img": "https://placehold.co/400",
+      "classe": 1,
+      "forza": 17,
+      "dext": 15,
+      "int": 13,
+      "cos": 16
+    }
   ],
-  "pg":[
-
+  "favoriti": [],
+  "classe": [
+    {
+      "id": 1,
+      "name": "Guerriero",
+      "cA": 20,
+      "pf": 12,
+      "mosse": [1, 2, 3]
+    },
+    {
+      "id": 2,
+      "name": "Guerriero",
+      "cA": 20,
+      "pf": 12,
+      "mosse": [1, 2, 3]
+    },
+    {
+      "id": 3,
+      "name": "Guerriero",
+      "cA": 20,
+      "pf": 12,
+      "mosse": [1, 2, 3]
+    }
   ],
-  "favoriti":[
-
+  "mosse": [
+    {
+      "id": 1,
+      "name": "Attacco",
+      "danno": 6,
+      "descrizione": "un attacco e basta"
+    },
+    {
+      "id": 2,
+      "name": "Attacco2",
+      "danno": 6,
+      "descrizione": "un attacco e basta"
+    },
+    {
+      "id": 3,
+      "name": "Attacco3",
+      "danno": 6,
+      "descrizione": "un attacco e basta"
+    }
   ]
 }
