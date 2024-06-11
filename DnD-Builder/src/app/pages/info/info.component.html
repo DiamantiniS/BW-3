@@ -1,79 +1,93 @@
-<div class="row justify-content-center">
-  <div class="col-3" *ngIf="pgCurrent && !isEditing">
-    <img [src]="pgCurrent.img" [alt]="pgCurrent.name" />
-    {{ pgCurrent.name }}
-    {{ pgCurrent.cos }}
-    {{ pgCurrent.dext }}
-    {{ pgCurrent.forza }}
-    {{ pgCurrent.int }}
-    <div>
-      {{ pgCurrent.classe.name }}
-      {{ pgCurrent.classe.mossa1 }}
-      {{ pgCurrent.classe.mossa2 }}
-      {{ pgCurrent.classe.mossa3 }}
-      {{ pgCurrent.classe.pf }}
+<div class="row justify-content-center dnd-theme">
+  <div class="col-md-6 col-lg-4 mb-4" *ngIf="pgCurrent && !isEditing">
+    <div class="card dnd-card">
+      <img class="card-img-top" [src]="pgCurrent.img" [alt]="pgCurrent.name" />
+      <div class="card-body">
+        <h4 class="card-title">{{ pgCurrent.name }}</h4>
+        <p class="card-text">Costituzione: {{ pgCurrent.cos }}</p>
+        <p class="card-text">Destrezza: {{ pgCurrent.dext }}</p>
+        <p class="card-text">Forza: {{ pgCurrent.forza }}</p>
+        <p class="card-text">Intelligenza: {{ pgCurrent.int }}</p>
+        <div class="classe-info">
+          <h5 class="card-subtitle">{{ pgCurrent.classe.name }}</h5>
+          <p>Mossa 1: {{ pgCurrent.classe.mossa1 }}</p>
+          <p>Mossa 2: {{ pgCurrent.classe.mossa2 }}</p>
+          <p>Mossa 3: {{ pgCurrent.classe.mossa3 }}</p>
+          <p>Punti Ferita: {{ pgCurrent.classe.pf }}</p>
+        </div>
+        <button class="btn btn-danger dnd-button" (click)="onEdit()">
+          Edit
+        </button>
+      </div>
     </div>
-    <button class="btn btn-primary" (click)="onEdit()">Edit</button>
   </div>
 
-  <div class="col-3" *ngIf="pgCurrent && isEditing">
-    <form>
-      <!-- Aggiungi i campi di input per modificare i dettagli del personaggio -->
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input
-          id="name"
-          [(ngModel)]="pgCurrent.name"
-          name="name"
-          class="form-control"
-        />
+  <div class="col-md-6 col-lg-4 mb-4" *ngIf="pgCurrent && isEditing">
+    <div class="card dnd-card">
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              id="name"
+              [(ngModel)]="pgCurrent.name"
+              name="name"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="cos">Costituzione</label>
+            <input
+              id="cos"
+              [(ngModel)]="pgCurrent.cos"
+              name="cos"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="dext">Destrezza</label>
+            <input
+              id="dext"
+              [(ngModel)]="pgCurrent.dext"
+              name="dext"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="forza">Forza</label>
+            <input
+              id="forza"
+              [(ngModel)]="pgCurrent.forza"
+              name="forza"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="int">Intelligenza</label>
+            <input
+              id="int"
+              [(ngModel)]="pgCurrent.int"
+              name="int"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="classe">Classe</label>
+            <input
+              id="classe"
+              [(ngModel)]="pgCurrent.classe.name"
+              name="classe"
+              class="form-control"
+            />
+          </div>
+          <button class="btn btn-danger dnd-button" (click)="onSave()">
+            Save
+          </button>
+          <button class="btn btn-danger dnd-button" (click)="onCancel()">
+            Annulla modifiche
+          </button>
+        </form>
       </div>
-      <div class="form-group">
-        <label for="cos">Costituzione</label>
-        <input
-          id="cos"
-          [(ngModel)]="pgCurrent.cos"
-          name="cos"
-          class="form-control"
-        />
-      </div>
-      <div class="form-group">
-        <label for="dext">Destrezza</label>
-        <input
-          id="dext"
-          [(ngModel)]="pgCurrent.dext"
-          name="dext"
-          class="form-control"
-        />
-      </div>
-      <div class="form-group">
-        <label for="forza">Forza</label>
-        <input
-          id="forza"
-          [(ngModel)]="pgCurrent.forza"
-          name="forza"
-          class="form-control"
-        />
-      </div>
-      <div class="form-group">
-        <label for="int">Intelligenza</label>
-        <input
-          id="int"
-          [(ngModel)]="pgCurrent.int"
-          name="int"
-          class="form-control"
-        />
-      </div>
-      <div class="form-group">
-        <label for="classe">Classe</label>
-        <input
-          id="classe"
-          [(ngModel)]="pgCurrent.classe.name"
-          name="classe"
-          class="form-control"
-        />
-      </div>
-      <button class="btn btn-primary" (click)="onSave()">Save</button>
-    </form>
+    </div>
   </div>
 </div>

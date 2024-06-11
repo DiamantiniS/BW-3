@@ -1,13 +1,19 @@
-<div class="row">
-  <div class="col-3" *ngFor="let pg of pgArr">
-    <div class="card">
-      <img class="card-img-top" [src]="pg.img" alt="Title" />
-      <div class="card-body">
-        <h4 class="card-title">{{ pg.name }}</h4>
-        <button class="btn btn-success" [routerLink]="['details', pg.id]">
-          Info
-        </button>
+<div class="row dnd-theme">
+  <div class="col-md-3 col-sm-6 mb-4" *ngFor="let pg of pgArr">
+    <a [routerLink]="['details', pg.id]" class="text-decoration-none">
+      <div class="card dnd-card">
+        <img class="card-img-top" [src]="pg.img" alt="Title" />
+        <div class="card-body">
+          <h4 class="card-title">{{ pg.name }}</h4>
+          <p class="card-text">Description ...</p>
+          <button
+            class="btn btn-danger dnd-button"
+            [routerLink]="['details', pg.id]"
+          >
+            Info
+          </button>
+        </div>
       </div>
-    </div>
+    </a>
   </div>
 </div>

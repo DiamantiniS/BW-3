@@ -27,4 +27,7 @@ export class InfoComponent {
     this.isEditing = false;
     this.pgSvc.edit(this.pgCurrent).subscribe();
   }
+  onCancel() {
+    this.isEditing = false;
+  }
 }
