@@ -8,13 +8,7 @@
         <p class="card-text">Destrezza: {{ pgCurrent.dext }}</p>
         <p class="card-text">Forza: {{ pgCurrent.forza }}</p>
         <p class="card-text">Intelligenza: {{ pgCurrent.int }}</p>
-        <div class="classe-info">
-          <h5 class="card-subtitle">{{ pgCurrent.classe.name }}</h5>
-          <p>Mossa 1: {{ pgCurrent.classe.mossa1 }}</p>
-          <p>Mossa 2: {{ pgCurrent.classe.mossa2 }}</p>
-          <p>Mossa 3: {{ pgCurrent.classe.mossa3 }}</p>
-          <p>Punti Ferita: {{ pgCurrent.classe.pf }}</p>
-        </div>
+
         <button class="btn btn-danger dnd-button" (click)="onEdit()">
           Edit
         </button>
@@ -73,12 +67,7 @@
           </div>
           <div class="form-group">
             <label for="classe">Classe</label>
-            <input
-              id="classe"
-              [(ngModel)]="pgCurrent.classe.name"
-              name="classe"
-              class="form-control"
-            />
+
           </div>
           <button class="btn btn-danger dnd-button" (click)="onSave()">
             Save

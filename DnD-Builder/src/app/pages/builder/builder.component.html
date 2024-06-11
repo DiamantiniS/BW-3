@@ -9,26 +9,48 @@
             id="nomeInput"
             class="form-control"
             placeholder="Nome"
+            name="nome"
+            [(ngModel)]="pg.name"
           />
         </div>
         <div class="col-md-5 p-2 col-12">
-          <select id="disabledSelect" class="form-select">
-            <option>Classe</option>
-            <option>Guerriero</option>
-            <option>Ladro</option>
-            <option>Mago</option>
+          <select
+            id="disabledSelect"
+            class="form-select"
+            *ngFor="let c of classi"
+          >
+            <option click(cambiastat(c.name))>{{ c.name }}</option>
           </select>
         </div>
         <!-- attributi e img -->
         <div class="row col-12">
           <div class="col-12 col-md-6 m-2">
-            <div class="col-md-6 col-12" placeholder="Forza"></div>
-            <div class="col-md-6 col-12" placeholder="Destrezza"></div>
-            <div class="col-md-6 col-12" placeholder="Intelligenza"></div>
-            <div class="col-md-6 col-12" placeholder="Costituzione"></div>
+            <div class="col-md-6 col-12 form-control" placeholder="Forza">
+              <input type="number" nome="forza" placeholder="Nome" [(ngModel)]="pg.forza">
+            </div>
+            <div class="col-md-6 col-12 form-control" placeholder="Destrezza">
+              <input type="number" nome="forza" placeholder="Nome" [(ngModel)]="pg.dext">
+            </div>
+            <div class="col-md-6 col-12 form-control" placeholder="Intelligenza">
+              <input type="number" nome="forza" placeholder="Nome" [(ngModel)]="pg.int">
+            </div>
+            <div class="col-md-6 col-12 form-control" placeholder="Costituzione">
+              <input type="number" nome="forza" placeholder="Nome" [(ngModel)]="pg.cos">
+            </div>
           </div>
           <div class="col-12 col-md-4 m-2">
+            <img [src]="pg.img" class="card-img-top" />
+          </div>
+        </div>
+        <!-- attacchi e descrizione -->
 
+        <div class="row col-12">
+          <div class="col-12 col-md-5 m-2" *ngFor="let m of mosse">
+            <div class="col-12 mb-2">
+              <p>{{ m.nome }}</p>
+              <p>{{ m.danno }}</p>
+              <p>{{ m.descrizione }}</p>
+            </div>
           </div>
         </div>
       </div>
