@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
 
 .dnd-theme {
   background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
@@ -52,7 +52,7 @@
   border: none;
   transition: background-color 0.3s, transform 0.3s;
   display: block;
-  width: 100%;
+  width: auto;
   margin-top: 10px;
 }
 
@@ -60,6 +60,23 @@
   background-color: #a00000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
+}
+
+.btn-favorite {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.btn-favorite.favorited {
+  color: red;
+}
+
+.btn-favorite:hover {
+  transform: scale(1.2);
 }
 
 .card-body {
@@ -84,4 +101,5 @@
 .dnd-card:hover .card-body::after {
   border-color: rgba(255, 255, 255, 0.3);
 }
+
 
