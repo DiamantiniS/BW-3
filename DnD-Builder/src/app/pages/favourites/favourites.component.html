@@ -6,7 +6,7 @@
         <img [src]="pg.img" class="card-img-top" alt="pg pic" />
         <div class="card-body">
           <h5 class="card-title">{{ pg.name }}</h5>
-          <p>Classe: {{ pg.classe.name }}</p>
+          <p>Classe: {{ classe.name }}</p>
           <p>Statistiche</p>
           <table class="table">
             <tr>
@@ -22,8 +22,8 @@
               <td>{{ pg.dext }}</td>
               <td>{{ pg.int }}</td>
               <td>{{ pg.cos }}</td>
-              <td>{{ pg.classe.cA }}</td>
-              <td>{{ pg.classe.pf }}</td>
+              <td>{{ classe.cA }}</td>
+              <td>{{ classe.pf }}</td>
             </tr>
           </table>
           <button class="btn btn-success">Toggle favourite</button>
