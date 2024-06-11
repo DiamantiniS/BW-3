@@ -115,7 +115,24 @@
       "cos": 14
     }
   ],
-  "favoriti": [],
+  "favoriti": [
+    {
+      "id": 1,
+  "idUser": 1,
+  "idPersonaggio": 1
+    },
+    {
+      "id": 2,
+  "idUser": 1,
+  "idPersonaggio": 3
+    },
+    {
+      "id": 3,
+  "idUser": 1,
+  "idPersonaggio": 5
+    }
+
+  ],
   "classe": [
     {
       "id": 1,
