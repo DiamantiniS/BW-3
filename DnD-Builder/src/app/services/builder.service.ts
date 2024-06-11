@@ -17,7 +17,7 @@ export class BuilderService {
   }
 
   getMosse(): Observable<iMossa[]> {
-    return this.http.get<iMossa[]>(`${this.classiUrl}`);
+    return this.http.get<iMossa[]>(this.classiUrl);
   }
 
 }

@@ -14,18 +14,44 @@ import { BuilderService } from '../../services/builder.service';
 })
 export class BuilderComponent {
   classi: iClasse[] = [];
-  pg!: iPg;
+  pgCurrent: iPg = {
+    id: 0,
+    name: '',
+    img: '',
+    classeId: 0,
+    forza: 0,
+    dext: 0,
+    int: 0,
+    cos: 0,
+  };
   mosse!: iMossa[];
-
   constructor(private pgSvc: PgService, private builderSvc: BuilderService) {
-
     // this.builderSvc.getAllClasses().subscribe(classes => {
     //   this.classi = classes
     // })
-
   }
-ngOnInit(){
-  this.mosse
-}
+  ngOnInit() {
+    this.builderSvc.getAllClasses().subscribe((classes) => {
+      this.classi = classes;
+      this.builderSvc.getMosse().subscribe((mossa) => {
+        this.mosse = mossa;
+      });
+    });
+  }
+  onSave() {
+    throw new Error('Method not implemented.');
+  }
+  onCancel() {
+    throw new Error('Method not implemented.');
+  }
 
+  getmossebyclasse(e: any) {
+    // console.log('mossa', e.value);
+    let mosseid:number[] = e.value;
+    console.log('mosseid', mosseid);
+
+    //  let mossa = this.mosse.filter(mossa => (mossa.id === mossaid))
+    //  console.log(mossa);
+    //  return mossa;
+  }
 }
