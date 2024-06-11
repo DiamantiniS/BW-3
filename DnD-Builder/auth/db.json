@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "email": "forofuw@mailinator.com",
+      "password": "$2a$10$IQOXZWcGTLARYTSu3aj5V.16qO/s54RgXWVRlSmUUWVlBmMguWQPS",
+      "nome": "Hic iure laboris pla",
+      "id": 1
+    },
+    {
+      "email": "vizig@mailinator.com",
+      "password": "$2a$10$/ZFuof8ZUzWwk2QkziFAROS53IuWkkBpF945Ouji5hoq7pbftL5Q6",
+      "nome": "Quia non et necessit",
+      "id": 2
+    },
+    {
+      "email": "zufojoruv@mailinator.com",
+      "password": "$2a$10$kJR.w6ueaexoSwXlJWX4p.iFGza4/HW7ywKDDGGE858a7aDWyRFwW",
+      "nome": "Quia id excepturi e",
+      "id": 3
+    }
+  ],
+  "pizze": []
+}

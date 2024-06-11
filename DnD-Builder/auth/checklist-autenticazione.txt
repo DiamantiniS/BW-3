@@ -1,0 +1,45 @@
+###Json server
+- Installa json-server -> npm i json-server
+- Imposta la giusta versione di json-server all'interno del file package.json  -> ^0.17.4
+- Ora lancia il comando npm i in modo che la versione corretta di json-server venga installata.
+- Installa json-server-auth -> npm i json-server-auth
+- Crea un file chiamato db.json all'interno della cartella radice di angular (come vedi in questo progetto)
+- Crea un oggetto contenente una voce chiamata "users" all'interno del db.json. -> Se sbagli nome e quindi la voce non si chiamerà "users", la tua autenticazione non può funzionare, è richiesta assoluta precisione
+- Il comando per avviare il backend è npx json-server-auth db.json
+- Una volta lanciato il comando in un terminale, quel terminale rimane bloccato e deve esserlo perché al suo interno devono apparire i log di tutte le chiamate che effettui. Quindi se dubiti che stia funzionando controlla il terminale e se vedi che in quello stesso terminale sei in grado di scrivere vuol dire che json-server-auth è spento.
+
+###jwt helper
+- Installa il pacchetto npm @auth0/angular-jwt -> npm i @auth0/angular-jwt
+
+
+###Angular
+- Configura il tuo progetto come lo faresti normalmente, quindi crea componenti, moduli e rotte Ricordandoti di cominciare anche installando il tuo framework UI preferito
+- Crea un service per l'autenticazione
+- Crea un interceptor per l'autenticazione, Ricordati di aggiungere al comando  --functional false
+- Crea una card per l'autenticazione e ricordati di aggiungere il comando. --functional false
+- Crea le rotte In cui l'utente potrà loggarsi o registrarsi e legale ha specifici componenti.
+- Crea l'interfaccia (interface) utente e tutte le interfacce di cui potresti avere bisogno per la tipizzazione
+
+
+###Auth Service
+Completa il service ricordandoti di inserire i seguenti elementi.
+- BehaviorSubjet per tenere traccia della presenza o assenza dei dati dell'utente
+- Un'istanza del JWT Helper vedi riga 12
+- All'interno di APP Module attiva tra gli import l'httpClientModule.
+- Inserisci nel constructor del service un richiamo all'httpClient
+- Crea un metodo che permette all'utente di registrarsi utilizzando l'http Client per fare una chiamata post. L'indirizzo a cui fare la chiamata è http://localhost:3000/register . Qualora non corrispondesse, controlla la documentazione di json-server-auth.
+- Crea un metodo che permette all'utente di loggarsi utilizzando l'http Client per fare una chiamata post. L'indirizzo a cui fare la chiamata è http://localhost:3000/login . Qualora non corrispondesse, controlla la documentazione di json-server-auth.
+- Oltre alla chiamata, questo metodo dovrà avere un pipe che quando arriva la risposta del server salva i dati dell'utente all'interno del local storage e gli comunica al BehaviorSubjet creato precedentemente.
+- Crea un metodo logout che elimina i dati salvati in local storage e comunica al BehaviorSubjet che ora il dato da tenere in memoria è null
+- Crea un metodo in grado di recuperare e restituire da local storage i dati dell'utente salvati in seguito al login.
+- Crea un metodo restore user Che controlla se ci sono dati salvati in local storage e qualora ci fossero ripristina la sessione utente, comunicando con il BehaviorSubjet. Ora lancia questo metodo nel contructor di questo service.
+-Fa riferimento all'auth.service.ts presente in questo progetto che sarà ricco di commenti.
+
+
+#Il lavoro
+- A questo punto il tuo service, se è pari a quello che trovi in questo progetto ti potrà permettere di creare qualunque interazione con l'autenticazione all'interno dei componenti, ad esempio potrai far apparire o sparire elementi in base al login o logout dell'utente.
+
+
+###Guards ed interceptor
+- Ricordati di Far funzionare le guards e l'interceptor utilizzando metodi e proprietà del service appena costruito
+- Se hai creato delle card, ricordati di utilizzarle legandole alle rotte nel modulo app-routing.
