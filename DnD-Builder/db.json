@@ -1,5 +1,18 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "user@example.com",
+      "password": "$2a$10$HfCKJv1xbwwD/qg6TUzTtO2DLiEgNkSWff39wipjuHT9le7.1NDUi",
+      "username": "io",
+      "id": 1
+    },
+    {
+      "email": "admin@admin.com",
+      "password": "$2a$10$LB9yZFPO2.VO8f2Z9cCXlOWRW2SjuVsbtqwCNGcB5RTQDtLGWFbmu",
+      "username": "io",
+      "id": 2
+    }
+  ],
   "pg": [
     {
       "id": 1,
