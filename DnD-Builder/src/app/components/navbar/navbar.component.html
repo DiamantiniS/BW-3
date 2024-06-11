@@ -1,8 +1,7 @@
-<nav class="sticky-top navbar navbar-expand-lg bg-black  p-2">
+<nav class="sticky-top navbar navbar-expand-lg bg-black p-2">
   <div class="container-fluid">
     <a routerLink="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
       <img src="../../../assets/d&d Builder.png" class="d-inline-block align-top me-2 logo" alt="logo">
-
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,47 +9,45 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
         <li class="nav-item ms-2">
-          <button  type="button" class="nav-link text-white" routerLink="/"><!--*ngIf=""!isLoggedIn-->
+          <button type="button" class="nav-link text-white" routerLink="/">
             <i class="bi bi-house-door-fill"></i>
             Home
           </button>
         </li>
         <li class="nav-item">
-          <button  type="button" class="nav-link text-white" routerLink="dashboard"><!--*ngIf=""!isLoggedIn-->
+          <button type="button" class="nav-link text-white" routerLink="dashboard">
             <i class="bi bi-camera-reels pb-1"></i>
             Dashboard
           </button>
         </li>
         <li class="nav-item">
-          <button  type="button" class="nav-link text-white" routerLink="dashboard/new-movie"><!--*ngIf=""!isLoggedIn-->
+          <button type="button" class="nav-link text-white" routerLink="dashboard/new-movie">
             <i class="bi bi-plus-circle"></i>
             Builder
           </button>
         </li>
         <li class="nav-item">
-          <button  type="button" class="nav-link text-white" routerLink="dashboard/favorites"><!--*ngIf=""!isLoggedIn-->
+          <button type="button" class="nav-link text-white" routerLink="dashboard/favorites">
             <i class="bi bi-heart"></i>
             Favorites
           </button>
         </li>
         <li class="nav-item">
-          <button  type="button" class="nav-link text-white" routerLink="dashboard/profile"> <!--*ngIf=""isLoggedIn-->
+          <button type="button" class="nav-link text-white" routerLink="dashboard/profile">
             <i class="bi bi-people"></i>
             Profile
           </button>
         </li>
       </ul>
       <div class="ms-auto d-flex align-items-center">
-
-        <div  class="d-flex align-items-center me-3"> <!--user?.proPic-->
-          <img [src]="" class="rounded-circle" alt="Profile Picture" width="30" height="30"><!--*ngIf=""user?.proPic-->
+        <div class="d-flex align-items-center me-3">
+          <img [src]="" class="rounded-circle" alt="Profile Picture" width="30" height="30">
         </div>
-
-        <button  routerLink="/auth/login" type="button" class="nav-link text-white"><!--*ngIf=""!isLoggedIn-->
+        <button routerLink="/auth/login" type="button" class="nav-link text-white">
           <i class="bi bi-door-open"></i>
           Login
         </button>
-        <button   type="button" class="nav-link text-white"> <!--*ngIf=""isLoggedIn /(click)="logout"-->
+        <button type="button" class="nav-link text-white">
           <i class="bi bi-door-closed"></i>
           Logout
         </button>
@@ -58,3 +55,13 @@
     </div>
   </div>
 </nav>
+<div class="px-3 py-2 border-bottom mb-3 bg-light">
+  <div class="container d-flex flex-wrap justify-content-between">
+    <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
+      <input class="form-control" type="search" placeholder="Search PG" aria-label="Search">
+    </form>
+    <div class="text-end">
+      <button type="button" class="btn btn-danger">Cerca Pg</button>
+    </div>
+  </div>
+</div>
