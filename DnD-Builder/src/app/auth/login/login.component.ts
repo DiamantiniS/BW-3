@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService} from '../auth.service';
+import { AuthService } from '../auth.service';
 import { iAuthData } from '../../models/i-auth-data';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss']
 })
-
 export class LoginComponent {
   loginData: iAuthData = {
     email: '',
@@ -20,13 +19,16 @@ export class LoginComponent {
     private router: Router
   ){}
 
-  signIn(){
+  signIn() {
     this.authSvc.login(this.loginData)
-      .subscribe(data => {
-        this.router.navigate(['/dashboard']);
+      .subscribe({
+        next: data => {
+          this.router.navigate(['/dashboard']);
+        },
+        error: err => {
+          console.error('Login error', err);
+        }
       });
     console.log(this.loginData);
   }
-
-
 }
