@@ -1,1 +1,47 @@
-<p>profile works!</p>
+<div class="container-fluid my-5 text-light">
+  <h2 class="display-5 mb-4 p-4 custom-title">Impostazioni Profilo D&D</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card bg-dark text-light border-light">
+        <img src="https://i.redd.it/4pingn8na9k61.jpg" class="card-img-top" alt="Profilo" style="max-height: 200px;">
+        <div class="card-body">
+          <h5 class="card-title">{{user?.username}}</h5>
+          <h5 class="card-title">NOME UTENTE</h5>
+          <p class="card-text">Informazioni aggiuntive dell'utente.
+
+             Clicca
+              <a href="#favorites" class="text-light">qui</a> per visualizzare i tuoi preferiti.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="tab-content">
+        <div class="tab-pane fade active show" id="account-general">
+          <div class="card bg-dark text-light border-light">
+            <div class="card-header">
+              <h3 class="display-5">Profilo Generale</h3>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="username" class="form-label">Nome Utente</label>
+                  <input type="text" id="username" class="form-control" formControlName="username" placeholder="Nome Utente">
+                </div>
+                <div class="form-group mt-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" id="email" class="form-control" formControlName="email" placeholder="Email">
+                  <div *ngIf="profileForm.get('email')?.touched && profileForm.get('email')?.invalid" class="text-danger">
+                    <div *ngIf="profileForm.get('email')?.hasError('required')">Email è obbligatorio</div>
+                    <div *ngIf="profileForm.get('email')?.hasError('email')">Email non valido</div>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3" [disabled]="!profileForm.valid">Salva</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
