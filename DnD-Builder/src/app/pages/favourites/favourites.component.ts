@@ -29,6 +29,12 @@ export class FavouritesComponent {
   ) {}
 
   ngOnInit() {
+
+    this.PgSvc.getClasses().subscribe(classes => {
+      this.classPgArray = classes
+      console.log(this.classPgArray)
+    })
+
     const accessData = this.AuthSvc.getAccessData()
     if(!accessData) return
     this.currentUser = accessData.user
@@ -41,9 +47,7 @@ export class FavouritesComponent {
         this.PgSvc.getById(favorite.idPersonaggio).subscribe(pg => this.arrayPgs.push(pg))
       })
 
-      /*this.arrayPgs.forEach(pg => {
-        this.PgSvc.getClassbyId(pg.classe).subscribe(classPg => this.classPgArray.push(classPg))
-      })*/
+      this.FavortiteSvc.addClass(this.arrayPgs, this.classPgArray)
     })
 
   }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { iFavourites } from '../models/i-favourites';
 import { iPg } from '../models/i-pg';
 import { AuthService } from '../auth/auth.service';
+import { iClasse } from '../models/i-classe';
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +52,16 @@ export class FavouritesService {
         this.createFavourite(idPersonaggio,userId).subscribe()
       }
     })
+  }
+
+  addClass(array1:iPg[], array2:iClasse[]):iPg[] {
+    array1 = array1.map(pg => {
+      let classe = array2.find(classe => classe.id == pg.classeId
+      )
+      pg.classe = classe
+      return pg
+    })
+    return array1
   }
 
 }
