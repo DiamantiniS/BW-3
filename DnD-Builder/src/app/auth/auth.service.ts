@@ -72,4 +72,10 @@ export class AuthService {
     if (this.jwtHelper.isTokenExpired(accessData.accessToken)) return '';
     return accessData.accessToken;
   }
+  getAccessData():iAuthResponse|null {
+    const jsonData = localStorage.getItem('accessData')
+    if(!jsonData) return null
+    const accessData:iAuthResponse = JSON.parse(jsonData)
+    return accessData
+  }
 }
