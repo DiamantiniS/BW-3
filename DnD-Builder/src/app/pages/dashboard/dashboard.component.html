@@ -1,1 +1,13 @@
-<p>dashboard works!</p>
+<div class="row">
+  <div class="col-3" *ngFor="let pg of pgArr">
+    <div class="card">
+      <img class="card-img-top" [src]="pg.img" alt="Title" />
+      <div class="card-body">
+        <h4 class="card-title">{{ pg.name }}</h4>
+        <button class="btn btn-success" [routerLink]="['details', pg.id]">
+          Info
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
