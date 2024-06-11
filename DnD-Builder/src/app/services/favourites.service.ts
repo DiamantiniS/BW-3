@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { iFavourites } from '../models/i-favourites';
+import { iPg } from '../models/i-pg';
 
 @Injectable({
   providedIn: 'root'
@@ -35,4 +36,19 @@ export class FavouritesService {
     //swal("Rimosso dai preferiti", "", "warning");
     return this.http.delete(`${this.favouritesUrl}/${id}`)
   }
+
+  /*toggleFavourite(idPersonaggio:number) {
+    const accessData = this.AuthSvc.getAccessData()
+    if(!accessData) return
+    const userId:number = accessData.user.id
+
+    this.getFavouriteSinglePg(idPersonaggio,userId).subscribe(fav => {
+      if (fav.length) {
+        this.deleteFavourite(fav[0].id).subscribe()
+      } else {
+        this.createFavourite(idPersonaggio,userId).subscribe()
+      }
+    })
+  }*/
+
 }
