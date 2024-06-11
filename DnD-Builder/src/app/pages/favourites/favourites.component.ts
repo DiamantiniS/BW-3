@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { iFavourites } from '../../models/i-favourites';
 import { iUser } from '../../models/i-user';
 import { iPg } from '../../models/i-pg';
+import { FavouritesService } from '../../services/favourites.service';
 
 @Component({
   selector: 'app-favourites',
@@ -20,7 +21,7 @@ export class FavouritesComponent {
   currentUser!:iUser
 
   constructor(
-    //Services
+    private FavortiteSvc:FavouritesService
   ) {}
 
   /*ngOnInit() {
@@ -29,7 +30,7 @@ export class FavouritesComponent {
     this.currentUser = accessData.user
     const userId = accessData.user.id
 
-    this.PgSvc.getFavouritePgs(userId).subscribe(favourites => {
+    this.FavortiteSvc.getFavouritePgs(userId).subscribe(favourites => {
       this.favouritesArray = favourites
 
       this.favouritesArray.forEach(favorite => {
