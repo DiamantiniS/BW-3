@@ -5,5 +5,6 @@ export interface iClasse {
   name: string;
   cA: number;
   pf: number;
-  mosse: number[];
+  mosseId: number[];
+
 }
