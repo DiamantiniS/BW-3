@@ -1,4 +1,3 @@
-
 import { iMossa } from './../../models/i-mossa';
 import { Component } from '@angular/core';
 import { iFavourites } from '../../models/i-favourites';
@@ -6,6 +5,8 @@ import { iUser } from '../../models/i-user';
 import { iPg } from '../../models/i-pg';
 import { FavouritesService } from '../../services/favourites.service';
 import { iClasse } from '../../models/i-classe';
+import { AuthService } from '../../auth/auth.service';
+import { PgService } from '../../services/pg.service';
 
 @Component({
   selector: 'app-favourites',
@@ -14,21 +15,20 @@ import { iClasse } from '../../models/i-classe';
 })
 export class FavouritesComponent {
 
-  // mossa:iMossa = {id:1, nome: 'fendente', danno: 15, descrizione:'è un fendente'}
-
-  // pg:iPg = {id:1, name:'Pippo Fortissimo', img:'https://www.dumpaday.com/wp-content/uploads/2019/08/the-random-pics-495.jpg', classe: {id:1, name:'guerriero', cA: 5, pf: 80, mossa1:this.mossa, mossa2:this.mossa, mossa3:this.mossa}, forza: 10, dext:14, int:4 , cos:7}
+  currentUser!:iUser
 
   pg!:iPg
   favouritesArray:iFavourites[] = []
-  arrayPgs:iPg[] = [this.pg]
-  currentUser!:iUser
-  classe!:iClasse
+  arrayPgs:iPg[] = []
+  classPgArray:iClasse[] = []
 
   constructor(
-    private FavortiteSvc:FavouritesService
+    private FavortiteSvc:FavouritesService,
+    private AuthSvc:AuthService,
+    private PgSvc:PgService,
   ) {}
 
-  /*ngOnInit() {
+  ngOnInit() {
     const accessData = this.AuthSvc.getAccessData()
     if(!accessData) return
     this.currentUser = accessData.user
@@ -38,9 +38,17 @@ export class FavouritesComponent {
       this.favouritesArray = favourites
 
       this.favouritesArray.forEach(favorite => {
-        this.PgSvc.getPgById(favorite.idPersonaggio).subscribe(pg => this.arrayPgs.push(pg))
+        this.PgSvc.getById(favorite.idPersonaggio).subscribe(pg => this.arrayPgs.push(pg))
       })
+
+      /*this.arrayPgs.forEach(pg => {
+        this.PgSvc.getClassbyId(pg.classe).subscribe(classPg => this.classPgArray.push(classPg))
+      })*/
     })
 
-  }*/
+  }
+
+  toggleFavourite(idPersonaggio:number) {
+    this.FavortiteSvc.toggleFavourite(idPersonaggio)
+  }
 }

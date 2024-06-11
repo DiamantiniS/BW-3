@@ -5,9 +5,10 @@ export interface iPg {
   name: string;
   img: string;
   classeId: number;
+  classe?: iClasse
   forza: number;
   dext: number;
   int: number;
   cos: number;
-  classe?: iClasse
+
 }
