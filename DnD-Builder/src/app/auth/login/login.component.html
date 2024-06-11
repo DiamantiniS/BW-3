@@ -1,25 +1,25 @@
 <div class="container-fluid bg-primary py-5 inferno-bg">
   <div class="row justify-content-center align-items-center">
-    <div class="col-md-6">
-      <div class="card shadow-lg p-5 inferno-card">
-        <h2 class="text-center mb-4 text-primary">Accedi al tuo account</h2>
-        <form (ngSubmit)="signIn()">
-          <div class="mb-3">
-            <label for="inputEmail" class="form-label text-white">Email</label>
-            <input type="email" class="form-control inferno-input" [(ngModel)]="loginData.email" id="inputEmail" placeholder="name@example.com" name="email" required>
+      <div class="col-md-6">
+          <div class="card shadow-lg p-5 inferno-card">
+              <h2 class="text-center mb-4 text-primary">Accedi al tuo account</h2>
+              <form>
+                  <div class="mb-3">
+                      <label for="inputEmail" class="form-label text-white">Email</label>
+                      <input type="email" class="form-control inferno-input" [(ngModel)]="loginData.email" id="inputEmail" placeholder="name@example.com" name="email">
+                  </div>
+                  <div class="mb-3">
+                      <label for="inputPassword" class="form-label text-white">Password</label>
+                      <input type="password" class="form-control inferno-input" [(ngModel)]="loginData.password" id="inputPassword" placeholder="Password" name="password">
+                  </div>
+                  <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="rememberMe">
+                      <label class="form-check-label text-white" for="rememberMe">Remember me</label>
+                  </div>
+                  <button type="submit" class="btn btn-light w-100 inferno-btn" (click)="signIn()">Accedi</button>
+              </form>
+              <p class="mt-4 text-center text-white">&copy; DAJE</p>
           </div>
-          <div class="mb-3">
-            <label for="inputPassword" class="form-label text-white">Password</label>
-            <input type="password" class="form-control inferno-input" [(ngModel)]="loginData.password" id="inputPassword" placeholder="Password" name="password" required>
-          </div>
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="rememberMe">
-            <label class="form-check-label text-white" for="rememberMe">Remember me</label>
-          </div>
-          <button type="submit" class="btn btn-light w-100 inferno-btn">Accedi</button>
-        </form>
-        <p class="mt-4 text-center text-white">&copy; DAJE</p>
       </div>
-    </div>
   </div>
 </div>

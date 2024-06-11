@@ -1,0 +1,72 @@
+.container-fluid {
+  background-image: url('https://game-experience.it/wp-content/uploads/2021/09/Dungeons-Dragons.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200vh;
+  font-family: 'Cinzel', serif; /* Una tipografia fantasy */
+}
+
+.custom-title {
+  font-size: 3rem;
+  text-align: center;
+  color: #ffd700; /* Un colore dorato per il testo */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(45deg, #b22222, #ff4500); /* Un gradiente dal rosso fuoco all'arancione */
+  padding: 20px;
+  border: 3px solid #ff4500; /* Bordo arancione fuoco */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Ombra per far risaltare il titolo */
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card-header {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.card-body {
+  .form-group {
+    label {
+      color: #fff;
+    }
+
+    input.form-control {
+      background-color: #343a40;
+      color: #fff;
+      border-color: #495057;
+
+      &:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      }
+    }
+  }
+
+  .alert {
+    background-color: #ffc107;
+    color: #343a40;
+  }
+
+  .text-danger {
+    color: #dc3545;
+  }
+
+  button.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+
+    &:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    &:disabled {
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+  }
+}

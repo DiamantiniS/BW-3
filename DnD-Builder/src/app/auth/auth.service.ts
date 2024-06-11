@@ -1,13 +1,11 @@
-import { iAuthResponse } from './../models/i-auth-response';
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { iAuthData } from './../models/i-auth-data';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject, tap, map, Observable } from 'rxjs';
-import { iUser } from '../models/i-user'
-import { NgControlStatusGroup } from '@angular/forms';
-
+import { iUser } from '../models/i-user';
+import { iAuthData } from '../models/i-auth-data';
+import { iAuthResponse } from '../models/i-auth-response';
 
 @Injectable({
   providedIn: 'root'
