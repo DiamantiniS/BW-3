@@ -108,71 +108,13 @@
                   class="btn btn-danger dnd-button"
                   (click)="modifica()"
                 >
-                  Modifica
+                  {{ !isMine ? "Copia Build" : "Modifica" }}
                 </button>
-
-                <!-- <button class="btn btn-danger dnd-button" (click)="onSave()">
-                  Save
-                </button>
-                <button class="btn btn-danger dnd-button" (click)="onCancel()">
-                  Annulla modifiche
-                </button> -->
               </form>
             </div>
           </div>
         </div>
-        <!-- attacchi e descrizione -->
       </div>
     </div>
   </div>
 </form>
-
-<!--
-                <div class="row col-12">
-                  <div class="col-12 col-md-5 m-2" *ngFor="let m of mosse">
-                    <div class="col-12 mb-2">
-                      <p>{{ m.nome }}</p>
-                      <p>{{ m.danno }}</p>
-                      <p>{{ m.descrizione }}</p>
-                    </div>
-                  </div>
-                </div> -->
-<!-- <div class="row col-12">
-          <div class="col-12 col-md-6 m-2">
-            <label class="control-label">Forza</label>
-            <input
-            class="form-control"
-              type="number"
-              nome="forza"
-
-              [(ngModel)]="pg.forza"
-            />
-            <label class="control-label">Destrezza</label>
-            <input
-            class="form-control"
-              type="number"
-              nome="dext"
-
-              [(ngModel)]="pg.dext"
-            />
-            <label class="control-label">Intelligenza</label>
-            <input
-            class="form-control"
-              type="number"
-              nome="int"
-
-              [(ngModel)]="pg.int"
-            />
-            <label class="control-label">Costituzione</label>
-            <input
-            class="form-control"
-              type="number"
-              nome="cos"
-
-              [(ngModel)]="pg.cos"
-            />
-          </div>
-          <input type="text" name="immagine" [(ngModel)]="pg.img">
-          <img [src]="pg.img" class="card-img-top" />
-
-        </div> -->
