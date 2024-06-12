@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AuthComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     CommonModule,
