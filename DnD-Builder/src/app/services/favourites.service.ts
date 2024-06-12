@@ -54,7 +54,15 @@ export class FavouritesService {
     })
   }
 
-  addClass(array1:iPg[], array2:iClasse[]):iPg[] {
+  addClassToPg(pg:iPg, array2:iClasse[]):iPg {
+    let classe = array2.find(classe => classe.id == pg.classeId
+    )
+    pg.classe = classe
+    return pg
+  }
+
+  // Metodo (alternativo) per mescolamento dati di array (2 parametri array)
+  /*addClass(array1:iPg[], array2:iClasse[]):iPg[] {
     array1 = array1.map(pg => {
       let classe = array2.find(classe => classe.id == pg.classeId
       )
@@ -62,6 +70,6 @@ export class FavouritesService {
       return pg
     })
     return array1
-  }
+  }*/
 
 }

@@ -44,12 +44,14 @@ export class FavouritesComponent {
       this.favouritesArray = favourites
 
       this.favouritesArray.forEach(favorite => {
-        this.PgSvc.getById(favorite.idPersonaggio).subscribe(pg => this.arrayPgs.push(pg))
+        this.PgSvc.getById(favorite.idPersonaggio).subscribe(pg => {
+          this.FavortiteSvc.addClassToPg(pg, this.classPgArray)
+          this.arrayPgs.push(pg)
+        })
       })
-
-      this.FavortiteSvc.addClass(this.arrayPgs, this.classPgArray)
     })
 
+    setTimeout(() => {console.log(this.arrayPgs)} ,2000) //check proprietà pgs
   }
 
   toggleFavourite(idPersonaggio:number) {
