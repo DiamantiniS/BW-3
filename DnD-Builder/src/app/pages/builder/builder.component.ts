@@ -1,3 +1,4 @@
+import { iUser } from './../../models/i-user';
 import { iPg } from './../../models/i-pg';
 import { iClasse } from './../../models/i-classe';
 import { Component } from '@angular/core';
@@ -12,10 +13,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './builder.component.scss',
 })
 export class BuilderComponent {
+  isMine:boolean = false;
   classi: iClasse[] = [];
   mosse!: iMossa[];
+  currentUser!: number;
   isCreating: boolean = true;
   pgCurrent: Partial<iPg> = {
+    userId: 0,
     name: '',
     img: '',
     classeId: 0,
@@ -33,6 +37,7 @@ export class BuilderComponent {
     mosseId: [],
     mosse: [],
   };
+  AuthSvc: any;
 
   constructor(
     private pgSvc: PgService,
@@ -40,11 +45,15 @@ export class BuilderComponent {
     private router: ActivatedRoute
   ) {}
   ngOnInit() {
+    this.currentUser = this.pgSvc.getUserId();
     this.router.params.subscribe((params) => {
       if (params['id'] && params['id'] !== '0') {
         this.isCreating = false;
         this.pgSvc.getById(params['id']).subscribe((pg) => {
           this.pgCurrent = pg;
+          if (this.pgCurrent.userId === this.currentUser){
+            this.isMine = true;
+          }
           this.classeSelect =
             this.classi.find(
               (classe) => classe.id === this.pgCurrent.classeId
@@ -67,8 +76,10 @@ export class BuilderComponent {
       });
     });
   }
+
   create() {
     console.log(this.pgCurrent);
+    this.pgCurrent.userId = this.currentUser;
 
     this.pgSvc.create(this.pgCurrent).subscribe();
   }
@@ -91,6 +102,11 @@ export class BuilderComponent {
   }
 
   modifica() {
-    this.pgSvc.edit(this.pgCurrent).subscribe();
+    if (this.pgCurrent.userId === this.currentUser) {
+      this.pgSvc.edit(this.pgCurrent).subscribe();
+    } else {
+      delete this.pgCurrent.id;
+      this.create();
+    }
   }
 }
