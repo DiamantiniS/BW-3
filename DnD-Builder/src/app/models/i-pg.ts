@@ -2,6 +2,7 @@ import { iClasse } from './i-classe';
 
 export interface iPg {
   id: number;
+  userId: number;
   name: string;
   img: string;
   classeId: number;
