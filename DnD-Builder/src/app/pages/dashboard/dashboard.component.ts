@@ -15,30 +15,29 @@ import { iUser } from '../../models/i-user';
 })
 export class DashboardComponent {
   pgArr: iPg[] = [];
-  pgSearchArray:iPg[] = []
-  classPgArray:iClasse[] = [];
-  favouritesArray:iFavourites[] = []
-  currentUser!:iUser
+  pgSearchArray: iPg[] = [];
+  classPgArray: iClasse[] = [];
+  favouritesArray: iFavourites[] = [];
+  currentUser!: iUser;
   searchTerm: string = '';
   constructor(
     private PgSvc: PgService,
-    private FavortiteSvc:FavouritesService,
-    private AuthSvc:AuthService,
+    private FavortiteSvc: FavouritesService,
+    private AuthSvc: AuthService
   ) {}
 
   ngOnInit() {
+    const accessData = this.AuthSvc.getAccessData();
+    if (!accessData) return;
+    this.currentUser = accessData.user;
+    const userId = accessData.user.id;
+    this.PgSvc.getClasses().subscribe((classes) => {
+      this.classPgArray = classes;
+    });
 
-    const accessData = this.AuthSvc.getAccessData()
-    if(!accessData) return
-    this.currentUser = accessData.user
-    const userId = accessData.user.id
-    this.PgSvc.getClasses().subscribe(classes => {
-      this.classPgArray = classes
-    })
-
-    this.FavortiteSvc.getFavouritePgs(userId).subscribe(favourites => {
-      this.favouritesArray = favourites
-    })
+    this.FavortiteSvc.getFavouritePgs(userId).subscribe((favourites) => {
+      this.favouritesArray = favourites;
+    });
 
     this.PgSvc.getAll().subscribe((pg) => {
       this.pgArr = pg;
@@ -59,5 +58,4 @@ export class DashboardComponent {
   showAll() {
     this.pgSearchArray = this.pgArr;
   }
-
 }
