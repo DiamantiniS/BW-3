@@ -59,11 +59,5 @@ export class DashboardComponent {
   showAll() {
     this.pgSearchArray = this.pgArr;
   }
-  toggleFavourite(idPersonaggio:number) {
-    this.FavortiteSvc.toggleFavourite(idPersonaggio)
-  }
-  isFavourite(pg:iPg) {
-    return this.FavortiteSvc.isFavourite(pg,this.favouritesArray)
-  }
 
 }
