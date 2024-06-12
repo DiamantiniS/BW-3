@@ -63,9 +63,10 @@ export class FavouritesService {
     return pg
   }
 
+  /* INUTILIZZATO
   isFavourite(pg: iPg, arrayFavourites:iFavourites[]): boolean {
     return arrayFavourites.some((fav) => fav.idPersonaggio === pg.id);
-  }
+  }*/
 
   /*isFavourite(pg: iPg): boolean {
     return this.favouritesArray.some((fav) => fav.idPersonaggio === pg.id);
