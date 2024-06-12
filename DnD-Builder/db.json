@@ -1,9 +1,9 @@
 {
   "users": [
     {
-      "username": "io",
       "email": "user@example.com",
-      "password": "$2a$10$D/ivIwaBr4TfKxsIBnY4V.kYX17QZf.XPo5lkB1oXHe5yagNjdQZ.",
+      "password": "$2a$10$HfCKJv1xbwwD/qg6TUzTtO2DLiEgNkSWff39wipjuHT9le7.1NDUi",
+      "username": "io",
       "id": 1
     },
     {
@@ -117,14 +117,14 @@
   ],
   "favoriti": [
     {
-      "id": 1,
+      "idPersonaggio": 4,
       "idUser": 1,
-      "idPersonaggio": 1
+      "id": 8
     },
     {
-      "id": 3,
+      "idPersonaggio": 3,
       "idUser": 1,
-      "idPersonaggio": 5
+      "id": 10
     }
   ],
   "classe": [

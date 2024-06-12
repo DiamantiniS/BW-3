@@ -1,12 +1,10 @@
-
-
 .dnd-theme {
-  background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-image: url("https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
   background-size: cover;
   background-position: center;
   padding: 20px;
   color: #fff;
-  font-family: 'MedievalSharp', cursive;
+  font-family: "MedievalSharp", cursive;
   min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
@@ -28,7 +26,7 @@
 }
 
 .dnd-card .card-title {
-  font-family: 'MedievalSharp', cursive;
+  font-family: "MedievalSharp", cursive;
   text-align: center;
   margin-bottom: 10px;
   font-size: 1.5rem;
@@ -85,7 +83,7 @@
 }
 
 .card-body::after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   top: 0;
@@ -102,4 +100,11 @@
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-
+.heart-icon {
+  &.heart-filled {
+    color: red;
+  }
+  &:hover {
+    color: red;
+  }
+}
