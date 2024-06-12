@@ -158,6 +158,11 @@
       "idPersonaggio": 2,
       "idUser": 5,
       "id": 1
+    },
+    {
+      "idPersonaggio": 3,
+      "idUser": 5,
+      "id": 2
     }
   ],
   "classe": [

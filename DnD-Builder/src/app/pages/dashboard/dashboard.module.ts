@@ -4,18 +4,10 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { FormsModule } from '@angular/forms';
-import { SinglePgComponent } from '../../strutture/single-pg/single-pg.component';
-
+import { StruttureModule } from '../../strutture/strutture.module';
 
 @NgModule({
-  declarations: [
-    DashboardComponent,
-    SinglePgComponent
-  ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule,
-    FormsModule
-  ]
+  declarations: [DashboardComponent],
+  imports: [CommonModule, DashboardRoutingModule, FormsModule, StruttureModule],
 })
-export class DashboardModule { }
+export class DashboardModule {}
