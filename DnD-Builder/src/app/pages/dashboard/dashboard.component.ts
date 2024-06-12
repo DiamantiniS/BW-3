@@ -44,14 +44,16 @@ export class DashboardComponent {
       this.pgArr = pg;
       this.pgSearchArray = this.pgArr;
 
-      this.pgArr.forEach(pg => {
-        this.FavortiteSvc.addClassToPg(pg, this.classPgArray)
-      })
+      this.pgArr.forEach((pg) => {
+        this.FavortiteSvc.addClassToPg(pg, this.classPgArray);
+      });
     });
   }
   onSearch() {
-    this.pgSearchArray = this.pgArr.filter(pg =>
-      pg.name.toLowerCase().includes(this.searchTerm.toLowerCase())||pg.classe?.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    this.pgSearchArray = this.pgArr.filter(
+      (pg) =>
+        pg.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        pg.classe?.name.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
   showAll() {
@@ -65,4 +67,3 @@ export class DashboardComponent {
   }
 
 }
-

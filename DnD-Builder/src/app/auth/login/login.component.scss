@@ -1,0 +1,72 @@
+
+
+$primary-color: #343a40; // Colore scuro, per dare un'atmosfera da dungeon
+$flame-color: #ff4500; // Colore che richiama le fiamme
+$bg-color: #2c3e50; // Colore di sfondo scuro
+$card-bg: rgba(26, 37, 47, 0.85); // Colore della carta, scuro ma differenziato con trasparenza
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg-dnd {
+  background: url('/assets/d-d.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh; // Rendi il background a tutta altezza
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inferno-card {
+  background-color: $card-bg;
+  border: 2px solid $flame-color;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  padding: 2rem; // Aggiunto padding per dare spazio all'interno della card
+}
+
+.inferno-input {
+  background-color: transparent;
+  border: 1px solid $flame-color;
+  color: $flame-color;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+  &::placeholder {
+    color: lighten($flame-color, 20%);
+  }
+}
+
+.inferno-btn {
+  background-color: $primary-color;
+  border: 1px solid $flame-color;
+  color: $flame-color;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+
+  &:hover {
+    background-color: lighten($primary-color, 10%);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    background-color: darken($primary-color, 10%);
+    transform: translateY(1px);
+  }
+}
+
+.text-dnd {
+  color: $flame-color !important;
+  font-family: 'Cinzel', serif; // Font stile fantasy
+}
+
+.form-check-input {
+  margin-top: 0.3rem;
+}
+
+.form-check-label {
+  margin-left: 0.3rem;
+}

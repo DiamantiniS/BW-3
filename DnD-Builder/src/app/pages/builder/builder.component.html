@@ -3,57 +3,176 @@
     <div class="row">
       <!-- top part, nome e classe -->
       <div class="col-12">
-        <div class="col-md-5 p-2 col-12">
-          <input
-            type="text"
-            id="nomeInput"
-            class="form-control"
-            placeholder="Nome"
-            name="nome"
-            [(ngModel)]="pg.name"
-          />
-        </div>
-        <div class="col-md-5 p-2 col-12">
-          <select
-            id="disabledSelect"
-            class="form-select"
-            *ngFor="let c of classi"
-          >
-            <option click(cambiastat(c.name))>{{ c.name }}</option>
-          </select>
-        </div>
-        <!-- attributi e img -->
-        <div class="row col-12">
-          <div class="col-12 col-md-6 m-2">
-            <div class="col-md-6 col-12 form-control" placeholder="Forza">
-              <input type="number" nome="forza" placeholder="Nome" [(ngModel)]="pg.forza">
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card dnd-card">
+            <div class="card-body">
+              <form class="pb-5">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    id="name"
+                    [(ngModel)]="pgCurrent.name"
+                    name="name"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <!-- <label for="classe">Classe</label> -->
+                  <select
+                    id="disabledSelect"
+                    class="form-select"
+                    name="class"
+                    [(ngModel)]="pgCurrent.classeId"
+                    (change)="getmossebyclasse($event)"
+                  >
+                    <option *ngFor="let c of classi" [value]="c.id">
+                      {{ c.name }}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="cos">Costituzione</label>
+                  <input
+                    type="number"
+                    id="cos"
+                    [(ngModel)]="pgCurrent.cos"
+                    name="cos"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="dext">Destrezza</label>
+                  <input
+                    type="number"
+                    id="dext"
+                    [(ngModel)]="pgCurrent.dext"
+                    name="dext"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="forza">Forza</label>
+                  <input
+                    type="number"
+                    id="forza"
+                    [(ngModel)]="pgCurrent.forza"
+                    name="forza"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="int">Intelligenza</label>
+                  <input
+                    type="number"
+                    id="int"
+                    [(ngModel)]="pgCurrent.int"
+                    name="int"
+                    class="form-control"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="imagen">Immagine</label>
+                  <input
+                    type="text"
+                    id="imagen"
+                    [(ngModel)]="pgCurrent.img"
+                    name="imagen"
+                    class="form-control"
+                  />
+
+                  <img
+                    class="card-img-top"
+                    [src]="pgCurrent.img"
+                    [alt]="pgCurrent.name"
+                  />
+                </div>
+
+                <div class="form-group" *ngFor="let m of classeSelect.mosse">
+                  <div>
+                    <p>{{ m.nome }}</p>
+                    <p>{{ m.danno }}</p>
+                    <p>{{ m.descrizione }}</p>
+                  </div>
+                </div>
+
+                <button
+                  *ngIf="isCreating"
+                  class="btn btn-danger dnd-button"
+                  (click)="create()"
+                >
+                  Crea
+                </button>
+                <button
+                  *ngIf="!isCreating"
+                  class="btn btn-danger dnd-button"
+                  (click)="modifica()"
+                >
+                  Modifica
+                </button>
+
+                <!-- <button class="btn btn-danger dnd-button" (click)="onSave()">
+                  Save
+                </button>
+                <button class="btn btn-danger dnd-button" (click)="onCancel()">
+                  Annulla modifiche
+                </button> -->
+              </form>
             </div>
-            <div class="col-md-6 col-12 form-control" placeholder="Destrezza">
-              <input type="number" nome="forza" placeholder="Nome" [(ngModel)]="pg.dext">
-            </div>
-            <div class="col-md-6 col-12 form-control" placeholder="Intelligenza">
-              <input type="number" nome="forza" placeholder="Nome" [(ngModel)]="pg.int">
-            </div>
-            <div class="col-md-6 col-12 form-control" placeholder="Costituzione">
-              <input type="number" nome="forza" placeholder="Nome" [(ngModel)]="pg.cos">
-            </div>
-          </div>
-          <div class="col-12 col-md-4 m-2">
-            <img [src]="pg.img" class="card-img-top" />
           </div>
         </div>
         <!-- attacchi e descrizione -->
-
-        <div class="row col-12">
-          <div class="col-12 col-md-5 m-2" *ngFor="let m of mosse">
-            <div class="col-12 mb-2">
-              <p>{{ m.nome }}</p>
-              <p>{{ m.danno }}</p>
-              <p>{{ m.descrizione }}</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </form>
+
+<!--
+                <div class="row col-12">
+                  <div class="col-12 col-md-5 m-2" *ngFor="let m of mosse">
+                    <div class="col-12 mb-2">
+                      <p>{{ m.nome }}</p>
+                      <p>{{ m.danno }}</p>
+                      <p>{{ m.descrizione }}</p>
+                    </div>
+                  </div>
+                </div> -->
+<!-- <div class="row col-12">
+          <div class="col-12 col-md-6 m-2">
+            <label class="control-label">Forza</label>
+            <input
+            class="form-control"
+              type="number"
+              nome="forza"
+
+              [(ngModel)]="pg.forza"
+            />
+            <label class="control-label">Destrezza</label>
+            <input
+            class="form-control"
+              type="number"
+              nome="dext"
+
+              [(ngModel)]="pg.dext"
+            />
+            <label class="control-label">Intelligenza</label>
+            <input
+            class="form-control"
+              type="number"
+              nome="int"
+
+              [(ngModel)]="pg.int"
+            />
+            <label class="control-label">Costituzione</label>
+            <input
+            class="form-control"
+              type="number"
+              nome="cos"
+
+              [(ngModel)]="pg.cos"
+            />
+          </div>
+          <input type="text" name="immagine" [(ngModel)]="pg.img">
+          <img [src]="pg.img" class="card-img-top" />
+
+        </div> -->
