@@ -22,6 +22,12 @@
       "password": "$2a$10$zlmYi2t2JdR2N5AAxoQ84.LNkkUP9LEymw0thGiBU9/R/y5B1LakK",
       "username": "morgan",
       "id": 4
+    },
+    {
+      "email": "paulo@paulo.com",
+      "password": "$2a$10$NJ8W.MCZ74i4s/WfubESGetCkurmljvQ03i5MgMdgXUxzyMpH3HEK",
+      "username": "Paulo",
+      "id": 5
     }
   ],
   "pg": [
