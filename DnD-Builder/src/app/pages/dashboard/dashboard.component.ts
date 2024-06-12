@@ -9,11 +9,18 @@ import { iPg } from '../../models/i-pg';
 })
 export class DashboardComponent {
   pgArr: iPg[] = [];
-  constructor(public pgSvc: PgService) {}
+  searchTerm: string = '';
+  constructor(private pgSvc: PgService) {}
 
   ngOnInit() {
     this.pgSvc.getAll().subscribe((pg) => {
       this.pgArr = pg;
     });
   }
+  onSearch() {
+  this.pgArr = this.pgArr.filter(pg =>
+    pg.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+  );
 }
+}
+

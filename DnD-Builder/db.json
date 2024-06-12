@@ -1,9 +1,9 @@
 {
   "users": [
     {
-      "email": "asa@example.com",
-      "password": "$2a$10$H1eRao9VzJDQkKQxAgHADu9MCXXWTdzlPI9ZbLvB7tYL/mfCyOhYm",
-      "username": "asa",
+      "username": "io",
+      "email": "user@example.com",
+      "password": "$2a$10$D/ivIwaBr4TfKxsIBnY4V.kYX17QZf.XPo5lkB1oXHe5yagNjdQZ.",
       "id": 1
     },
     {
@@ -123,20 +123,14 @@
   "favoriti": [
     {
       "id": 1,
-  "idUser": 1,
-  "idPersonaggio": 1
-    },
-    {
-      "id": 2,
-  "idUser": 1,
-  "idPersonaggio": 3
+      "idUser": 1,
+      "idPersonaggio": 1
     },
     {
       "id": 3,
-  "idUser": 1,
-  "idPersonaggio": 5
+      "idUser": 1,
+      "idPersonaggio": 5
     }
-
   ],
   "classe": [
     {
@@ -144,165 +138,188 @@
       "name": "Guerriero",
       "cA": 18,
       "pf": 18,
-      "mosseId": [1, 2, 3]
+      "mosseId": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "id": 2,
       "name": "Ladro",
       "cA": 16,
       "pf": 15,
-      "mosseId": [4, 5, 6]
+      "mosseId": [
+        4,
+        5,
+        6
+      ]
     },
     {
       "id": 3,
       "name": "Mago",
       "cA": 12,
       "pf": 10,
-      "mosseId": [7, 8, 9]
+      "mosseId": [
+        7,
+        8,
+        9
+      ]
     },
     {
       "id": 4,
       "name": "Chierico",
       "cA": 16,
       "pf": 16,
-      "mosseId": [10, 11, 12]
+      "mosseId": [
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 5,
       "name": "Paladino",
       "cA": 18,
       "pf": 20,
-      "mosseId": [13, 14, 15]
+      "mosseId": [
+        13,
+        14,
+        15
+      ]
     },
     {
       "id": 6,
       "name": "Druido",
       "cA": 14,
       "pf": 14,
-      "mosseId": [16, 17, 18]
+      "mosseId": [
+        16,
+        17,
+        18
+      ]
     }
   ],
-    "mosse": [
-      {
-        "id": 1,
-        "name": "Spada Lunga",
-        "danno": 4,
-        "descrizione": "Un'arma da mischia a una mano."
-      },
-      {
-        "id": 2,
-        "name": "Ascia Bipenne",
-        "danno": 6,
-        "descrizione": "Un'arma da mischia a due mani."
-      },
-      {
-        "id": 3,
-        "name": "Arco Lungo",
-        "danno": 4,
-        "descrizione": "Un'arma da tiro a due mani con un raggio lungo."
-      },
-      {
-        "id": 4,
-        "name": "Dardo Incantato",
-        "danno": 3,
-        "descrizione": "Un attacco magico che colpisce automaticamente il bersaglio."
-      },
-      {
-        "id": 5,
-        "name": "Eldritch Blast",
-        "danno": 5,
-        "descrizione": "Un raggio di energia magica che colpisce il bersaglio con forza."
-      },
-      {
-        "id": 6,
-        "name": "Raggio di Gelo",
-        "danno": 4,
-        "descrizione": "Un raggio di energia gelida che rallenta il bersaglio."
-      },
-      {
-        "id": 7,
-        "name": "Tocco Vampirico",
-        "danno": 6,
-        "descrizione": "Un tocco che risucchia la vita dal bersaglio per curare l'incantatore."
-      },
-      {
-        "id": 8,
-        "name": "Scudo di Fuoco",
-        "danno": 5,
-        "descrizione": "Una fiamma che avvolge l'incantatore e danneggia chi lo attacca."
-      },
-      {
-        "id": 9,
-        "name": "Missili Magici",
-        "danno": 3,
-        "descrizione": "Dardi magici che colpiscono automaticamente e con precisione."
-      },
-      {
-        "id": 10,
-        "name": "Spruzzo di Veleno",
-        "danno": 6,
-        "descrizione": "Un getto di veleno diretto verso il bersaglio."
-      },
-      {
-        "id": 11,
-        "name": "Dardo di Fuoco",
-        "danno": 5,
-        "descrizione": "Un piccolo proiettile di fuoco lanciato contro il bersaglio."
-      },
-      {
-        "id": 12,
-        "name": "Raggio di Ruggine",
-        "danno": 4,
-        "descrizione": "Un raggio di energia corrosiva che danneggia le armature e le armi del bersaglio."
-      },
-      {
-        "id": 13,
-        "name": "Spada Corta",
-        "danno": 3,
-        "descrizione": "Una spada leggera e maneggevole, adatta al combattimento ravvicinato."
-      },
-      {
-        "id": 14,
-        "name": "Martello da Guerra",
-        "danno": 4,
-        "descrizione": "Un'arma da mischia robusta a una mano, efficace contro armature pesanti."
-      },
-      {
-        "id": 15,
-        "name": "Balestra Pesante",
-        "danno": 5,
-        "descrizione": "Un'arma da tiro potente con un raggio medio."
-      },
-      {
-        "id": 16,
-        "name": "Sfera Infuocata",
-        "danno": 7,
-        "descrizione": "Una sfera di fuoco che può essere diretta contro i nemici."
-      },
-      {
-        "id": 17,
-        "name": "Dardo di Acidità",
-        "danno": 3,
-        "descrizione": "Un dardo di acido che danneggia il bersaglio."
-      },
-      {
-        "id": 18,
-        "name": "Raggio Rovente",
-        "danno": 7,
-        "descrizione": "Un raggio di fuoco che può colpire più bersagli."
-      },
-      {
-        "id": 19,
-        "name": "Tridente",
-        "danno": 3,
-        "descrizione": "Un'arma a tre punte che può essere utilizzata in mischia o lanciata."
-      },
-      {
-        "id": 20,
-        "name": "Mazzafrusto",
-        "danno": 4,
-        "descrizione": "Un'arma da mischia con una testa chiodata flessibile."
-      }
-    ]
-  }
-
+  "mosse": [
+    {
+      "id": 1,
+      "name": "Spada Lunga",
+      "danno": 4,
+      "descrizione": "Un'arma da mischia a una mano."
+    },
+    {
+      "id": 2,
+      "name": "Ascia Bipenne",
+      "danno": 6,
+      "descrizione": "Un'arma da mischia a due mani."
+    },
+    {
+      "id": 3,
+      "name": "Arco Lungo",
+      "danno": 4,
+      "descrizione": "Un'arma da tiro a due mani con un raggio lungo."
+    },
+    {
+      "id": 4,
+      "name": "Dardo Incantato",
+      "danno": 3,
+      "descrizione": "Un attacco magico che colpisce automaticamente il bersaglio."
+    },
+    {
+      "id": 5,
+      "name": "Eldritch Blast",
+      "danno": 5,
+      "descrizione": "Un raggio di energia magica che colpisce il bersaglio con forza."
+    },
+    {
+      "id": 6,
+      "name": "Raggio di Gelo",
+      "danno": 4,
+      "descrizione": "Un raggio di energia gelida che rallenta il bersaglio."
+    },
+    {
+      "id": 7,
+      "name": "Tocco Vampirico",
+      "danno": 6,
+      "descrizione": "Un tocco che risucchia la vita dal bersaglio per curare l'incantatore."
+    },
+    {
+      "id": 8,
+      "name": "Scudo di Fuoco",
+      "danno": 5,
+      "descrizione": "Una fiamma che avvolge l'incantatore e danneggia chi lo attacca."
+    },
+    {
+      "id": 9,
+      "name": "Missili Magici",
+      "danno": 3,
+      "descrizione": "Dardi magici che colpiscono automaticamente e con precisione."
+    },
+    {
+      "id": 10,
+      "name": "Spruzzo di Veleno",
+      "danno": 6,
+      "descrizione": "Un getto di veleno diretto verso il bersaglio."
+    },
+    {
+      "id": 11,
+      "name": "Dardo di Fuoco",
+      "danno": 5,
+      "descrizione": "Un piccolo proiettile di fuoco lanciato contro il bersaglio."
+    },
+    {
+      "id": 12,
+      "name": "Raggio di Ruggine",
+      "danno": 4,
+      "descrizione": "Un raggio di energia corrosiva che danneggia le armature e le armi del bersaglio."
+    },
+    {
+      "id": 13,
+      "name": "Spada Corta",
+      "danno": 3,
+      "descrizione": "Una spada leggera e maneggevole, adatta al combattimento ravvicinato."
+    },
+    {
+      "id": 14,
+      "name": "Martello da Guerra",
+      "danno": 4,
+      "descrizione": "Un'arma da mischia robusta a una mano, efficace contro armature pesanti."
+    },
+    {
+      "id": 15,
+      "name": "Balestra Pesante",
+      "danno": 5,
+      "descrizione": "Un'arma da tiro potente con un raggio medio."
+    },
+    {
+      "id": 16,
+      "name": "Sfera Infuocata",
+      "danno": 7,
+      "descrizione": "Una sfera di fuoco che può essere diretta contro i nemici."
+    },
+    {
+      "id": 17,
+      "name": "Dardo di Acidità",
+      "danno": 3,
+      "descrizione": "Un dardo di acido che danneggia il bersaglio."
+    },
+    {
+      "id": 18,
+      "name": "Raggio Rovente",
+      "danno": 7,
+      "descrizione": "Un raggio di fuoco che può colpire più bersagli."
+    },
+    {
+      "id": 19,
+      "name": "Tridente",
+      "danno": 3,
+      "descrizione": "Un'arma a tre punte che può essere utilizzata in mischia o lanciata."
+    },
+    {
+      "id": 20,
+      "name": "Mazzafrusto",
+      "danno": 4,
+      "descrizione": "Un'arma da mischia con una testa chiodata flessibile."
+    }
+  ]
+}

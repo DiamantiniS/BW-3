@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, FooterComponent],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule,FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
