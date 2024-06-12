@@ -25,7 +25,7 @@ export class AuthService {
     tap(user => this.loggedIn = !!user)
   );
 
-  registerUrl: string = 'http://localhost:3000/users'; // Endpoint di registrazione
+  registerUrl: string = 'http://localhost:3000/register'; // Endpoint di registrazione
   loginUrl: string = 'http://localhost:3000/login'; // Endpoint di login
 
   register(newUser: Partial<iUser>): Observable<iAuthResponse> {
