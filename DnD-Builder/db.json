@@ -1,16 +1,21 @@
 {
   "users": [
     {
-      "email": "user@example.com",
-      "password": "$2a$10$HfCKJv1xbwwD/qg6TUzTtO2DLiEgNkSWff39wipjuHT9le7.1NDUi",
       "username": "io",
+      "email": "user@example.com",
+      "password": "$2a$10$D/ivIwaBr4TfKxsIBnY4V.kYX17QZf.XPo5lkB1oXHe5yagNjdQZ.",
       "id": 1
     },
     {
-      "email": "admin@admin.com",
-      "password": "$2a$10$LB9yZFPO2.VO8f2Z9cCXlOWRW2SjuVsbtqwCNGcB5RTQDtLGWFbmu",
-      "username": "io",
+      "email": "asa@example",
+      "password": "$2a$10$/WNZWRuk/DSKDkblULZEouFgPVsRSxSyF8uLpWbE4mtwxoy6M45la",
       "id": 2
+    },
+    {
+      "email": "re@example.com",
+      "password": "$2a$10$YoKSuSIwTvyosdYKthdAqeeO3GL31BEYiWj4e/JtEyDTCTFhPVJ9i",
+      "username": "re",
+      "id": 3
     }
   ],
   "pg": [
@@ -140,6 +145,8 @@
       "id": 3,
       "idUser": 1,
       "idPersonaggio": 5
+      "idUser": 1,
+      "idPersonaggio": 5
     }
   ],
   "classe": [
@@ -148,6 +155,11 @@
       "name": "Guerriero",
       "cA": 18,
       "pf": 18,
+      "mosseId": [
+        1,
+        2,
+        3
+      ]
       "mosseId": [
         1,
         2,
@@ -164,12 +176,22 @@
         5,
         6
       ]
+      "mosseId": [
+        4,
+        5,
+        6
+      ]
     },
     {
       "id": 3,
       "name": "Mago",
       "cA": 12,
       "pf": 10,
+      "mosseId": [
+        7,
+        8,
+        9
+      ]
       "mosseId": [
         7,
         8,
@@ -186,6 +208,11 @@
         11,
         12
       ]
+      "mosseId": [
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 5,
@@ -197,12 +224,22 @@
         14,
         15
       ]
+      "mosseId": [
+        13,
+        14,
+        15
+      ]
     },
     {
       "id": 6,
       "name": "Druido",
       "cA": 14,
       "pf": 14,
+      "mosseId": [
+        16,
+        17,
+        18
+      ]
       "mosseId": [
         16,
         17,

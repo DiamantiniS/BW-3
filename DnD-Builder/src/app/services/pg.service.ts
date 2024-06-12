@@ -24,6 +24,9 @@ export class PgService {
   getById(id: number): Observable<iPg> {
     return this.http.get<iPg>(`${this.apiUrl}/${id}`);
   }
+  getClasses(): Observable<iClasse[]> {
+    return this.http.get<iClasse[]>(this.classUrl);
+  }
   getClassbyId(classId:number): Observable<iClasse> {
     return this.http.get<iClasse>(`${this.classUrl}/${classId}`);
   }
