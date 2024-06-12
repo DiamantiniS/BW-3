@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './builder.component.scss',
 })
 export class BuilderComponent {
-  isMine:boolean = false;
+  isMine: boolean = false;
   classi: iClasse[] = [];
   mosse!: iMossa[];
   currentUser!: number;
@@ -51,7 +51,7 @@ export class BuilderComponent {
         this.isCreating = false;
         this.pgSvc.getById(params['id']).subscribe((pg) => {
           this.pgCurrent = pg;
-          if (this.pgCurrent.userId === this.currentUser){
+          if (this.pgCurrent.userId === this.currentUser) {
             this.isMine = true;
           }
           this.classeSelect =
@@ -77,21 +77,18 @@ export class BuilderComponent {
     });
   }
 
+  ngDoCheck() {
+    this.getmosseOnload(this.pgCurrent.classeId!);
+  }
   create() {
     console.log(this.pgCurrent);
     this.pgCurrent.userId = this.currentUser;
 
     this.pgSvc.create(this.pgCurrent).subscribe();
   }
-  onSave() {
-    throw new Error('Method not implemented.');
-  }
-  onCancel() {
-    throw new Error('Method not implemented.');
-  }
-
   getmossebyclasse(e: Event) {
     const target = <HTMLInputElement>e.target;
+    console.log(target.value);
     let classeSelect = this.classi.find(
       (classe) => classe.id === Number(target.value)
     );
@@ -99,6 +96,11 @@ export class BuilderComponent {
     console.log(this.classeSelect);
 
     this.pgCurrent.classeId = Number(target.value);
+  }
+
+  getmosseOnload(id: number) {
+    let classeSelect = this.classi.find((classe) => classe.id === id);
+    if (classeSelect) this.classeSelect = classeSelect;
   }
 
   modifica() {
