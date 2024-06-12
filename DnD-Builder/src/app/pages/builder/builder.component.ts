@@ -81,5 +81,9 @@ export class BuilderComponent {
     this.pgCurrent.classeId = Number(target.value);
   }
 
-  modifica() {}
+  modifica() {
+    // this.pgEdit = this.pgCurrent
+    // this.pgSvc.edit(this.pgCurrent).subscribe();
+    console.log(this.pgCurrent);
+  }
 }

@@ -18,7 +18,7 @@ export class PgService {
   create(newPg:Partial<iPg>): Observable<iPg> {
     return this.http.post<iPg>(this.apiUrl, newPg);
   }
-  edit(pg: iPg): Observable<iPg> {
+  edit(pg: Partial<iPg>): Observable<iPg> {
     return this.http.put<iPg>(`${this.apiUrl}/${pg.id}`, pg);
   }
   getById(id: number): Observable<iPg> {
