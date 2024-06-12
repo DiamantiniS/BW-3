@@ -153,7 +153,13 @@
       "id": 11
     }
   ],
-  "favoriti": [],
+  "favoriti": [
+    {
+      "idPersonaggio": 2,
+      "idUser": 5,
+      "id": 1
+    }
+  ],
   "classe": [
     {
       "id": 1,

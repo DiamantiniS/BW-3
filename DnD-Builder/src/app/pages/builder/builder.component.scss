@@ -21,6 +21,8 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
   padding: 15px; /* Ridotto il padding interno */
   transition: transform 0.3s, box-shadow 0.3s;
+  max-width: 600px; /* Limita la larghezza massima del form */
+  margin: 0 auto; /* Centra il form nella pagina */
 }
 
 .dnd-card:hover {
