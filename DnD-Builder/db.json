@@ -7,8 +7,9 @@
       "id": 1
     },
     {
+      "username": "assa",
       "email": "asa@example",
-      "password": "$2a$10$/WNZWRuk/DSKDkblULZEouFgPVsRSxSyF8uLpWbE4mtwxoy6M45la",
+      "password": "$2a$10$H7not1mJpXgYGoNRACn0oOGHBbO6zPISrOQYyF.7B5EJJFhGqsZu6",
       "id": 2
     },
     {
@@ -165,6 +166,61 @@
       "int": 13,
       "cos": 16,
       "id": 13
+    },
+    {
+      "userId": 2,
+      "name": "io",
+      "img": "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
+      "classeId": 2,
+      "forza": 1,
+      "dext": 1,
+      "int": 2,
+      "cos": 1,
+      "id": 14
+    },
+    {
+      "userId": 2,
+      "name": "italia",
+      "img": "",
+      "classeId": 2,
+      "forza": 0,
+      "dext": 0,
+      "int": 0,
+      "cos": 0,
+      "id": 15
+    },
+    {
+      "userId": 2,
+      "name": "nico",
+      "img": "",
+      "classeId": 0,
+      "forza": 0,
+      "dext": 0,
+      "int": 0,
+      "cos": 0,
+      "id": 16
+    },
+    {
+      "userId": 3,
+      "name": "vcbvb",
+      "img": "",
+      "classeId": 0,
+      "forza": 0,
+      "dext": 0,
+      "int": 0,
+      "cos": 0,
+      "id": 17
+    },
+    {
+      "userId": 3,
+      "name": "fgdhfgh",
+      "img": "",
+      "classeId": 0,
+      "forza": 0,
+      "dext": 0,
+      "int": 0,
+      "cos": 0,
+      "id": 18
     }
   ],
   "favoriti": [
