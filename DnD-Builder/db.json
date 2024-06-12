@@ -122,11 +122,6 @@
       "idPersonaggio": 1
     },
     {
-      "id": 2,
-      "idUser": 1,
-      "idPersonaggio": 3
-    },
-    {
       "id": 3,
       "idUser": 1,
       "idPersonaggio": 5
