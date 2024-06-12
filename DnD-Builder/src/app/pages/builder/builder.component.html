@@ -21,6 +21,8 @@
                   <select
                     id="disabledSelect"
                     class="form-select"
+                    name="class"
+                    [(ngModel)]="pgCurrent.classeId"
                     (change)="getmossebyclasse($event)"
                   >
                     <option *ngFor="let c of classi" [value]="c.id">

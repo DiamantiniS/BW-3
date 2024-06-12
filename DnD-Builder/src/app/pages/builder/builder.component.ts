@@ -24,7 +24,7 @@ export class BuilderComponent {
     int: 0,
     cos: 0,
   };
-
+  classe!: iClasse;
   classeSelect: iClasse = {
     id: 0,
     name: '',
@@ -45,6 +45,11 @@ export class BuilderComponent {
         this.isCreating = false;
         this.pgSvc.getById(params['id']).subscribe((pg) => {
           this.pgCurrent = pg;
+          this.classeSelect =
+            this.classi.find(
+              (classe) => classe.id === this.pgCurrent.classeId
+            ) || this.classeSelect;
+          console.log(this.pgCurrent);
         });
       }
     });
