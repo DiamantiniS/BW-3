@@ -4,6 +4,7 @@ import { iUser } from '../../models/i-user';
 import { iPg } from '../../models/i-pg';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -18,7 +19,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.profileForm = this.fb.group({
       id: [{ value: '', disabled: true }],
@@ -71,5 +73,21 @@ export class ProfileComponent implements OnInit {
         }
       });
     }
+  }
+
+  deleteCharacter(characterId: number) {
+    this.userService.deleteUserCharacter(characterId).subscribe({
+      next: () => {
+        console.log(`Character with ID ${characterId} deleted`);
+        this.characters = this.characters.filter(c => c.id !== characterId);
+      },
+      error: (err) => {
+        console.error('Error deleting character', err);
+      }
+    });
+  }
+
+  createCharacter() {
+    this.router.navigate(['/builder/0']);
   }
 }
