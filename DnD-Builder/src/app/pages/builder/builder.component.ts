@@ -1,4 +1,3 @@
-import { iUser } from './../../models/i-user';
 import { iPg } from './../../models/i-pg';
 import { iClasse } from './../../models/i-classe';
 import { Component } from '@angular/core';
@@ -13,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './builder.component.scss',
 })
 export class BuilderComponent {
-  isMine:boolean = false;
+  isMine: boolean = false;
   classi: iClasse[] = [];
   mosse!: iMossa[];
   currentUser!: number;
@@ -46,22 +45,7 @@ export class BuilderComponent {
   ) {}
   ngOnInit() {
     this.currentUser = this.pgSvc.getUserId();
-    this.router.params.subscribe((params) => {
-      if (params['id'] && params['id'] !== '0') {
-        this.isCreating = false;
-        this.pgSvc.getById(params['id']).subscribe((pg) => {
-          this.pgCurrent = pg;
-          if (this.pgCurrent.userId === this.currentUser){
-            this.isMine = true;
-          }
-          this.classeSelect =
-            this.classi.find(
-              (classe) => classe.id === this.pgCurrent.classeId
-            ) || this.classeSelect;
-          console.log(this.pgCurrent);
-        });
-      }
-    });
+
     this.builderSvc.getAllClasses().subscribe((classes) => {
       this.builderSvc.getMosse().subscribe((mosse) => {
         this.mosse = mosse;
@@ -75,6 +59,22 @@ export class BuilderComponent {
         });
       });
     });
+    this.router.params.subscribe((params) => {
+      if (params['id'] && params['id'] !== '0') {
+        this.isCreating = false;
+        this.pgSvc.getById(params['id']).subscribe((pg) => {
+          this.pgCurrent = pg;
+          if (this.pgCurrent.userId === this.currentUser) {
+            this.isMine = true;
+          }
+          this.classeSelect =
+            this.classi.find(
+              (classe) => classe.id === this.pgCurrent.classeId
+            ) || this.classeSelect;
+          console.log(this.pgCurrent);
+        });
+      }
+    });
   }
 
   create() {
@@ -82,12 +82,6 @@ export class BuilderComponent {
     this.pgCurrent.userId = this.currentUser;
 
     this.pgSvc.create(this.pgCurrent).subscribe();
-  }
-  onSave() {
-    throw new Error('Method not implemented.');
-  }
-  onCancel() {
-    throw new Error('Method not implemented.');
   }
 
   getmossebyclasse(e: Event) {
