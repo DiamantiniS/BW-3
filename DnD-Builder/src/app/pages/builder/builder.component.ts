@@ -40,9 +40,11 @@ export class BuilderComponent {
   ) {}
   ngOnInit() {
     this.router.params.subscribe((params) => {
-      this.pgSvc.getById(params['id']).subscribe((pg) => {
-        this.pgCurrent = pg;
-      });
+      if (params['id'] !== '0') {
+        this.pgSvc.getById(params['id']).subscribe((pg) => {
+          this.pgCurrent = pg;
+        });
+      }
     });
     this.builderSvc.getAllClasses().subscribe((classes) => {
       this.builderSvc.getMosse().subscribe((mosse) => {
