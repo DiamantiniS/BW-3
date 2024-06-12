@@ -42,8 +42,11 @@
           </button>
           <button class="btn btn-favorite" (click)="toggleFavourite(pg.id)">
             <i
-              class="fa fa-heart heart-icon"
-              [class.heart-filled]="isFavourite(pg)"
+              class="fa"
+              [ngClass]="{
+                'fa-heart': isFavourite(pg),
+                'fa-heart-broken': !isFavourite(pg)
+              }"
             ></i>
           </button>
         </div>
