@@ -5,6 +5,7 @@ import { iPg } from '../models/i-pg';
 import { AuthService } from '../auth/auth.service';
 import { iClasse } from '../models/i-classe';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,10 +13,11 @@ export class FavouritesService {
 
   favouritesUrl:string ='http://localhost:3000/favoriti'
 
+
   constructor(
     private http:HttpClient,
     private AuthSvc:AuthService
-  ) { }
+  ) {}
 
   getFavouritePgs(idUser:number) {
     return this.http.get<iFavourites[]>(`${this.favouritesUrl}?idUser=${idUser}`)
@@ -60,6 +62,14 @@ export class FavouritesService {
     pg.classe = classe
     return pg
   }
+
+  isFavourite(pg: iPg, arrayFavourites:iFavourites[]): boolean {
+    return arrayFavourites.some((fav) => fav.idPersonaggio === pg.id);
+  }
+
+  /*isFavourite(pg: iPg): boolean {
+    return this.favouritesArray.some((fav) => fav.idPersonaggio === pg.id);
+  }*/
 
   // Metodo (alternativo) per mescolamento dati di array (2 parametri array)
   /*addClass(array1:iPg[], array2:iClasse[]):iPg[] {
