@@ -3,6 +3,10 @@ import { PgService } from '../../services/pg.service';
 import { iPg } from '../../models/i-pg';
 import { FavouritesService } from '../../services/favourites.service';
 import { iClasse } from '../../models/i-classe';
+import { iAuthResponse } from '../../models/i-auth-response';
+import { iFavourites } from '../../models/i-favourites';
+import { AuthService } from '../../auth/auth.service';
+import { iUser } from '../../models/i-user';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,18 +15,30 @@ import { iClasse } from '../../models/i-classe';
 })
 export class DashboardComponent {
   pgArr: iPg[] = [];
-  pgSearchArray: iPg[] = [];
-  classPgArray: iClasse[] = [];
+  pgSearchArray:iPg[] = []
+  classPgArray:iClasse[] = [];
+  favouritesArray:iFavourites[] = []
+  currentUser!:iUser
   searchTerm: string = '';
   constructor(
     private PgSvc: PgService,
-    private FavortiteSvc: FavouritesService
+    private FavortiteSvc:FavouritesService,
+    private AuthSvc:AuthService,
   ) {}
 
   ngOnInit() {
-    this.PgSvc.getClasses().subscribe((classes) => {
-      this.classPgArray = classes;
-    });
+
+    const accessData = this.AuthSvc.getAccessData()
+    if(!accessData) return
+    this.currentUser = accessData.user
+    const userId = accessData.user.id
+    this.PgSvc.getClasses().subscribe(classes => {
+      this.classPgArray = classes
+    })
+
+    this.FavortiteSvc.getFavouritePgs(userId).subscribe(favourites => {
+      this.favouritesArray = favourites
+    })
 
     this.PgSvc.getAll().subscribe((pg) => {
       this.pgArr = pg;
@@ -43,4 +59,11 @@ export class DashboardComponent {
   showAll() {
     this.pgSearchArray = this.pgArr;
   }
+  toggleFavourite(idPersonaggio:number) {
+    this.FavortiteSvc.toggleFavourite(idPersonaggio)
+  }
+  isFavourite(pg:iPg) {
+    return this.FavortiteSvc.isFavourite(pg,this.favouritesArray)
+  }
+
 }

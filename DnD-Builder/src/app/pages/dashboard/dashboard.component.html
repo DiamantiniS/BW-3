@@ -40,8 +40,11 @@
           >
             Info
           </button>
-          <button class="btn btn-favorite">
-            <i class="fa fa-heart"></i>
+          <button class="btn btn-favorite" (click)="toggleFavourite(pg.id)">
+            <i
+              class="fa fa-heart heart-icon"
+              [class.heart-filled]="isFavourite(pg)"
+            ></i>
           </button>
         </div>
       </div>
