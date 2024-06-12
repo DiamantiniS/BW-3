@@ -94,10 +94,18 @@
                   </div>
                 </div>
 
-                <button class="btn btn-danger dnd-button" (click)="create()">
+                <button
+                  *ngIf="isCreating"
+                  class="btn btn-danger dnd-button"
+                  (click)="create()"
+                >
                   Crea
                 </button>
-                <button class="btn btn-danger dnd-button" (click)="modifica()">
+                <button
+                  *ngIf="!isCreating"
+                  class="btn btn-danger dnd-button"
+                  (click)="modifica()"
+                >
                   Modifica
                 </button>
 

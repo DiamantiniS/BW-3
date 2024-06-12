@@ -14,6 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BuilderComponent {
   classi: iClasse[] = [];
   mosse!: iMossa[];
+  isCreating: boolean = true;
   pgCurrent: Partial<iPg> = {
     name: '',
     img: '',
@@ -40,7 +41,8 @@ export class BuilderComponent {
   ) {}
   ngOnInit() {
     this.router.params.subscribe((params) => {
-      if (params['id'] !== '0') {
+      if (params['id'] && params['id'] !== '0') {
+        this.isCreating = false;
         this.pgSvc.getById(params['id']).subscribe((pg) => {
           this.pgCurrent = pg;
         });
@@ -83,5 +85,7 @@ export class BuilderComponent {
     this.pgCurrent.classeId = Number(target.value);
   }
 
-  modifica() {}
+  modifica() {
+    this.pgSvc.edit(this.pgCurrent).subscribe();
+  }
 }
