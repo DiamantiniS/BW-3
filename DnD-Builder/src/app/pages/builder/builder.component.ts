@@ -14,6 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BuilderComponent {
   classi: iClasse[] = [];
   mosse!: iMossa[];
+  isCreating: boolean = true;
   pgCurrent: Partial<iPg> = {
     name: '',
     img: '',
@@ -23,7 +24,7 @@ export class BuilderComponent {
     int: 0,
     cos: 0,
   };
-
+  classe!: iClasse;
   classeSelect: iClasse = {
     id: 0,
     name: '',
@@ -40,9 +41,17 @@ export class BuilderComponent {
   ) {}
   ngOnInit() {
     this.router.params.subscribe((params) => {
-      this.pgSvc.getById(params['id']).subscribe((pg) => {
-        this.pgCurrent = pg;
-      });
+      if (params['id'] && params['id'] !== '0') {
+        this.isCreating = false;
+        this.pgSvc.getById(params['id']).subscribe((pg) => {
+          this.pgCurrent = pg;
+          this.classeSelect =
+            this.classi.find(
+              (classe) => classe.id === this.pgCurrent.classeId
+            ) || this.classeSelect;
+          console.log(this.pgCurrent);
+        });
+      }
     });
     this.builderSvc.getAllClasses().subscribe((classes) => {
       this.builderSvc.getMosse().subscribe((mosse) => {
@@ -82,8 +91,6 @@ export class BuilderComponent {
   }
 
   modifica() {
-    // this.pgEdit = this.pgCurrent
-    // this.pgSvc.edit(this.pgCurrent).subscribe();
-    console.log(this.pgCurrent);
+    this.pgSvc.edit(this.pgCurrent).subscribe();
   }
 }

@@ -15,7 +15,7 @@ export class PgService {
   getAll(): Observable<iPg[]> {
     return this.http.get<iPg[]>(this.apiUrl);
   }
-  create(newPg:Partial<iPg>): Observable<iPg> {
+  create(newPg: Partial<iPg>): Observable<iPg> {
     return this.http.post<iPg>(this.apiUrl, newPg);
   }
   edit(pg: Partial<iPg>): Observable<iPg> {
@@ -27,7 +27,7 @@ export class PgService {
   getClasses(): Observable<iClasse[]> {
     return this.http.get<iClasse[]>(this.classUrl);
   }
-  getClassbyId(classId:number): Observable<iClasse> {
+  getClassbyId(classId: number): Observable<iClasse> {
     return this.http.get<iClasse>(`${this.classUrl}/${classId}`);
   }
 }
