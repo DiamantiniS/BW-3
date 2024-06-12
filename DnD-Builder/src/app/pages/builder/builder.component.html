@@ -6,7 +6,7 @@
         <div class="col-md-6 col-lg-4 mb-4">
           <div class="card dnd-card">
             <div class="card-body">
-              <form>
+              <form class="pb-5">
                 <div class="form-group">
                   <label for="name">Name</label>
                   <input
@@ -18,8 +18,14 @@
                 </div>
                 <div class="form-group">
                   <!-- <label for="classe">Classe</label> -->
-                  <select id="disabledSelect" class="form-select" (change)="getmossebyclasse($event)">
-                    <option *ngFor="let c of classi" [value]="c.id" >{{ c.name }}</option>
+                  <select
+                    id="disabledSelect"
+                    class="form-select"
+                    (change)="getmossebyclasse($event)"
+                  >
+                    <option *ngFor="let c of classi" [value]="c.id">
+                      {{ c.name }}
+                    </option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -63,37 +69,61 @@
                   />
                 </div>
 
-                <div class="form-group" *ngFor="let m of classeSelect.mosse">
-                  <label for="atk1">{{m.descrizione}}</label>
+                <div class="form-group">
+                  <label for="imagen">Immagine</label>
+                  <input
+                    type="text"
+                    id="imagen"
+                    [(ngModel)]="pgCurrent.img"
+                    name="imagen"
+                    class="form-control"
+                  />
 
+                  <img
+                    class="card-img-top"
+                    [src]="pgCurrent.img"
+                    [alt]="pgCurrent.name"
+                  />
                 </div>
 
-                <button class="btn btn-danger dnd-button" (click)="onSave()">
+                <div class="form-group" *ngFor="let m of classeSelect.mosse">
+                  <div>
+                    <p>{{ m.nome }}</p>
+                    <p>{{ m.danno }}</p>
+                    <p>{{ m.descrizione }}</p>
+                  </div>
+                </div>
+
+                <button class="btn btn-danger dnd-button" (click)="create()">
+                  Crea
+                </button>
+
+                <!-- <button class="btn btn-danger dnd-button" (click)="onSave()">
                   Save
                 </button>
                 <button class="btn btn-danger dnd-button" (click)="onCancel()">
                   Annulla modifiche
-                </button>
+                </button> -->
               </form>
             </div>
           </div>
         </div>
         <!-- attacchi e descrizione -->
-
-        <div class="row col-12">
-          <div class="col-12 col-md-5 m-2" *ngFor="let m of mosse">
-            <div class="col-12 mb-2">
-              <p>{{ m.nome }}</p>
-              <p>{{ m.danno }}</p>
-              <p>{{ m.descrizione }}</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </form>
 
+<!--
+                <div class="row col-12">
+                  <div class="col-12 col-md-5 m-2" *ngFor="let m of mosse">
+                    <div class="col-12 mb-2">
+                      <p>{{ m.nome }}</p>
+                      <p>{{ m.danno }}</p>
+                      <p>{{ m.descrizione }}</p>
+                    </div>
+                  </div>
+                </div> -->
 <!-- <div class="row col-12">
           <div class="col-12 col-md-6 m-2">
             <label class="control-label">Forza</label>

@@ -6,6 +6,7 @@ import { iMossa } from '../../models/i-mossa';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BuilderService } from '../../services/builder.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-builder',
@@ -15,8 +16,7 @@ import { BuilderService } from '../../services/builder.service';
 export class BuilderComponent {
   classi: iClasse[] = [];
   mosse!: iMossa[];
-  pgCurrent: iPg = {
-    id: 0,
+  pgCurrent: Partial<iPg> = {
     name: '',
     img: '',
     classeId: 0,
@@ -35,7 +35,11 @@ export class BuilderComponent {
     mosse: [],
   };
 
-  constructor(private pgSvc: PgService, private builderSvc: BuilderService) {}
+  constructor(
+    private pgSvc: PgService,
+    private builderSvc: BuilderService,
+    private router: ActivatedRoute
+  ) {}
   ngOnInit() {
     this.builderSvc.getAllClasses().subscribe((classes) => {
       this.builderSvc.getMosse().subscribe((mosse) => {
@@ -44,13 +48,17 @@ export class BuilderComponent {
           let attacchi = classe.mosseId.map(
             (mId) => mosse.find((m) => m.id === mId) as iMossa
           );
-          console.log(attacchi);
 
           classe.mosse = attacchi;
           return classe;
         });
       });
     });
+  }
+  create() {
+    console.log(this.pgCurrent);
+
+    this.pgSvc.create(this.pgCurrent).subscribe();
   }
   onSave() {
     throw new Error('Method not implemented.');
@@ -60,17 +68,13 @@ export class BuilderComponent {
   }
 
   getmossebyclasse(e: Event) {
-    // console.log('mossa', e.value);
-    // let mosseid:number[] = e.value;
-    // console.log('mosseid', mosseid);
     const target = <HTMLInputElement>e.target;
-    console.log(target.value);
-    let classeSelect = this.classi.find((classe) => classe.id === Number(target.value));
-    if (classeSelect)
-    this.classeSelect = classeSelect;
+    let classeSelect = this.classi.find(
+      (classe) => classe.id === Number(target.value)
+    );
+    if (classeSelect) this.classeSelect = classeSelect;
     console.log(this.classeSelect);
-    //  let mossa = this.mosse.filter(mossa => (mossa.id === mossaid))
-    //  console.log(mossa);
-    //  return mossa;
+
+    this.pgCurrent.classeId = Number(target.value);
   }
 }
