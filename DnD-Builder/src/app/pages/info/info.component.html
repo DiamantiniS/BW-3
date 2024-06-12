@@ -9,13 +9,13 @@
         <p class="card-text">Forza: {{ pgCurrent.forza }}</p>
         <p class="card-text">Intelligenza: {{ pgCurrent.int }}</p>
 
-        <button class="btn btn-danger dnd-button" (click)="onEdit()">
+        <button class="btn btn-danger dnd-button" (click)="onEdit()" [routerLink]="['/builder', pgCurrent.id]">
           Edit
         </button>
       </div>
     </div>
   </div>
-
+<!--
   <div class="col-md-6 col-lg-4 mb-4" *ngIf="pgCurrent && isEditing">
     <div class="card dnd-card">
       <div class="card-body">
@@ -74,9 +74,9 @@
           </button>
           <button class="btn btn-danger dnd-button" (click)="onCancel()">
             Annulla modifiche
-          </button>
-        </form>
+          </button> -->
+        <!-- </form>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
