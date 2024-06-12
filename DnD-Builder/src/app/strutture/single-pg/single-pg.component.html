@@ -13,7 +13,14 @@
         Info
       </button>
       <button class="btn btn-favorite" (click)="toggleFavourite(pg.id)">
-        <i class="fa fa-heart heart-icon" [class.heart-filled]="liked"></i>
+        <i
+          class="fa heart-icon"
+          [ngClass]="{
+            'fa-heart': liked,
+            'fa-heart-broken': !liked,
+            'heart-filled': liked
+          }"
+        ></i>
       </button>
     </div>
   </div>
