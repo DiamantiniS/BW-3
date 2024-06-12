@@ -16,6 +16,12 @@
       "password": "$2a$10$YoKSuSIwTvyosdYKthdAqeeO3GL31BEYiWj4e/JtEyDTCTFhPVJ9i",
       "username": "re",
       "id": 3
+    },
+    {
+      "email": "morgan@test.com",
+      "password": "$2a$10$zlmYi2t2JdR2N5AAxoQ84.LNkkUP9LEymw0thGiBU9/R/y5B1LakK",
+      "username": "morgan",
+      "id": 4
     }
   ],
   "pg": [
@@ -158,8 +164,6 @@
         2,
         3
       ]
-
-
     },
     {
       "id": 2,
@@ -171,7 +175,6 @@
         5,
         6
       ]
-
     },
     {
       "id": 3,
@@ -183,7 +186,6 @@
         8,
         9
       ]
-
     },
     {
       "id": 4,
@@ -206,7 +208,6 @@
         14,
         15
       ]
-
     },
     {
       "id": 6,
@@ -218,7 +219,6 @@
         17,
         18
       ]
-
     }
   ],
   "mosse": [
