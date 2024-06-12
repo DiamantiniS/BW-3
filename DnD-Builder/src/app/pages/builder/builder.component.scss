@@ -1,24 +1,29 @@
-
-
+/* Stili di base per il tema */
 .dnd-theme {
-  background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-image: url("https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
   background-size: cover;
   background-position: center;
   padding: 20px;
   color: #fff;
-  font-family: 'MedievalSharp', cursive;
+  font-family: "MedievalSharp", cursive;
   min-height: 100vh;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #800000;
+  border-radius: 10px; /* Leggermente ridotto il bordo */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
 
+/* Stile per il form */
 .dnd-card {
   background-color: rgba(0, 0, 0, 0.7);
-  border: 2px solid #800000; /* Dark red for a classic D&D feel */
+  border: 2px solid #800000;
   color: #fff;
-  border-radius: 15px;
+  border-radius: 10px; /* Leggermente ridotto il bordo */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+  padding: 15px; /* Ridotto il padding interno */
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -28,32 +33,22 @@
 }
 
 .dnd-card .card-title {
-  font-family: 'MedievalSharp', cursive;
   text-align: center;
   margin-bottom: 10px;
-  font-size: 1.5rem;
+  font-size: 1.3rem; /* Leggermente ridotta la dimensione del titolo */
   border-bottom: 1px solid #800000;
   padding-bottom: 5px;
 }
 
-.dnd-card img {
-  border-bottom: 2px solid #800000;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  transition: transform 0.3s;
-}
-
-.dnd-card img:hover {
-  transform: scale(1.1);
-}
-
+/* Stili per i pulsanti */
 .dnd-button {
   background-color: #800000;
   border: none;
   transition: background-color 0.3s, transform 0.3s;
-  display: block;
-  width: auto;
+  width: 100%;
   margin-top: 10px;
+  padding: 8px 16px; /* Ridotto il padding */
+  font-size: 0.9rem; /* Ridotta la dimensione del testo */
 }
 
 .dnd-button:hover {
@@ -62,44 +57,33 @@
   transform: translateY(-2px);
 }
 
-.btn-favorite {
-  background: transparent;
+/* Stili per migliorare la visibilità del testo delle mosse */
+.dnd-theme .list-group-item {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Sfondo leggermente trasparente */
   border: none;
-  color: #fff;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: transform 0.3s;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  color: #fff; /* Testo bianco */
+  padding: 8px; /* Spaziatura interna */
 }
 
-.btn-favorite.favorited {
-  color: red;
+.dnd-theme .list-group-item h6 {
+  color: #ffc107; /* Testo dorato per titoli delle mosse */
+  margin-bottom: 3px; /* Spaziatura inferiore ridotta */
 }
 
-.btn-favorite:hover {
-  transform: scale(1.2);
+.dnd-theme .list-group-item p {
+  margin-bottom: 3px; /* Spaziatura inferiore ridotta */
 }
 
-.card-body {
-  padding: 20px;
-  position: relative;
+/* Stili per rendere il testo più visibile sui campi di input e select */
+.dnd-theme input[type="text"],
+.dnd-theme input[type="number"],
+.dnd-theme select {
+  color: #000; /* Testo nero per migliorare la leggibilità */
 }
-
-.card-body::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  pointer-events: none;
-  transition: border-color 0.3s;
-}
-
-.dnd-card:hover .card-body::after {
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-
