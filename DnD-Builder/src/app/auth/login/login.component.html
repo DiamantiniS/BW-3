@@ -1,22 +1,48 @@
-<div class="container-fluid bg-dnd py-5 inferno-bg">
+<div class="container-fluid  bg-dnd py-5 inferno-bg">
   <div class="row justify-content-center align-items-center">
     <div class="col-md-6">
       <div class="card shadow-lg p-5 inferno-card">
         <h2 class="text-center mb-4 text-dnd">Accedi alla tua avventura</h2>
-        <form (ngSubmit)="signIn()">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
           <div class="mb-3">
             <label for="inputEmail" class="form-label text-dnd">Email</label>
-            <input type="email" class="form-control inferno-input" [(ngModel)]="loginData.email" id="inputEmail" placeholder="name@example.com" name="email" required>
+            <input type="email" class="form-control inferno-input" formControlName="email" id="inputEmail" placeholder="name@example.com" name="email" />
+            <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+              <strong class="text-danger" *ngIf="loginForm.get('email')?.errors?.['required']">
+                Email is required
+              </strong>
+              <strong class="text-danger" *ngIf="loginForm.get('email')?.errors?.['email']">
+                Enter a valid email
+              </strong>
+            </div>
           </div>
-          <div class="mb-3">
+
+          <div class="mb-3 position-relative">
             <label for="inputPassword" class="form-label text-dnd">Password</label>
-            <input type="password" class="form-control inferno-input" [(ngModel)]="loginData.password" id="inputPassword" placeholder="Password" name="password" required>
+            <div class="position-relative">
+              <input type="{{ hidePassword ? 'password' : 'text' }}" class="form-control inferno-input pe-5" formControlName="password" id="inputPassword" placeholder="Password" name="password" />
+              <button type="button" class="btn btn-outline-light position-absolute end-0 top-50 translate-middle-y me-2" style="z-index: 1;" (click)="togglePasswordVisibility()">
+                <i class="bi bi-eye{{ hidePassword ? '-slash' : '' }}"></i>
+              </button>
+            </div>
+            <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+              <strong class="text-danger" *ngIf="loginForm.get('password')?.errors?.['required']">
+                Password is required
+              </strong>
+            </div>
           </div>
+
           <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="rememberMe">
+            <input type="checkbox" class="form-check-input" id="rememberMe" formControlName="rememberMe" />
             <label class="form-check-label text-dnd" for="rememberMe">Ricordami</label>
           </div>
-          <button type="submit" class="btn btn-dark w-100 inferno-btn">Accedi</button>
+
+          <button type="submit" class="btn btn-dark w-100 inferno-btn" [disabled]="loginForm.invalid">Accedi</button>
+          <span class="ms-3 d-block mt-3 text-dnd">
+            Don't have an account?
+            <a routerLink="/auth/register" class="text-primary">Sign up</a>
+          </span>
+          <strong class="d-block text-danger mt-3" *ngIf="errorMessage">{{ errorMessage }}</strong>
         </form>
         <p class="mt-4 text-center text-dnd">&copy; DAJE</p>
       </div>

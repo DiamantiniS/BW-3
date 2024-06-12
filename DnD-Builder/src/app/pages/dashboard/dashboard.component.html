@@ -1,18 +1,19 @@
+<div class="container-fluid px-0">
 <div class="px-3 py-2 border-bottom mb-3 bg-light">
-  <div class="container d-flex flex-wrap justify-content-between">
+  <div class="container d-flex flex-wrap justify-content-between ">
     <form
-      class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto"
-      role="search"
-      (submit)="onSearch()"
+    class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto"
+    role="search"
+    (submit)="onSearch()"
     >
-      <input
-        class="form-control"
-        type="search"
-        [(ngModel)]="searchTerm"
-        name="searchTerm"
-        placeholder="Search PG"
-        aria-label="Search"
-      />
+    <input
+    class="form-control"
+    type="search"
+    [(ngModel)]="searchTerm"
+    name="searchTerm"
+    placeholder="Search PG"
+    aria-label="Search"
+    />
     </form>
     <div class="text-end">
       <button type="button" class="btn btn-success me-2" (click)="showAll()">
@@ -26,7 +27,7 @@
 </div>
 <div class="row dnd-theme">
   <div class="col-md-3 col-sm-6 mb-4" *ngFor="let pg of pgSearchArray">
-    <div class="card dnd-card">
+    <div class="card dnd-card h-100">
       <a [routerLink]="['details', pg.id]" class="text-decoration-none">
         <img class="card-img-top" [src]="pg.img" [alt]="pg.name" />
       </a>
@@ -47,4 +48,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { iUser } from '../../models/i-user';
 import { UserService } from '../../services/user.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
-  templateUrl:'./profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
@@ -17,12 +18,12 @@ export class ProfileComponent implements OnInit {
       id: [{ value: '', disabled: true }],
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
   ngOnInit(): void {
-    const userId = 1; // Replace with the actual user ID
+    const userId = 1;
     this.userService.getUserProfile(userId).subscribe((user) => {
       this.user = user;
       this.profileForm.patchValue(user);
@@ -31,8 +32,11 @@ export class ProfileComponent implements OnInit {
 
   onSubmit() {
     if (this.profileForm.valid) {
-      const userProfile: iUser = { ...this.profileForm.value, id: this.user!.id };
-      this.userService.saveUserProfile(userProfile).subscribe(response => {
+      const userProfile: iUser = {
+        ...this.profileForm.value,
+        id: this.user!.id,
+      };
+      this.userService.saveUserProfile(userProfile).subscribe((response) => {
         console.log('Form Submitted', response);
       });
     }

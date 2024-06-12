@@ -4,19 +4,15 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsModule
 
 @NgModule({
-  declarations: [
-    AuthComponent,
-    LoginComponent,
-    RegisterComponent,
-  ],
+  declarations: [AuthComponent, LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    FormsModule
-  ]
+    FormsModule,
+    ReactiveFormsModule, // Aggiungi ReactiveFormsModule agli import
+  ],
 })
-export class AuthModule { }
+export class AuthModule {}
