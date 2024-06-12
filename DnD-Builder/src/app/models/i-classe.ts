@@ -6,5 +6,5 @@ export interface iClasse {
   cA: number;
   pf: number;
   mosseId: number[];
-  mosse?: iMossa[]
+  mosse?: iMossa[];
 }

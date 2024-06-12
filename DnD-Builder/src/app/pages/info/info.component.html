@@ -1,17 +1,68 @@
-<div class="row justify-content-center dnd-theme">
-  <div class="col-md-6 col-lg-4 mb-4" *ngIf="pgCurrent && !isEditing">
-    <div class="card dnd-card">
-      <img class="card-img-top" [src]="pgCurrent.img" [alt]="pgCurrent.name" />
-      <div class="card-body">
-        <h4 class="card-title">{{ pgCurrent.name }}</h4>
-        <p class="card-text">Costituzione: {{ pgCurrent.cos }}</p>
-        <p class="card-text">Destrezza: {{ pgCurrent.dext }}</p>
-        <p class="card-text">Forza: {{ pgCurrent.forza }}</p>
-        <p class="card-text">Intelligenza: {{ pgCurrent.int }}</p>
+<div class="dnd-theme">
+  <div class="row justify-content-center">
+    <div class="col-md-10 mb-4" *ngIf="pgCurrent && currentClass">
+      <div class="card dnd-card horizontal-card">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img
+              class="card-img"
+              [src]="pgCurrent.img"
+              [alt]="pgCurrent.name"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title">{{ pgCurrent.name }}</h4>
+              <p class="card-text">
+                <strong>Classe:</strong> {{ currentClass.name }}
+              </p>
+              <p class="card-text">
+                <strong>Costituzione:</strong> {{ pgCurrent.cos }}
+              </p>
+              <p class="card-text">
+                <strong>Destrezza:</strong> {{ pgCurrent.dext }}
+              </p>
+              <p class="card-text">
+                <strong>Forza:</strong> {{ pgCurrent.forza }}
+              </p>
+              <p class="card-text">
+                <strong>Intelligenza:</strong> {{ pgCurrent.int }}
+              </p>
 
-        <button class="btn btn-danger dnd-button" (click)="onEdit()" [routerLink]="['/builder', pgCurrent.id]">
-          Edit
-        </button>
+              <div *ngIf="currentClass">
+                <h5 class="class-title">
+                  Dettagli Classe: {{ currentClass.name }}
+                </h5>
+                <p class="card-text">
+                  <strong>CA:</strong> {{ currentClass.cA }}
+                </p>
+                <p class="card-text">
+                  <strong>PF:</strong> {{ currentClass.pf }}
+                </p>
+
+                <div *ngIf="mosse && mosse.length > 0">
+                  <h5 class="moves-title">Mosse:</h5>
+                  <ul class="list-unstyled">
+                    <li *ngFor="let mossa of mosse">
+                      <p class="card-text">
+                        <strong>{{ mossa.nome }}:</strong>
+                        {{ mossa.descrizione }} (Danno: {{ mossa.danno }})
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <button
+                class="btn btn-danger dnd-button"
+                (click)="onEdit()"
+                [routerLink]="['/builder', pgCurrent.id]"
+              >
+                Edit
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
