@@ -10,6 +10,7 @@ import { iMossa } from '../models/i-mossa';
 export class BuilderService {
 
   classiUrl = 'http://localhost:3000/classe'
+  mosseUrl = 'http://localhost:3000/mosse'
   constructor( private http: HttpClient) { }
 
   getAllClasses(): Observable<iClasse[]> {
@@ -17,7 +18,7 @@ export class BuilderService {
   }
 
   getMosse(): Observable<iMossa[]> {
-    return this.http.get<iMossa[]>(this.classiUrl);
+    return this.http.get<iMossa[]>(this.mosseUrl);
   }
 
 }

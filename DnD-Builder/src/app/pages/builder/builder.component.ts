@@ -14,6 +14,7 @@ import { BuilderService } from '../../services/builder.service';
 })
 export class BuilderComponent {
   classi: iClasse[] = [];
+  mosse!: iMossa[];
   pgCurrent: iPg = {
     id: 0,
     name: '',
@@ -24,17 +25,30 @@ export class BuilderComponent {
     int: 0,
     cos: 0,
   };
-  mosse!: iMossa[];
-  constructor(private pgSvc: PgService, private builderSvc: BuilderService) {
-    // this.builderSvc.getAllClasses().subscribe(classes => {
-    //   this.classi = classes
-    // })
-  }
+
+  classeSelect: iClasse = {
+    id: 0,
+    name: '',
+    cA: 0,
+    pf: 0,
+    mosseId: [],
+    mosse: [],
+  };
+
+  constructor(private pgSvc: PgService, private builderSvc: BuilderService) {}
   ngOnInit() {
     this.builderSvc.getAllClasses().subscribe((classes) => {
-      this.classi = classes;
-      this.builderSvc.getMosse().subscribe((mossa) => {
-        this.mosse = mossa;
+      this.builderSvc.getMosse().subscribe((mosse) => {
+        this.mosse = mosse;
+        this.classi = classes.map((classe) => {
+          let attacchi = classe.mosseId.map(
+            (mId) => mosse.find((m) => m.id === mId) as iMossa
+          );
+          console.log(attacchi);
+
+          classe.mosse = attacchi;
+          return classe;
+        });
       });
     });
   }
@@ -45,11 +59,16 @@ export class BuilderComponent {
     throw new Error('Method not implemented.');
   }
 
-  getmossebyclasse(e: any) {
+  getmossebyclasse(e: Event) {
     // console.log('mossa', e.value);
-    let mosseid:number[] = e.value;
-    console.log('mosseid', mosseid);
-
+    // let mosseid:number[] = e.value;
+    // console.log('mosseid', mosseid);
+    const target = <HTMLInputElement>e.target;
+    console.log(target.value);
+    let classeSelect = this.classi.find((classe) => classe.id === Number(target.value));
+    if (classeSelect)
+    this.classeSelect = classeSelect;
+    console.log(this.classeSelect);
     //  let mossa = this.mosse.filter(mossa => (mossa.id === mossaid))
     //  console.log(mossa);
     //  return mossa;
