@@ -3,8 +3,6 @@ import { iClasse } from './../../models/i-classe';
 import { Component } from '@angular/core';
 import { PgService } from '../../services/pg.service';
 import { iMossa } from '../../models/i-mossa';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { BuilderService } from '../../services/builder.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -41,6 +39,11 @@ export class BuilderComponent {
     private router: ActivatedRoute
   ) {}
   ngOnInit() {
+    this.router.params.subscribe((params) => {
+      this.pgSvc.getById(params['id']).subscribe((pg) => {
+        this.pgCurrent = pg;
+      });
+    });
     this.builderSvc.getAllClasses().subscribe((classes) => {
       this.builderSvc.getMosse().subscribe((mosse) => {
         this.mosse = mosse;
@@ -77,4 +80,6 @@ export class BuilderComponent {
 
     this.pgCurrent.classeId = Number(target.value);
   }
+
+  modifica() {}
 }
