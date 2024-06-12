@@ -10,4 +10,5 @@ export interface iPg {
   dext: number;
   int: number;
   cos: number;
+
 }

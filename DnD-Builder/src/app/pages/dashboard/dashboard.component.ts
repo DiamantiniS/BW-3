@@ -11,36 +11,36 @@ import { iClasse } from '../../models/i-classe';
 })
 export class DashboardComponent {
   pgArr: iPg[] = [];
-  pgSearchArray:iPg[] = []
-  classPgArray:iClasse[] = [];
+  pgSearchArray: iPg[] = [];
+  classPgArray: iClasse[] = [];
   searchTerm: string = '';
   constructor(
     private PgSvc: PgService,
-    private FavortiteSvc:FavouritesService,
+    private FavortiteSvc: FavouritesService
   ) {}
 
   ngOnInit() {
-
-    this.PgSvc.getClasses().subscribe(classes => {
-      this.classPgArray = classes
-    })
+    this.PgSvc.getClasses().subscribe((classes) => {
+      this.classPgArray = classes;
+    });
 
     this.PgSvc.getAll().subscribe((pg) => {
       this.pgArr = pg;
       this.pgSearchArray = this.pgArr;
 
-      this.pgArr.forEach(pg => {
-        this.FavortiteSvc.addClassToPg(pg, this.classPgArray)
-      })
+      this.pgArr.forEach((pg) => {
+        this.FavortiteSvc.addClassToPg(pg, this.classPgArray);
+      });
     });
   }
   onSearch() {
-    this.pgSearchArray = this.pgArr.filter(pg =>
-      pg.name.toLowerCase().includes(this.searchTerm.toLowerCase())||pg.classe?.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    this.pgSearchArray = this.pgArr.filter(
+      (pg) =>
+        pg.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        pg.classe?.name.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
   showAll() {
     this.pgSearchArray = this.pgArr;
   }
 }
-
