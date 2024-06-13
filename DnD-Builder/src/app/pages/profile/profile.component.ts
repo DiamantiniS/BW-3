@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { iUser } from '../../models/i-user';
 import { iPg } from '../../models/i-pg';
 import { UserService } from '../../services/user.service';

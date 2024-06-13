@@ -2,7 +2,11 @@
   <div class="row">
     <div class="col-md-4">
       <div class="card bg-dark text-light border-light dnd-card">
-        <img [src]="user?.pic" class="card-img-top" alt="Profilo" style="max-height: 200px;">
+        <img *ngIf=" user?.pic" [src]="'/assets/img-user/' + user?.pic" class="rounded-circle" alt="Profile Picture"
+              width="50" height="50" />
+        <div *ngIf="!user?.pic" class="card-img-top" style="max-height: 200px; display: flex; align-items: center; justify-content: center;">
+          <span>No Image Available</span>
+        </div>
         <div class="card-body">
           <h5 class="card-title">{{ user?.username }}</h5>
           <p class="card-text">Informazioni aggiuntive dell'utente.
