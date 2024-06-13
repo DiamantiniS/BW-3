@@ -5,7 +5,6 @@ import { InfoComponent } from '../info/info.component';
 
 const routes: Routes = [
   { path: '', component: FavouritesComponent },
-  { path: 'details/:id', component: InfoComponent },
 ];
 
 @NgModule({
