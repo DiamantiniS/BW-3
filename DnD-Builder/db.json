@@ -151,14 +151,25 @@
     },
     {
       "userId": 4,
-      "name": "ciccio",
-      "img": "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
-      "classeId": 1,
-      "forza": 1,
-      "dext": 0,
-      "int": 0,
-      "cos": 0,
+      "name": "Tharion12345",
+      "img": "assets/img-pg/male-Paladin.webp",
+      "classeId": 5,
+      "forza": 17,
+      "dext": 17,
+      "int": 13,
+      "cos": 16,
       "id": 13
+    },
+    {
+      "userId": 4,
+      "name": "Tharion",
+      "img": "assets/img-pg/Guerriero.jpg",
+      "classeId": 1,
+      "forza": 17,
+      "dext": 17,
+      "int": 13,
+      "cos": 16,
+      "id": 15
     }
   ],
   "favoriti": [
@@ -183,19 +194,44 @@
       "id": 9
     },
     {
-      "idPersonaggio": 1,
+      "idPersonaggio": 2,
       "idUser": 4,
-      "id": 10
+      "id": 14
     },
     {
-      "idPersonaggio": 2,
+      "idPersonaggio": 3,
       "idUser": 4,
       "id": 11
     },
     {
-      "idPersonaggio": 9,
+      "idPersonaggio": 4,
       "idUser": 4,
       "id": 12
+    },
+    {
+      "idPersonaggio": 5,
+      "idUser": 4,
+      "id": 13
+    },
+    {
+      "idPersonaggio": 6,
+      "idUser": 4,
+      "id": 14
+    },
+    {
+      "idPersonaggio": 8,
+      "idUser": 4,
+      "id": 15
+    },
+    {
+      "idPersonaggio": 7,
+      "idUser": 4,
+      "id": 16
+    },
+    {
+      "idPersonaggio": 14,
+      "idUser": 4,
+      "id": 17
     }
   ],
   "classe": [
@@ -386,12 +422,6 @@
       "nome": "Mazzafrusto",
       "danno": 4,
       "descrizione": "Un'arma da mischia con una testa chiodata flessibile."
-    },
-    {
-      "id": 21,
-      "nome": "Cura",
-      "danno": -6,
-      "descrizione": "Una cura."
     }
   ]
 }

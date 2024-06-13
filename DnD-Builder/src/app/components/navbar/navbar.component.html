@@ -1,5 +1,5 @@
 <nav class="sticky-top navbar navbar-expand-lg bg-black p-2">
-  <div class="container-fluid">
+  <div class="container-fluid position-sticky top-0">
     <a routerLink="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
       <img src="../../../assets/d&d Builder (2).png" class="d-inline-block align-top me-2 logo" alt="logo" />
     </a>
@@ -35,13 +35,12 @@
         </li>
       </ul>
       <div class="ms-auto d-flex align-items-center">
-        <div class="dropdown" *ngIf="isLoggedIn">
-          <button class="btn btn-black dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-            aria-expanded="false">
+        <div class="dropdown" ngbDropdown *ngIf="isLoggedIn">
+          <button class="btn btn-black dropdown-toggle" id="dropdownMenuButton" ngbDropdownToggle>
             <img *ngIf="isLoggedIn && user?.pic" [src]="'/assets/img-user/' + user?.pic" class="rounded-circle" alt="Profile Picture"
               width="50" height="50" />
           </button>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+          <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu aria-labelledby="dropdownMenuButton">
             <li>
               <a class="dropdown-item" [routerLink]="['builder', 0]">
                 <i class="bi bi-plus-circle"></i> Builder
@@ -50,14 +49,14 @@
             <li>
               <a class="dropdown-item" routerLink="profile">
                 <i class="bi bi-people"></i> Profile
-                </a>
-                </li>
-              <hr class="dropdown-divider">
-                  <li>
-                    <a class="dropdown-item" href="#" (click)="logout()">
-                      <i class="bi bi-door-closed"></i> Logout
-                    </a>
-                  </li>
+              </a>
+            </li>
+            <hr class="dropdown-divider">
+            <li>
+              <a class="dropdown-item" href="#" (click)="logout()">
+                <i class="bi bi-door-closed"></i> Logout
+              </a>
+            </li>
           </ul>
         </div>
         <button *ngIf="!isLoggedIn" routerLink="/auth/login" type="button" class="nav-link text-white">
