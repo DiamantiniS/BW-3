@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/guard/auth.guard';
 import { GuestGuard } from './auth/guard/guest.guard';
+import { InfoComponent } from './pages/info/info.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
@@ -34,7 +35,10 @@ const routes: Routes = [
     canActivate:[GuestGuard],
     canActivateChild: [GuestGuard],
     title: 'Accedi'
-   }];
+   },
+  { path: 'showdown', loadChildren: () => import('./pages/showdown/showdown.module').then(m => m.ShowdownModule) },
+  { path: 'match', loadChildren: () => import('./pages/showdown/match/match.module').then(m => m.MatchModule) },
+  { path: 'details/:id', loadChildren: () => import('./pages/info/info.module').then(m => m.InfoModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

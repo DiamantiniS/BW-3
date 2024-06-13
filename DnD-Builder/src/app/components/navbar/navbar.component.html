@@ -27,6 +27,12 @@
             Favorites
           </button>
         </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <button type="button" class="nav-link text-white" routerLink="showdown">
+            <i class="bi bi-heart"></i>
+            showdown
+          </button>
+        </li>
       </ul>
       <div class="ms-auto d-flex align-items-center">
         <div class="dropdown" ngbDropdown *ngIf="isLoggedIn">
