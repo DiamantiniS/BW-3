@@ -3,7 +3,10 @@
     <h1 class="text-center"><b>I tuoi preferiti</b></h1>
     <div class="row p-3 g-4" *ngIf="arrayPgs">
       <div class="col-lg-3 col-md-4 col-sm-6 mb-4" *ngFor="let pg of arrayPgs">
-        <app-single-pg [pg]="pg"></app-single-pg>
+        <app-single-pg
+          [pg]="pg"
+          [arrayFavourites]="favouritesArray"
+        ></app-single-pg>
       </div>
     </div>
   </div>

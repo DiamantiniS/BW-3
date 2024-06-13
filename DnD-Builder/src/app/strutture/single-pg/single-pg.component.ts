@@ -5,6 +5,7 @@ import { iUser } from '../../models/i-user';
 import { iPg } from '../../models/i-pg';
 import { PgService } from '../../services/pg.service';
 import { FavouritesService } from '../../services/favourites.service';
+import { iFavourites } from '../../models/i-favourites';
 
 @Component({
   selector: 'app-single-pg',
@@ -13,6 +14,7 @@ import { FavouritesService } from '../../services/favourites.service';
 })
 export class SinglePgComponent {
   @Input() pg!: iPg;
+  @Input() arrayFavourites!: iFavourites[];
 
   currentUser!: iUser;
   liked: boolean = false;
@@ -29,15 +31,21 @@ export class SinglePgComponent {
   ) {}
 
   ngOnInit() {
+
     const userId = this.PgSvc.getUserId();
 
-    this.FavortiteSvc.getFavouritePgs(userId).subscribe((favourites) => {
+    this.arrayFavourites.forEach((fav) => {
+      if (fav.idPersonaggio === this.pg.id) {
+        this.liked = true;
+      }
+    });
+    /*this.FavortiteSvc.getFavouritePgs(userId).subscribe((favourites) => {
       favourites.forEach((fav) => {
         if (fav.idPersonaggio === this.pg.id) {
           this.liked = true;
         }
       });
-    });
+    });*/
   }
 
   toggleFavourite(idPersonaggio: number) {
