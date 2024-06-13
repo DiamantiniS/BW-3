@@ -235,6 +235,7 @@
       "name": "Guerriero",
       "cA": 18,
       "pf": 18,
+      "focus":"forza",
       "mosseId": [
         1,
         2,
@@ -246,6 +247,7 @@
       "name": "Ladro",
       "cA": 16,
       "pf": 15,
+      "focus":"dext",
       "mosseId": [
         4,
         5,
@@ -257,6 +259,7 @@
       "name": "Mago",
       "cA": 12,
       "pf": 10,
+      "focus":"int",
       "mosseId": [
         7,
         8,
@@ -268,6 +271,7 @@
       "name": "Chierico",
       "cA": 16,
       "pf": 16,
+      "focus":"int",
       "mosseId": [
         10,
         11,
@@ -279,6 +283,7 @@
       "name": "Paladino",
       "cA": 18,
       "pf": 20,
+      "focus":"forza",
       "mosseId": [
         13,
         14,
@@ -290,6 +295,7 @@
       "name": "Druido",
       "cA": 14,
       "pf": 14,
+      "focus":"dext",
       "mosseId": [
         16,
         17,

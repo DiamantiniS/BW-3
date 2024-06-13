@@ -35,6 +35,7 @@ export class BuilderComponent {
     pf: 0,
     mosseId: [],
     mosse: [],
+    focus: ''
   };
   AuthSvc: any;
 
