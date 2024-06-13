@@ -140,17 +140,6 @@
       "cos": 14
     },
     {
-      "userId": 5,
-      "name": "paulo",
-      "img": "",
-      "classeId": 2,
-      "forza": 0,
-      "dext": 0,
-      "int": 0,
-      "cos": 0,
-      "id": 11
-    },
-    {
       "name": "Paulo",
       "img": "assets/img-pg/fighter2.webp",
       "classeId": 1,
@@ -174,16 +163,6 @@
   ],
   "favoriti": [
     {
-      "id": 1,
-      "idUser": 4,
-      "idPersonaggio": 1
-    },
-    {
-      "id": 3,
-      "idUser": 4,
-      "idPersonaggio": 5
-    },
-    {
       "idPersonaggio": 3,
       "idUser": 5,
       "id": 5
@@ -204,7 +183,7 @@
       "id": 9
     },
     {
-      "idPersonaggio": 10,
+      "idPersonaggio": 1,
       "idUser": 4,
       "id": 10
     }
