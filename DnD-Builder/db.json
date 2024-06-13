@@ -148,6 +148,17 @@
       "int": 0,
       "cos": 0,
       "id": 12
+    },
+    {
+      "userId": 4,
+      "name": "io",
+      "img": "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
+      "classeId": 0,
+      "forza": 0,
+      "dext": 0,
+      "int": 0,
+      "cos": 0,
+      "id": 13
     }
   ],
   "favoriti": [
@@ -175,6 +186,11 @@
       "idPersonaggio": 1,
       "idUser": 4,
       "id": 10
+    },
+    {
+      "idPersonaggio": 2,
+      "idUser": 4,
+      "id": 11
     }
   ],
   "classe": [
