@@ -159,6 +159,17 @@
       "int": 13,
       "cos": 16,
       "id": 13
+    },
+    {
+      "userId": 4,
+      "name": "Eldrin mio",
+      "img": "assets/img-pg/Abjurer.jpg.5b3d8863e4224b1a9e62195a99f576ea.jpg",
+      "classeId": 3,
+      "forza": 8,
+      "dext": 14,
+      "int": 18,
+      "cos": 12,
+      "id": 14
     }
   ],
   "favoriti": [
@@ -185,7 +196,17 @@
     {
       "idPersonaggio": 1,
       "idUser": 4,
-      "id": 10
+      "id": 13
+    },
+    {
+      "idPersonaggio": 5,
+      "idUser": 4,
+      "id": 14
+    },
+    {
+      "idPersonaggio": 14,
+      "idUser": 4,
+      "id": 15
     }
   ],
   "classe": [
