@@ -8,36 +8,36 @@ import { FavouritesService } from '../../services/favourites.service';
 @Component({
   selector: 'app-single-pg',
   templateUrl: './single-pg.component.html',
-  styleUrl: './single-pg.component.scss'
+  styleUrl: './single-pg.component.scss',
 })
 export class SinglePgComponent {
+  @Input() pg!: iPg;
 
-  @Input() pg!:iPg
-
-  currentUser!:iUser
-  liked:boolean = false
+  currentUser!: iUser;
+  liked: boolean = false;
 
   constructor(
-    protected router:Router,
-    private PgSvc:PgService,
-    private FavortiteSvc:FavouritesService,
-  ){}
+    protected router: Router,
+    private PgSvc: PgService,
+    private FavortiteSvc: FavouritesService
+  ) {}
 
   ngOnInit() {
-    const userId = this.PgSvc.getUserId()
+    const userId = this.PgSvc.getUserId();
 
-    this.FavortiteSvc.getFavouritePgs(userId).subscribe(favourites => {
-      favourites.forEach(fav => {
-        if (fav.idPersonaggio === this.pg.id) this.liked = true
-      })
-    })
-
+    this.FavortiteSvc.getFavouritePgs(userId).subscribe((favourites) => {
+      favourites.forEach((fav) => {
+        if (fav.idPersonaggio === this.pg.id) {
+          this.liked = true;
+        }
+      });
+    });
   }
 
-  toggleFavourite(idPersonaggio:number) {
+  toggleFavourite(idPersonaggio: number) {
     //const userIdAgain = this.PgSvc.getUserId()
-    this.liked = !this.liked
+    this.liked = !this.liked;
 
-    this.FavortiteSvc.toggleFavourite(idPersonaggio)
+    this.FavortiteSvc.toggleFavourite(idPersonaggio);
   }
 }

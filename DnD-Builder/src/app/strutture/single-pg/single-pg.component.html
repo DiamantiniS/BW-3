@@ -4,7 +4,7 @@
   </a>
   <div class="card-body">
     <h4 class="card-title">{{ pg.name }}</h4>
-    <p class="card-text">Description ...</p>
+    <p class="card-text"><b>Classe</b>: {{ pg.classe?.name }}</p>
     <div class="d-flex justify-content-between align-items-center">
       <button
         class="btn btn-danger dnd-button"
@@ -13,7 +13,14 @@
         Info
       </button>
       <button class="btn btn-favorite" (click)="toggleFavourite(pg.id)">
-        <i class="fa fa-heart heart-icon" [class.heart-filled]="liked"></i>
+        <i
+          class="fa heart-icon"
+          [ngClass]="{
+            'fa-heart': liked,
+            'fa-heart-broken': !liked,
+            'heart-filled': liked
+          }"
+        ></i>
       </button>
     </div>
   </div>

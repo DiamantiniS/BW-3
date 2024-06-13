@@ -1,107 +1,90 @@
-$gold: #ffd700;
-$red: #b22222;
-$orange: #ff4500;
-$dark-gray: #343a40;
-$light-gray: #495057;
-$blue: #007bff;
-$dark-blue: #0056b3;
-$gray: #6c757d;
-$white: #fff;
-$black: #000;
-$danger: #dc3545;
-$warning: #ffc107;
-
-// Stile per l'intera pagina
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  background-color: $black; // Sfondo nero per il massimo effetto fantasy
-}
-
-// Stile per il container principale
-.container-fluid {
-  background-image: url('https://game-experience.it/wp-content/uploads/2021/09/Dungeons-Dragons.jpg');
+.dnd-theme {
+  background-image: url('../../../assets/builder.webp');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  font-family: 'Cinzel', serif; // Una tipografia fantasy
+  padding: 20px;
+  color: #fff;
+  font-family: 'MedievalSharp', cursive;
+  min-height: 85.4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  // Titolo personalizzato
   .custom-title {
     font-size: 3rem;
     text-align: center;
-    color: $gold; // Testo dorato per attirare l'attenzione
-    text-shadow: 2px 2px 5px rgba($black, 0.5); // Ombra per aggiungere profondità
-    background: linear-gradient(45deg, $red, $orange); // Un gradiente fantasy dal rosso all'arancione
+    color: #ffd700; // Testo dorato per attirare l'attenzione
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); // Ombra per aggiungere profondità
+    background: linear-gradient(45deg, #b22222, #ff4500); // Un gradiente fantasy dal rosso all'arancione
     padding: 20px;
-    border: 3px solid $orange; // Bordo arancione per accentuare il titolo
+    border: 3px solid #ff4500; // Bordo arancione per accentuare il titolo
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba($black, 0.8); // Ombra per un tocco magico
-  }
-
-  // Stile per le card
-  .card {
-    background-color: rgba($black, 0.5); // Sfondo leggermente trasparente per un effetto fantasy
-    border: none; // Nessun bordo per un aspetto più liscio
-    box-shadow: 0 4px 8px rgba($black, 0.5); // Ombra per dare profondità
-
-    // Header delle card
-    .card-header {
-      background-color: $dark-gray; // Un grigio scuro per un aspetto robusto
-      color: $white; // Testo bianco per contrasto
-    }
-
-    // Corpo delle card
-    .card-body {
-      // Gruppo di form
-      .form-group {
-        label {
-          color: $white; // Testo bianco per contrastare con lo sfondo scuro
-        }
-
-        input.form-control {
-          background-color: $dark-gray; // Sfondo scuro per input
-          color: $white; // Testo bianco per contrasto
-          border-color: $light-gray; // Bordo leggermente più chiaro per evidenziare l'input
-
-          &:focus {
-            border-color: $blue; // Bordo blu quando l'input è in focus
-            box-shadow: 0 0 0 0.2rem rgba($blue, 0.25); // Ombra blu per un tocco magico
-          }
-        }
-      }
-
-      // Messaggio di avviso
-      .alert {
-        background-color: $warning; // Sfondo giallo per attirare l'attenzione
-        color: $dark-gray; // Testo grigio scuro per contrasto
-      }
-
-      // Testo di errore
-      .text-danger {
-        color: $danger; // Testo rosso per indicare un errore
-      }
-
-      // Pulsante primario
-      button.btn-primary {
-        background-color: $blue; // Un blu vibrante per il pulsante principale
-        border-color: $blue; // Bordo blu per abbinarsi al colore di sfondo
-
-        &:hover {
-          background-color: $dark-blue; // Un blu più scuro al passaggio del mouse per un tocco di magia
-          border-color: $dark-blue;
-        }
-
-        &:disabled {
-          background-color: $gray; // Un grigio più scuro per il pulsante disabilitato
-          border-color: $gray;
-        }
-      }
-    }
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); // Ombra per un tocco magico
   }
 }
+
+.dnd-card {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #800000;
+  color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 20px;
+
+    font-family: 'MedievalSharp', cursive;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #800000;
+    padding-bottom: 5px;
+  }
+
+  img {
+    border-bottom: 2px solid #800000;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card-body {
+    .form-group {
+      label {
+        color: #fff; // Testo bianco per contrastare con lo sfondo scuro
+      }
+
+      input.form-control {
+        background-color: #343a40; // Sfondo scuro per input
+        color: #fff; // Testo bianco per contrasto
+        border-color: #495057; // Bordo leggermente più chiaro per evidenziare l'input
+
+        &:focus {
+          border-color: #007bff; // Bordo blu quando l'input è in focus
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); // Ombra blu per un tocco magico
+        }
+      }
+    }
+
+    .text-danger {
+      color: #dc3545; // Testo rosso per indicare un errore
+    }
+
+    button.btn-primary {
+      background-color: #007bff; // Un blu vibrante per il pulsante principale
+      border-color: #007bff; // Bordo blu per abbinarsi al colore di sfondo
+
+      &:hover {
+        background-color: #0056b3; // Un blu più scuro al passaggio del mouse per un tocco di magia
+        border-color: #0056b3;
+      }
+
+      &:disabled {
+        background-color: #6c757d; // Un grigio più scuro per il pulsante disabilitato
+        border-color: #6c757d;
+      }
+    }
+  }
+

@@ -24,4 +24,8 @@ export class UserService {
   getUserCharacters(userId: number): Observable<iPg[]> {
     return this.http.get<iPg[]>(`${this.pgUrl}?userId=${userId}`);
   }
+
+  deleteUserCharacter(characterId: number): Observable<void> {
+    return this.http.delete<void>(`${this.pgUrl}/${characterId}`);
+  }
 }

@@ -11,3 +11,28 @@ a {
   background-color: #ff00009c;
   color: #fff;
 }
+
+.navbar {
+  font-family: 'MedievalSharp', cursive;
+}
+
+.dropdown-menu {
+  background-color: #000 !important;
+  border: 1px solid white !important;
+}
+
+.dropdown-item {
+  color: #fff !important;
+}
+
+.dropdown-divider{
+  height: 1px;
+  margin: .5rem 0;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.dropdown-item:hover {
+  background-color: #ff00009c;
+  color: #fff;
+}

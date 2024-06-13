@@ -1,37 +1,31 @@
-
-
 .dnd-theme {
-  background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-image: url('../../../assets/builder.webp');
   background-size: cover;
   background-position: center;
   padding: 20px;
   color: #fff;
   font-family: 'MedievalSharp', cursive;
-  min-height: 100vh;
+  min-height: 85.4vh;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .dnd-card {
   background-color: rgba(0, 0, 0, 0.7);
-  border: 2px solid #800000; /* Dark red for a classic D&D feel */
+  border: 2px solid #800000;
   color: #fff;
-  border-radius: 15px;
+  border-radius: 10px; /* Leggermente ridotto il bordo */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.dnd-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 20px;
 }
 
 .dnd-card .card-title {
-  font-family: 'MedievalSharp', cursive;
   text-align: center;
   margin-bottom: 10px;
-  font-size: 1.5rem;
+  font-size: 1.3rem; /* Leggermente ridotta la dimensione del titolo */
   border-bottom: 1px solid #800000;
   padding-bottom: 5px;
 }
@@ -40,66 +34,24 @@
   border-bottom: 2px solid #800000;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  transition: transform 0.3s;
-}
-
-.dnd-card img:hover {
-  transform: scale(1.1);
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .dnd-button {
   background-color: #800000;
   border: none;
-  transition: background-color 0.3s, transform 0.3s;
-  display: block;
-  width: auto;
+  width: 100%;
   margin-top: 10px;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 10px 0;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .dnd-button:hover {
   background-color: #a00000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
-
-.btn-favorite {
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.btn-favorite.favorited {
-  color: red;
-}
-
-.btn-favorite:hover {
-  transform: scale(1.2);
-}
-
-.card-body {
-  padding: 20px;
-  position: relative;
-}
-
-.card-body::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  pointer-events: none;
-  transition: border-color 0.3s;
-}
-
-.dnd-card:hover .card-body::after {
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-

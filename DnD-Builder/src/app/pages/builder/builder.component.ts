@@ -45,20 +45,6 @@ export class BuilderComponent {
   ) {}
   ngOnInit() {
     this.currentUser = this.pgSvc.getUserId();
-
-    this.builderSvc.getAllClasses().subscribe((classes) => {
-      this.builderSvc.getMosse().subscribe((mosse) => {
-        this.mosse = mosse;
-        this.classi = classes.map((classe) => {
-          let attacchi = classe.mosseId.map(
-            (mId) => mosse.find((m) => m.id === mId) as iMossa
-          );
-
-          classe.mosse = attacchi;
-          return classe;
-        });
-      });
-    });
     this.router.params.subscribe((params) => {
       if (params['id'] && params['id'] !== '0') {
         this.isCreating = false;
@@ -75,17 +61,33 @@ export class BuilderComponent {
         });
       }
     });
+    this.builderSvc.getAllClasses().subscribe((classes) => {
+      this.builderSvc.getMosse().subscribe((mosse) => {
+        this.mosse = mosse;
+        this.classi = classes.map((classe) => {
+          let attacchi = classe.mosseId.map(
+            (mId) => mosse.find((m) => m.id === mId) as iMossa
+          );
+
+          classe.mosse = attacchi;
+          return classe;
+        });
+      });
+    });
   }
 
+  ngDoCheck() {
+    this.getmosseOnload(this.pgCurrent.classeId!);
+  }
   create() {
     console.log(this.pgCurrent);
     this.pgCurrent.userId = this.currentUser;
 
     this.pgSvc.create(this.pgCurrent).subscribe();
   }
-
   getmossebyclasse(e: Event) {
     const target = <HTMLInputElement>e.target;
+    console.log(target.value);
     let classeSelect = this.classi.find(
       (classe) => classe.id === Number(target.value)
     );
@@ -93,6 +95,11 @@ export class BuilderComponent {
     console.log(this.classeSelect);
 
     this.pgCurrent.classeId = Number(target.value);
+  }
+
+  getmosseOnload(id: number) {
+    let classeSelect = this.classi.find((classe) => classe.id === id);
+    if (classeSelect) this.classeSelect = classeSelect;
   }
 
   modifica() {
