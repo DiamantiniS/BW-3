@@ -227,11 +227,6 @@
       "idPersonaggio": 7,
       "idUser": 4,
       "id": 16
-    },
-    {
-      "idPersonaggio": 14,
-      "idUser": 4,
-      "id": 17
     }
   ],
   "classe": [
@@ -422,6 +417,12 @@
       "nome": "Mazzafrusto",
       "danno": 4,
       "descrizione": "Un'arma da mischia con una testa chiodata flessibile."
+    },
+    {
+      "id": 21,
+      "nome": "Cura",
+      "danno": 6,
+      "descrizione": "Ti cura"
     }
   ]
 }
