@@ -170,6 +170,17 @@
       "int": 18,
       "cos": 12,
       "id": 14
+    },
+    {
+      "userId": 4,
+      "name": "Tharion",
+      "img": "assets/img-pg/Guerriero.jpg",
+      "classeId": 1,
+      "forza": 17,
+      "dext": 17,
+      "int": 13,
+      "cos": 16,
+      "id": 15
     }
   ],
   "favoriti": [
