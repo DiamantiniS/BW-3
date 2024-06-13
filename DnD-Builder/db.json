@@ -209,6 +209,21 @@
       "idPersonaggio": 9,
       "idUser": 4,
       "id": 25
+    },
+    {
+      "idPersonaggio": 4,
+      "idUser": 4,
+      "id": 26
+    },
+    {
+      "idPersonaggio": 2,
+      "idUser": 4,
+      "id": 27
+    },
+    {
+      "idPersonaggio": 7,
+      "idUser": 4,
+      "id": 28
     }
   ],
   "classe": [
