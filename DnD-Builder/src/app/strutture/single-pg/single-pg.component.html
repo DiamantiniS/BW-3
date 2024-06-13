@@ -3,7 +3,7 @@
   *ngIf="!pageFavourite || liked"
   [class.d-none]="pageFavourite && !liked"
 >
-  <a [routerLink]="['details', pg.id]" class="text-decoration-none">
+  <a [routerLink]="['/details', pg.id]" class="text-decoration-none">
     <img class="card-img-top" [src]="pg.img" [alt]="pg.name" />
   </a>
   <div class="card-body">
