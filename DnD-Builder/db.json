@@ -148,17 +148,6 @@
       "int": 0,
       "cos": 0,
       "id": 12
-    },
-    {
-      "userId": 4,
-      "name": "Tharion12345",
-      "img": "assets/img-pg/male-Paladin.webp",
-      "classeId": 5,
-      "forza": 17,
-      "dext": 17,
-      "int": 13,
-      "cos": 16,
-      "id": 13
     }
   ],
   "favoriti": [
