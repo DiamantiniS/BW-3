@@ -1,14 +1,37 @@
-<div class="card dnd-card">
+<div
+  class="card dnd-card"
+  *ngIf="!pageFavourite || liked"
+  [class.d-none]="pageFavourite && !liked"
+>
   <a [routerLink]="['details', pg.id]" class="text-decoration-none">
     <img class="card-img-top" [src]="pg.img" [alt]="pg.name" />
   </a>
   <div class="card-body">
     <h4 class="card-title">{{ pg.name }}</h4>
     <p class="card-text"><b>Classe</b>: {{ pg.classe?.name }}</p>
+    <div class="table-responsive" *ngIf="pageFavourite">
+      <p><b>Statistiche</b></p>
+      <table class="table table-dark table-striped mb-0">
+        <thead>
+          <tr>
+            <th>Forza</th>
+            <th>Destrezza</th>
+            <th>Intelligenza</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ pg.forza }}</td>
+            <td>{{ pg.dext }}</td>
+            <td>{{ pg.int }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="d-flex justify-content-between align-items-center">
       <button
         class="btn btn-danger dnd-button"
-        [routerLink]="['details', pg.id]"
+        [routerLink]="['/details', pg.id]"
       >
         Info
       </button>
@@ -21,6 +44,13 @@
             'heart-filled': liked
           }"
         ></i>
+      </button>
+      <button
+        (click)="deleteCharacter(pg.id)"
+        class="btn btn-danger btn-sm mt-2"
+        *ngIf="pageProfile"
+      >
+        Cancella
       </button>
     </div>
   </div>

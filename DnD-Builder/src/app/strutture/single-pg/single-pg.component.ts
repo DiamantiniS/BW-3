@@ -1,3 +1,4 @@
+import { UserService } from './../../services/user.service';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { iUser } from '../../models/i-user';
@@ -15,11 +16,16 @@ export class SinglePgComponent {
 
   currentUser!: iUser;
   liked: boolean = false;
+  pageFavourite: boolean = this.router.url === '/favourites'
+  pageProfile: boolean = this.router.url === '/profile'
+  characters: iPg[] = [];
+
 
   constructor(
     protected router: Router,
     private PgSvc: PgService,
-    private FavortiteSvc: FavouritesService
+    private FavortiteSvc: FavouritesService,
+    private UserSvc: UserService
   ) {}
 
   ngOnInit() {
@@ -39,5 +45,17 @@ export class SinglePgComponent {
     this.liked = !this.liked;
 
     this.FavortiteSvc.toggleFavourite(idPersonaggio);
+  }
+
+  deleteCharacter(characterId: number) {
+    this.UserSvc.deleteUserCharacter(characterId).subscribe({
+      next: () => {
+        console.log(`Character with ID ${characterId} deleted`);
+        this.characters = this.characters.filter((c) => c.id !== characterId);
+      },
+      error: (err) => {
+        console.error('Error deleting character', err);
+      },
+    });
   }
 }

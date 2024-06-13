@@ -78,18 +78,6 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  deleteCharacter(characterId: number) {
-    this.userService.deleteUserCharacter(characterId).subscribe({
-      next: () => {
-        console.log(`Character with ID ${characterId} deleted`);
-        this.characters = this.characters.filter((c) => c.id !== characterId);
-      },
-      error: (err) => {
-        console.error('Error deleting character', err);
-      },
-    });
-  }
-
   createCharacter() {
     this.router.navigate(['/builder/0']);
   }
