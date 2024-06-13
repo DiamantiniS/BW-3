@@ -148,28 +148,6 @@
       "int": 0,
       "cos": 0,
       "id": 12
-    },
-    {
-      "userId": 4,
-      "name": "Tharion12345",
-      "img": "assets/img-pg/male-Paladin.webp",
-      "classeId": 5,
-      "forza": 17,
-      "dext": 17,
-      "int": 13,
-      "cos": 16,
-      "id": 13
-    },
-    {
-      "userId": 4,
-      "name": "Tharion",
-      "img": "assets/img-pg/Guerriero.jpg",
-      "classeId": 1,
-      "forza": 17,
-      "dext": 17,
-      "int": 13,
-      "cos": 16,
-      "id": 15
     }
   ],
   "favoriti": [
@@ -192,41 +170,6 @@
       "idPersonaggio": 9,
       "idUser": 5,
       "id": 9
-    },
-    {
-      "idPersonaggio": 2,
-      "idUser": 4,
-      "id": 14
-    },
-    {
-      "idPersonaggio": 3,
-      "idUser": 4,
-      "id": 11
-    },
-    {
-      "idPersonaggio": 4,
-      "idUser": 4,
-      "id": 12
-    },
-    {
-      "idPersonaggio": 5,
-      "idUser": 4,
-      "id": 13
-    },
-    {
-      "idPersonaggio": 6,
-      "idUser": 4,
-      "id": 14
-    },
-    {
-      "idPersonaggio": 8,
-      "idUser": 4,
-      "id": 15
-    },
-    {
-      "idPersonaggio": 7,
-      "idUser": 4,
-      "id": 16
     },
     {
       "idPersonaggio": 14,

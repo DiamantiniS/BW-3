@@ -5,6 +5,7 @@ import { PgService } from '../../services/pg.service';
 import { iMossa } from '../../models/i-mossa';
 import { BuilderService } from '../../services/builder.service';
 import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-builder',
@@ -108,6 +109,18 @@ export class BuilderComponent {
     } else {
       delete this.pgCurrent.id;
       this.create();
+    }
+  }
+
+  submitForm(form: NgForm) {
+    console.log(form);
+    if (form.invalid) {
+      return;
+    }
+    if (this.isCreating) {
+      this.create();
+    } else {
+      this.modifica();
     }
   }
 }
