@@ -73,14 +73,13 @@
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="form-group">
-                    <label for="imagen">Immagine</label>
+                    <label for="imagen">Url immagine</label>
                     <input
-                      type="file"
+                      type="text"
                       id="imagen"
                       [(ngModel)]="pgCurrent.img"
                       name="imagen"
                       class="form-control"
-                      (change)="onFileSelected($event)"
                     />
                     <img
                       *ngIf="pgCurrent.img"
