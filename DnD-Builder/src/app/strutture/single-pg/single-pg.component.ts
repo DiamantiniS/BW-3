@@ -15,6 +15,8 @@ export class SinglePgComponent {
 
   currentUser!: iUser;
   liked: boolean = false;
+  pageFavourite: boolean = this.router.url === '/favourites'
+
 
   constructor(
     protected router: Router,

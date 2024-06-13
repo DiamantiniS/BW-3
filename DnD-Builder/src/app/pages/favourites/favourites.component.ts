@@ -56,18 +56,6 @@ export class FavouritesComponent {
 
   toggleFavourite(idPersonaggio:number) {
     this.FavortiteSvc.toggleFavourite(idPersonaggio)
-
-    this.arrayPgs = []
-    this.FavortiteSvc.getFavouritePgs(this.currentUser.id).subscribe(favourites => {
-      this.favouritesArray = favourites
-
-      this.favouritesArray.forEach(favorite => {
-        this.PgSvc.getById(favorite.idPersonaggio).subscribe(pg => {
-          this.FavortiteSvc.addClassToPg(pg, this.classPgArray)
-          this.arrayPgs.push(pg)
-        })
-      })
-    })
   }
 
 }
