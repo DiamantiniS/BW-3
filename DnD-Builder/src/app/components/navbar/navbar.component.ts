@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { iUser } from '../../models/i-user';
 
@@ -7,7 +7,7 @@ import { iUser } from '../../models/i-user';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   isLoggedIn = false;
   user: iUser | null = null;
 
