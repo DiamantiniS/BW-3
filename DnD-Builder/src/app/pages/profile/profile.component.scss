@@ -10,17 +10,7 @@
   justify-content: center;
   align-items: center;
 
-  .custom-title {
-    font-size: 3rem;
-    text-align: center;
-    color: #ffd700; // Testo dorato per attirare l'attenzione
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); // Ombra per aggiungere profondità
-    background: linear-gradient(45deg, #b22222, #ff4500); // Un gradiente fantasy dal rosso all'arancione
-    padding: 20px;
-    border: 3px solid #ff4500; // Bordo arancione per accentuare il titolo
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); // Ombra per un tocco magico
-  }
+
 }
 
 .dnd-card {
@@ -53,36 +43,36 @@
   .card-body {
     .form-group {
       label {
-        color: #fff; // Testo bianco per contrastare con lo sfondo scuro
+        color: #fff;
       }
 
       input.form-control {
-        background-color: #343a40; // Sfondo scuro per input
-        color: #fff; // Testo bianco per contrasto
-        border-color: #495057; // Bordo leggermente più chiaro per evidenziare l'input
+        background-color: #343a40;
+        color: #fff;
+        border-color: #495057;
 
         &:focus {
-          border-color: #007bff; // Bordo blu quando l'input è in focus
-          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); // Ombra blu per un tocco magico
+          border-color: #007bff;
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
         }
       }
     }
 
     .text-danger {
-      color: #dc3545; // Testo rosso per indicare un errore
+      color: #dc3545;
     }
 
     button.btn-primary {
-      background-color: #007bff; // Un blu vibrante per il pulsante principale
-      border-color: #007bff; // Bordo blu per abbinarsi al colore di sfondo
+      background-color: #007bff;
+      border-color: #007bff;
 
       &:hover {
-        background-color: #0056b3; // Un blu più scuro al passaggio del mouse per un tocco di magia
+        background-color: #0056b3;
         border-color: #0056b3;
       }
 
       &:disabled {
-        background-color: #6c757d; // Un grigio più scuro per il pulsante disabilitato
+        background-color: #6c757d;
         border-color: #6c757d;
       }
     }

@@ -14,11 +14,19 @@ a {
 
 .navbar {
   font-family: 'MedievalSharp', cursive;
+  border-bottom: 1px solid white;
+  z-index: 1030;
+}
+
+.dropdown{
+  position:relative;
+  z-index:1050 ;
 }
 
 .dropdown-menu {
   background-color: #000 !important;
   border: 1px solid white !important;
+  z-index:1060 ;
 }
 
 .dropdown-item {
