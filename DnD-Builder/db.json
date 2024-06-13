@@ -382,5 +382,12 @@
       "danno": 4,
       "descrizione": "Un'arma da mischia con una testa chiodata flessibile."
     }
+    ,
+    {
+      "id": 21,
+      "nome": "Cura",
+      "danno": -6,
+      "descrizione": "Una cura."
+    }
   ]
 }
