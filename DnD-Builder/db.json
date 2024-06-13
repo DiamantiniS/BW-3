@@ -201,11 +201,6 @@
       "idPersonaggio": 5
     },
     {
-      "idPersonaggio": 3,
-      "idUser": 5,
-      "id": 5
-    },
-    {
       "idPersonaggio": 4,
       "idUser": 5,
       "id": 7
@@ -214,11 +209,6 @@
       "idPersonaggio": 1,
       "idUser": 5,
       "id": 8
-    },
-    {
-      "idPersonaggio": 9,
-      "idUser": 5,
-      "id": 9
     }
   ],
   "classe": [
