@@ -1,9 +1,8 @@
-<div class="container-fluid my-5 text-light">
-  <h2 class="display-5 mb-4 p-4 custom-title">Impostazioni Profilo D&D</h2>
+<div class="container-fluid text-light dnd-theme">
   <div class="row">
     <div class="col-md-4">
-      <div class="card bg-dark text-light border-light">
-        <img src="https://i.redd.it/4pingn8na9k61.jpg" class="card-img-top" alt="Profilo" style="max-height: 200px;">
+      <div class="card bg-dark text-light border-light dnd-card">
+        <img [src]="user?.pic" class="card-img-top" alt="Profilo" style="max-height: 200px;">
         <div class="card-body">
           <h5 class="card-title">{{ user?.username }}</h5>
           <p class="card-text">Informazioni aggiuntive dell'utente.
@@ -15,7 +14,7 @@
     <div class="col-md-8">
       <div class="tab-content">
         <div class="tab-pane fade active show" id="account-general">
-          <div class="card bg-dark text-light border-light">
+          <div class="card bg-dark text-light border-light dnd-card">
             <div class="card-header">
               <h3 class="display-5">Profilo Generale</h3>
             </div>
@@ -46,7 +45,7 @@
             <button class="btn btn-primary" (click)="createCharacter()">Crea PG</button>
           </div>
           <div class="col-md-6" *ngFor="let character of characters">
-            <div class="card bg-dark text-light border-light mb-4">
+            <div class="card bg-dark text-light border-light dnd-card mb-4">
               <img [src]="character.img" class="card-img-top" [alt]="character.name" style="max-height: 200px;">
               <div class="card-body">
                 <h5 class="card-title">{{ character.name }}</h5>

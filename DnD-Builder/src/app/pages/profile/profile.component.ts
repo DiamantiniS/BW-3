@@ -4,6 +4,8 @@ import { iUser } from '../../models/i-user';
 import { iPg } from '../../models/i-pg';
 import { UserService } from '../../services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
