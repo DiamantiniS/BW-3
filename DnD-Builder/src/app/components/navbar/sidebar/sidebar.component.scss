@@ -1,0 +1,15 @@
+
+
+.offcanvas {
+  width: 250px;
+}
+
+.offcanvas-header {
+  border-bottom: 1px solid white;
+}
+
+.offcanvas-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

@@ -7,10 +7,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { SidebarComponent } from './components/navbar/sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    FooterComponent,
+    SidebarComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

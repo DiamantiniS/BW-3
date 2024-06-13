@@ -204,6 +204,11 @@
       "id": 9
     },
     {
+      "idPersonaggio": 4,
+      "idUser": 4,
+      "id": 12
+    },
+    {
       "idPersonaggio": 5,
       "idUser": 4,
       "id": 14
