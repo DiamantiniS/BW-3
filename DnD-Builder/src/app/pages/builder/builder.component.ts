@@ -110,4 +110,16 @@ export class BuilderComponent {
       this.create();
     }
   }
+
+  onFileSelected(e: any) {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        const imageUrl = e.target.result;
+        this.pgCurrent.img = imageUrl; // Aggiorna l'immagine corrente
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 }

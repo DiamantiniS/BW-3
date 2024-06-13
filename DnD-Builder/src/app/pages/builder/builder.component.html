@@ -9,41 +9,95 @@
                 <div class="col-12 col-md-6">
                   <div class="form-group">
                     <label for="name">Name</label>
-                    <input id="name" [(ngModel)]="pgCurrent.name" name="name" class="form-control" />
+                    <input
+                      id="name"
+                      [(ngModel)]="pgCurrent.name"
+                      name="name"
+                      class="form-control"
+                    />
                   </div>
                   <div class="form-group">
                     <label for="classe">Classe</label>
-                    <select id="classe" class="form-select" name="class" [(ngModel)]="pgCurrent.classeId" (change)="getmossebyclasse($event)">
-                      <option *ngFor="let c of classi" [value]="c.id">{{ c.name }}</option>
+                    <select
+                      id="classe"
+                      class="form-select"
+                      name="class"
+                      [(ngModel)]="pgCurrent.classeId"
+                      (change)="getmossebyclasse($event)"
+                    >
+                      <option *ngFor="let c of classi" [value]="c.id">
+                        {{ c.name }}
+                      </option>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="cos">Costituzione</label>
-                    <input type="number" id="cos" [(ngModel)]="pgCurrent.cos" name="cos" class="form-control" />
+                    <input
+                      type="number"
+                      id="cos"
+                      [(ngModel)]="pgCurrent.cos"
+                      name="cos"
+                      class="form-control"
+                    />
                   </div>
                   <div class="form-group">
                     <label for="dext">Destrezza</label>
-                    <input type="number" id="dext" [(ngModel)]="pgCurrent.dext" name="dext" class="form-control" />
+                    <input
+                      type="number"
+                      id="dext"
+                      [(ngModel)]="pgCurrent.dext"
+                      name="dext"
+                      class="form-control"
+                    />
                   </div>
                   <div class="form-group">
                     <label for="forza">Forza</label>
-                    <input type="number" id="forza" [(ngModel)]="pgCurrent.forza" name="forza" class="form-control" />
+                    <input
+                      type="number"
+                      id="forza"
+                      [(ngModel)]="pgCurrent.forza"
+                      name="forza"
+                      class="form-control"
+                    />
                   </div>
                   <div class="form-group">
                     <label for="int">Intelligenza</label>
-                    <input type="number" id="int" [(ngModel)]="pgCurrent.int" name="int" class="form-control" />
+                    <input
+                      type="number"
+                      id="int"
+                      [(ngModel)]="pgCurrent.int"
+                      name="int"
+                      class="form-control"
+                    />
                   </div>
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="form-group">
                     <label for="imagen">Immagine</label>
-                    <input type="text" id="imagen" [(ngModel)]="pgCurrent.img" name="imagen" class="form-control" />
-                    <img class="card-img-top mt-2" [src]="pgCurrent.img" [alt]="pgCurrent.name" />
+                    <input
+                      type="file"
+                      id="imagen"
+                      [(ngModel)]="pgCurrent.img"
+                      name="imagen"
+                      class="form-control"
+                      (change)="onFileSelected($event)"
+                    />
+                    <img
+                      *ngIf="pgCurrent.img"
+                      class="card-img-top mt-2"
+                      [src]="pgCurrent.img"
+                      [alt]="pgCurrent.name"
+                    />
                   </div>
-                  <div class="form-group" *ngIf="classeSelect && classeSelect.mosse">
+                  <div
+                    class="form-group"
+                    *ngIf="classeSelect && classeSelect.mosse"
+                  >
                     <label><b>Mosse:</b></label>
                     <div *ngFor="let m of classeSelect.mosse">
-                      <p><b>{{ m.nome }}</b></p>
+                      <p>
+                        <b>{{ m.nome }}</b>
+                      </p>
                       <p><b>Danno:</b> {{ m.danno }}</p>
                       <p><b>Descrizione:</b> {{ m.descrizione }}</p>
                     </div>
@@ -51,12 +105,24 @@
                 </div>
               </div>
               <div class="text-center mt-3">
-                <button *ngIf="isCreating" class="btn btn-danger dnd-button" (click)="create()">Crea</button>
-                <button *ngIf="!isCreating" class="btn btn-danger dnd-button" (click)="modifica()">{{ !isMine ? 'Copia Build' : 'Modifica' }}</button>
+                <button
+                  *ngIf="isCreating"
+                  class="btn btn-danger dnd-button"
+                  (click)="create()"
+                >
+                  Crea
+                </button>
+                <button
+                  *ngIf="!isCreating"
+                  class="btn btn-danger dnd-button"
+                  (click)="modifica()"
+                >
+                  {{ !isMine ? "Copia Build" : "Modifica" }}
+                </button>
               </div>
             </form>
           </div>
-
+        </div>
       </div>
     </div>
   </div>
