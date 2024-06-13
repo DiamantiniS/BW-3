@@ -10,16 +10,22 @@
 
 .dnd-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.dnd-card:hover::before {
+  opacity: 0.25;
 }
 
 .dnd-card .card-title {
   font-family: "MedievalSharp", cursive;
   text-align: center;
   margin-bottom: 10px;
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* Ridotto il font-size */
   border-bottom: 1px solid #800000;
   padding-bottom: 5px;
+  position: relative;
+  z-index: 2;
 }
 
 .dnd-card img {
@@ -34,6 +40,7 @@
 
 .dnd-card img:hover {
   transform: scale(1.1);
+  filter: brightness(1.1);
 }
 
 .dnd-button {
@@ -43,6 +50,9 @@
   display: block;
   width: auto;
   margin-top: 10px;
+  position: relative;
+  z-index: 2;
+  font-size: 0.9rem; /* Ridotto il font-size */
 }
 
 .dnd-button:hover {
@@ -55,9 +65,11 @@
   background: transparent;
   border: none;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* Ridotto il font-size */
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s, color 0.3s;
+  position: relative;
+  z-index: 2;
 }
 
 .btn-favorite.favorited {
@@ -66,11 +78,13 @@
 
 .btn-favorite:hover {
   transform: scale(1.2);
+  color: red;
 }
 
 .card-body {
   padding: 20px;
   position: relative;
+  z-index: 2;
 }
 
 .card-body::after {
@@ -85,11 +99,14 @@
   border-bottom-right-radius: 15px;
   border: 2px solid rgba(255, 255, 255, 0.1);
   pointer-events: none;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, transform 0.3s;
+  z-index: 1;
+  transform: scale(0.98);
 }
 
 .dnd-card:hover .card-body::after {
   border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1);
 }
 
 .heart-icon {

@@ -15,7 +15,7 @@
   background-color: rgba(0, 0, 0, 0.7);
   border: 2px solid #800000;
   color: #fff;
-  border-radius: 15px;
+  border-radius: 10px; /* Leggermente ridotto il bordo */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
   width: 100%;
   max-width: 1000px;
@@ -23,10 +23,9 @@
 }
 
 .dnd-card .card-title {
-  font-family: 'MedievalSharp', cursive;
   text-align: center;
   margin-bottom: 10px;
-  font-size: 1.5rem;
+  font-size: 1.3rem; /* Leggermente ridotta la dimensione del titolo */
   border-bottom: 1px solid #800000;
   padding-bottom: 5px;
 }

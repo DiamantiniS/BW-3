@@ -6,10 +6,9 @@ export interface iPg {
   name: string;
   img: string;
   classeId: number;
-  classe?: iClasse
+  classe?: iClasse;
   forza: number;
   dext: number;
   int: number;
   cos: number;
-
 }

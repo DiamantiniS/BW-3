@@ -2,3 +2,16 @@
 
 /* Importing Bootstrap SCSS file. */
 @import "bootstrap/scss/bootstrap";
+
+.dnd-theme {
+  background-image: url("https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  color: #fff;
+  font-family: "MedievalSharp", cursive;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

@@ -140,9 +140,10 @@
       "cos": 14
     },
     {
-      "name": "",
+      "userId": 5,
+      "name": "paulo",
       "img": "",
-      "classeId": 0,
+      "classeId": 2,
       "forza": 0,
       "dext": 0,
       "int": 0,
