@@ -34,7 +34,9 @@ const routes: Routes = [
     canActivate:[GuestGuard],
     canActivateChild: [GuestGuard],
     title: 'Accedi'
-   }];
+   },
+  { path: 'showdown', loadChildren: () => import('./pages/showdown/showdown.module').then(m => m.ShowdownModule) },
+  { path: 'match', loadChildren: () => import('./pages/showdown/match/match.module').then(m => m.MatchModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
