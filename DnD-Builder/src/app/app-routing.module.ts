@@ -5,40 +5,78 @@ import { GuestGuard } from './auth/guard/guest.guard';
 import { InfoComponent } from './pages/info/info.component';
 
 const routes: Routes = [
-  { path: '', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
-  { path: 'dashboard', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
-    canActivate:[AuthGuard],
+  {
+    path: '',
+    loadChildren: () =>
+      import('./pages/home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./pages/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
+    canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
-    title: 'Dashboard'
-   },
-  { path: 'builder', loadChildren: () => import('./pages/builder/builder.module').then(m => m.BuilderModule),
-    canActivate:[AuthGuard],
+    title: 'Dashboard',
+  },
+  {
+    path: 'builder',
+    loadChildren: () =>
+      import('./pages/builder/builder.module').then((m) => m.BuilderModule),
+    canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
-    title: 'Builder'
-   },
-  { path: 'favourites', loadChildren: () => import('./pages/favourites/favourites.module').then(m => m.FavouritesModule),
-    canActivate:[AuthGuard],
+    title: 'Builder',
+  },
+  {
+    path: 'favourites',
+    loadChildren: () =>
+      import('./pages/favourites/favourites.module').then(
+        (m) => m.FavouritesModule
+      ),
+    canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
-    title: 'Preferiti'
-   },
-  { path: 'profile', loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule),
-    canActivate:[AuthGuard],
+    title: 'Preferiti',
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./pages/profile/profile.module').then((m) => m.ProfileModule),
+    canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
-    title: 'Profile'
-   },
-  { path: 'info', loadChildren: () => import('./pages/info/info.module').then(m => m.InfoModule),
-    canActivate:[AuthGuard],
+    title: 'Profile',
+  },
+  {
+    path: 'info',
+    loadChildren: () =>
+      import('./pages/info/info.module').then((m) => m.InfoModule),
+    canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
-    title: 'Info'
-   },
-  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
-    canActivate:[GuestGuard],
+    title: 'Info',
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    canActivate: [GuestGuard],
     canActivateChild: [GuestGuard],
-    title: 'Accedi'
-   },
-  { path: 'showdown', loadChildren: () => import('./pages/showdown/showdown.module').then(m => m.ShowdownModule) },
-  { path: 'match', loadChildren: () => import('./pages/showdown/match/match.module').then(m => m.MatchModule) },
-  { path: 'details/:id', loadChildren: () => import('./pages/info/info.module').then(m => m.InfoModule) }];
+    title: 'Accedi',
+  },
+  {
+    path: 'showdown',
+    loadChildren: () =>
+      import('./pages/showdown/showdown.module').then((m) => m.ShowdownModule),
+  },
+  {
+    path: 'match',
+    loadChildren: () =>
+      import('./pages/showdown/match/match.module').then((m) => m.MatchModule),
+  },
+  {
+    path: 'details/:id',
+    loadChildren: () =>
+      import('./pages/info/info.module').then((m) => m.InfoModule),
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

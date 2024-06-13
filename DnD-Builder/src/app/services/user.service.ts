@@ -5,20 +5,23 @@ import { iUser } from '../models/i-user';
 import { iPg } from '../models/i-pg';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   private apiUrl = 'http://localhost:3000/users';
   private pgUrl = 'http://localhost:3000/pg';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getUserProfile(userId: number): Observable<iUser> {
     return this.http.get<iUser>(`${this.apiUrl}/${userId}`);
   }
 
   saveUserProfile(userProfile: iUser): Observable<iUser> {
-    return this.http.put<iUser>(`${this.apiUrl}/${userProfile.id}`, userProfile);
+    return this.http.put<iUser>(
+      `${this.apiUrl}/${userProfile.id}`,
+      userProfile
+    );
   }
 
   getUserCharacters(userId: number): Observable<iPg[]> {

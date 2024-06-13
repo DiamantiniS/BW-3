@@ -15,7 +15,7 @@ import { FavouritesService } from '../../services/favourites.service';
 @Component({
   selector: 'app-showdown',
   templateUrl: './showdown.component.html',
-  styleUrls: ['./showdown.component.scss']
+  styleUrls: ['./showdown.component.scss'],
 })
 export class ShowdownComponent implements OnInit {
   profileForm!: FormGroup;
@@ -62,7 +62,10 @@ export class ShowdownComponent implements OnInit {
           this.characters = characters;
         },
         error: (err) => {
-          console.error('Errore durante il recupero dei personaggi utente', err);
+          console.error(
+            'Errore durante il recupero dei personaggi utente',
+            err
+          );
         },
       });
 
@@ -81,7 +84,10 @@ export class ShowdownComponent implements OnInit {
           this.caricaPersonaggiPreferiti();
         },
         error: (err) => {
-          console.error('Errore durante il recupero dei personaggi preferiti', err);
+          console.error(
+            'Errore durante il recupero dei personaggi preferiti',
+            err
+          );
         },
       });
     } else {
@@ -97,7 +103,10 @@ export class ShowdownComponent implements OnInit {
           this.arrayPgs.push(pg);
         },
         error: (err) => {
-          console.error(`Errore durante il recupero del personaggio con ID ${favorite.idPersonaggio}`, err);
+          console.error(
+            `Errore durante il recupero del personaggio con ID ${favorite.idPersonaggio}`,
+            err
+          );
         },
       });
     });

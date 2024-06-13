@@ -17,9 +17,9 @@ import { iClasse } from '../../models/i-classe';
 })
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
-  favouritesArray:iFavourites[] = []
-  classPgArray:iClasse[] = []
-  arrayPgs:iPg[] = []
+  favouritesArray: iFavourites[] = [];
+  classPgArray: iClasse[] = [];
+  arrayPgs: iPg[] = [];
   user: iUser | null = null;
   characters: iPg[] = [];
 
@@ -46,13 +46,13 @@ export class ProfileComponent implements OnInit {
       console.log('classi',this.classPgArray)
     })*/
 
-    const accessData = this.authService.getAccessData()
-    if(!accessData) return
-    this.user = accessData.user
-    const userId = accessData.user.id
+    const accessData = this.authService.getAccessData();
+    if (!accessData) return;
+    this.user = accessData.user;
+    const userId = accessData.user.id;
 
-    this.FavortiteSvc.getFavouritePgs(userId).subscribe(favourites => {
-      this.favouritesArray = favourites
+    this.FavortiteSvc.getFavouritePgs(userId).subscribe((favourites) => {
+      this.favouritesArray = favourites;
 
       /*this.favouritesArray.forEach(favorite => {
         this.PgSvc.getById(favorite.idPersonaggio).subscribe(pg => {
@@ -60,7 +60,7 @@ export class ProfileComponent implements OnInit {
           this.arrayPgs.push(pg)
         })
       })*/
-    })
+    });
 
     //const accessData = this.authService.getAccessData();
     //ELIMINATE LINEE DI DEBUG

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   constructor(private http: HttpClient, private router: Router) {
@@ -21,8 +21,8 @@ export class AuthService {
 
   user$ = this.userSubj.asObservable();
   isLogged$ = this.user$.pipe(
-    map(user => !!user),
-    tap(user => this.loggedIn = !!user)
+    map((user) => !!user),
+    tap((user) => (this.loggedIn = !!user))
   );
 
   registerUrl: string = 'http://localhost:3000/register';
@@ -34,9 +34,9 @@ export class AuthService {
 
   login(loginData: iAuthData): Observable<iAuthResponse> {
     return this.http.post<iAuthResponse>(this.loginUrl, loginData).pipe(
-      tap(data => {
+      tap((data) => {
         this.userSubj.next(data.user);
-        localStorage.setItem("accessData", JSON.stringify(data));
+        localStorage.setItem('accessData', JSON.stringify(data));
         this.autoLogout(data.accessToken);
       })
     );
@@ -44,12 +44,12 @@ export class AuthService {
 
   logout() {
     this.userSubj.next(null);
-    localStorage.removeItem("accessData");
-    this.router.navigate(["/auth/login"]);
+    localStorage.removeItem('accessData');
+    this.router.navigate(['/auth/login']);
   }
 
   restoreUser() {
-    const userJson = localStorage.getItem("accessData");
+    const userJson = localStorage.getItem('accessData');
     if (!userJson) return;
     const accessData: iAuthResponse = JSON.parse(userJson);
     if (this.jwtHelper.isTokenExpired(accessData.accessToken)) return;

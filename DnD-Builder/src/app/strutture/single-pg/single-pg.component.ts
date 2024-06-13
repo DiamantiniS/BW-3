@@ -18,10 +18,9 @@ export class SinglePgComponent {
 
   currentUser!: iUser;
   liked: boolean = false;
-  pageFavourite: boolean = this.router.url === '/favourites'
-  pageProfile: boolean = this.router.url === '/profile'
+  pageFavourite: boolean = this.router.url === '/favourites';
+  pageProfile: boolean = this.router.url === '/profile';
   characters: iPg[] = [];
-
 
   constructor(
     protected router: Router,
@@ -31,7 +30,6 @@ export class SinglePgComponent {
   ) {}
 
   ngOnInit() {
-
     const userId = this.PgSvc.getUserId();
 
     this.arrayFavourites.forEach((fav) => {

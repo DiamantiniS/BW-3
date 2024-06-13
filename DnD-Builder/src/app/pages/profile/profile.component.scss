@@ -1,16 +1,14 @@
 .dnd-theme {
-  background-image: url('../../../assets/builder.webp');
+  background-image: url("../../../assets/builder.webp");
   background-size: cover;
   background-position: center;
   padding: 20px;
   color: #fff;
-  font-family: 'MedievalSharp', cursive;
+  font-family: "MedievalSharp", cursive;
   min-height: 85.4vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
-
 }
 
 .dnd-card {
@@ -23,58 +21,57 @@
   max-width: 1000px;
   margin-bottom: 20px;
 
-    font-family: 'MedievalSharp', cursive;
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-    border-bottom: 1px solid #800000;
-    padding-bottom: 5px;
-  }
+  font-family: "MedievalSharp", cursive;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #800000;
+  padding-bottom: 5px;
+}
 
-  img {
-    border-bottom: 2px solid #800000;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
+img {
+  border-bottom: 2px solid #800000;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
 
-  .card-body {
-    .form-group {
-      label {
-        color: #fff;
-      }
-
-      input.form-control {
-        background-color: #343a40;
-        color: #fff;
-        border-color: #495057;
-
-        &:focus {
-          border-color: #007bff;
-          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-        }
-      }
+.card-body {
+  .form-group {
+    label {
+      color: #fff;
     }
 
-    .text-danger {
-      color: #dc3545;
-    }
+    input.form-control {
+      background-color: #343a40;
+      color: #fff;
+      border-color: #495057;
 
-    button.btn-primary {
-      background-color: #007bff;
-      border-color: #007bff;
-
-      &:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
-      }
-
-      &:disabled {
-        background-color: #6c757d;
-        border-color: #6c757d;
+      &:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
       }
     }
   }
 
+  .text-danger {
+    color: #dc3545;
+  }
+
+  button.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+
+    &:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    &:disabled {
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+  }
+}

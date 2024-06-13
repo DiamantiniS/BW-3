@@ -3,7 +3,6 @@ import { PgService } from '../../services/pg.service';
 import { iPg } from '../../models/i-pg';
 import { FavouritesService } from '../../services/favourites.service';
 import { iClasse } from '../../models/i-classe';
-import { iAuthResponse } from '../../models/i-auth-response';
 import { iFavourites } from '../../models/i-favourites';
 import { AuthService } from '../../auth/auth.service';
 import { iUser } from '../../models/i-user';
