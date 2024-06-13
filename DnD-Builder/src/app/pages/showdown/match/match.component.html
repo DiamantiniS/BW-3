@@ -1,1 +1,8 @@
-<p>match works!</p>
+<div class="bot-name">Tu</div>
+<div class="battlefield-section" *ngIf="mosse && mosse.length > 0">
+  <button class="move-button" *ngFor="let m of mosse">{{ m.nome }}</button>
+</div>
+<div class="bot-name">{{ botPg.name }}</div>
+<div class="battlefield-section" *ngIf="mosse && botMosse.length > 0">
+  <button class="move-button" *ngFor="let m of botMosse">{{ m.nome }}</button>
+</div>
