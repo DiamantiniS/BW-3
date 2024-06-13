@@ -1,8 +1,10 @@
 <div class="bot-name">Tu</div>
+{{pfPg}}
 <div class="battlefield-section" *ngIf="mosse && mosse.length > 0">
-  <button class="move-button" *ngFor="let m of mosse">{{ m.nome }}</button>
+  <button class="move-button" *ngFor="let m of mosse" (click)="startRound(m.id)">{{ m.nome }}</button>
 </div>
-<div class="bot-name">{{ botPg.name }}</div>
+<div class="bot-name" *ngIf="botPg">{{ botPg.name }}</div>
+  {{pfBot}}
 <div class="battlefield-section" *ngIf="mosse && botMosse.length > 0">
   <button class="move-button" *ngFor="let m of botMosse">{{ m.nome }}</button>
 </div>

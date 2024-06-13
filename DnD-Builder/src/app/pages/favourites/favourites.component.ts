@@ -32,7 +32,7 @@ export class FavouritesComponent {
 
     this.PgSvc.getClasses().subscribe(classes => {
       this.classPgArray = classes
-      console.log(this.classPgArray)
+      console.log('classi',this.classPgArray)
     })
 
     const accessData = this.AuthSvc.getAccessData()

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PgService } from '../../../services/pg.service';
 import { iPg } from '../../../models/i-pg';
 import { iClasse } from '../../../models/i-classe';
@@ -19,10 +19,13 @@ export class MatchComponent implements OnInit {
   botMosse: iMossa[] = [];
   botClasse!:iClasse
   pgArr: iPg[] = [];
+  pfPg!:number
+  pfBot!:number
 
   constructor(
     private pgSvc: PgService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
     ) {}
 
     ngOnInit(): void {
@@ -38,6 +41,7 @@ export class MatchComponent implements OnInit {
           this.pg = pg;
           this.pgSvc.getClassbyId(pg.classeId).subscribe((classe) => {
             this.classe = classe;
+            this.pfPg = this.classe.pf
             this.pgSvc.getMosseByIds(classe.mosseId).subscribe((mosse) => {
               this.mosse = mosse;
               this.pgSvc.getMosseById(21).subscribe((mosse) => {
@@ -56,6 +60,7 @@ export class MatchComponent implements OnInit {
         this.botPg = pg;
         this.pgSvc.getClassbyId(pg.classeId).subscribe((classe) => {
           this.botClasse = classe;
+          this.pfBot = this.botClasse.pf
           this.pgSvc.getMosseByIds(classe.mosseId).subscribe((mosse) => {
             this.botMosse = mosse;
             this.pgSvc.getMosseById(21).subscribe((mosse) => {
@@ -64,6 +69,50 @@ export class MatchComponent implements OnInit {
           });
         });
       });
+    }
+    }
+
+  startRound(idmossa:number):void {
+    const mossa = this.mosse.find(mossa=>idmossa===mossa.id)
+    if(mossa){
+      if(mossa.id===21){
+        this.pfPg = this.pfPg - mossa.danno
+        if(this.pfPg>this.classe.pf){
+          this.pfPg=this.classe.pf
+        }
+      }
+      else
+    this.pfBot=this.pfBot- mossa.danno
+    }
+    if(this.pfBot<=0){
+      alert("hai vinto")
+      setTimeout(() => {
+        this.router.navigate(['/showdown']);
+      }, 1000);
+    }
+    else
+    this.botMossa()
+  }
+  botMossa(){
+    const mossa = this.botMosse[Math.floor(Math.random()*this.botMosse.length)]
+    console.log(mossa.id)
+    if(mossa){
+      if(mossa.id===21){
+        this.pfBot = this.pfBot - mossa.danno
+        if(this.pfBot>this.botClasse.pf){
+          this.pfBot=this.botClasse.pf
+        }
+      }
+      else
+    this.pfPg=this.pfPg- mossa.danno
+    }
+    //placeholder
+    if(this.pfPg<=0){
+      alert("hai perso")
+      setTimeout(() => {
+        this.router.navigate(['/showdown']);
+      }, 1000);
+
     }
   }
 }
