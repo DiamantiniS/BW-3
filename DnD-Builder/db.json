@@ -18,9 +18,10 @@
   "pg": [
     {
       "id": 1,
-      "userId": 1,
+      "userId": 0,
       "name": "Tharion",
       "img": "assets/img-pg/Guerriero.jpg",
+      "imgpng":"assets/img-pg/Guerriero-png.png",
       "classeId": 1,
       "forza": 17,
       "dext": 17,
@@ -29,9 +30,10 @@
     },
     {
       "id": 2,
-      "userId": 1,
+      "userId": 0,
       "name": "Eldrin",
       "img": "assets/img-pg/Abjurer.jpg.5b3d8863e4224b1a9e62195a99f576ea.jpg",
+      "imgpng":"assets/img-pg/abjurer-png.png",
       "classeId": 3,
       "forza": 8,
       "dext": 14,
@@ -40,9 +42,10 @@
     },
     {
       "id": 3,
-      "userId": 1,
+      "userId": 0,
       "name": "Morrigan",
       "img": "assets/img-pg/chierico.jpg",
+      "imgpng":"assets/img-pg/chierico-png.png",
       "classeId": 2,
       "forza": 12,
       "dext": 18,
@@ -51,9 +54,10 @@
     },
     {
       "id": 4,
-      "userId": 1,
+      "userId": 0,
       "name": "Bjorn",
       "img": "assets/img-pg/rogue.jpg",
+      "imgpng":"assets/img-pg/rogue-png.png",
       "classeId": 1,
       "forza": 18,
       "dext": 14,
@@ -62,9 +66,10 @@
     },
     {
       "id": 5,
-      "userId": 1,
+      "userId": 0,
       "name": "Arannis",
       "img": "assets/img-pg/paladina.jpg",
+      "imgpng":"assets/img-pg/paladina-png.png",
       "classeId": 4,
       "forza": 10,
       "dext": 12,
@@ -73,9 +78,10 @@
     },
     {
       "id": 6,
-      "userId": 1,
+      "userId": 0,
       "name": "Liora",
       "img": "assets/img-pg/druida.webp",
+      "imgpng":"assets/img-pg/druida-png.png",
       "classeId": 6,
       "forza": 9,
       "dext": 13,
@@ -84,9 +90,10 @@
     },
     {
       "id": 7,
-      "userId": 1,
+      "userId": 0,
       "name": "Fenric",
       "img": "assets/img-pg/female rogue.jpg",
+      "imgpng":"assets/img-pg/female rogue-png.png",
       "classeId": 2,
       "forza": 13,
       "dext": 17,
@@ -95,9 +102,10 @@
     },
     {
       "id": 8,
-      "userId": 1,
+      "userId": 0,
       "name": "Calista",
       "img": "assets/img-pg/female-Paladin.webp",
+      "imgpng":"assets/img-pg/female-Paladin-png.png",
       "classeId": 5,
       "forza": 16,
       "dext": 10,
@@ -106,9 +114,10 @@
     },
     {
       "id": 9,
-      "userId": 1,
+      "userId": 0,
       "name": "Tiberius",
       "img": "assets/img-pg/warrior.jpg",
+      "imgpng":"assets/img-pg/warrior-png.png",
       "classeId": 1,
       "forza": 15,
       "dext": 14,
@@ -117,9 +126,10 @@
     },
     {
       "id": 10,
-      "userId": 1,
+      "userId": 0,
       "name": "Nym",
       "img": "assets/img-pg/druid.webp",
+      "imgpng":"assets/img-pg/druid-png.png",
       "classeId": 6,
       "forza": 11,
       "dext": 13,
@@ -129,6 +139,7 @@
     {
       "name": "Paulo",
       "img": "assets/img-pg/fighter2.webp",
+      "imgpng":"assets/img-pg/fighter2-png.png",
       "classeId": 1,
       "forza": 0,
       "dext": 0,
@@ -136,16 +147,64 @@
       "cos": 0,
       "id": 12,
       "userId": 1
+    },
+    {
+      "userId": 4,
+      "name": "Guts",
+      "img": "https://img3.wikia.nocookie.net/__cb20120517182924/berserk/images/8/8c/Berserker_Armour_Version_2.png",
+      "imgpng":"https://img3.wikia.nocookie.net/__cb20120517182924/berserk/images/8/8c/Berserker_Armour_Version_2.png",
+      "classeId": 1,
+      "forza": 18,
+      "dext": 15,
+      "int": 16,
+      "cos": 18,
+      "id": 13
+    },
+    {
+      "userId": 4,
+      "name": "Griffith",
+      "img": "https://i.pinimg.com/originals/f8/57/9e/f8579ece9e163e07e1a90530473f1693.jpg",
+      "imgpng":"assets/img-pg/fighter2-png.png",
+      "classeId": 5,
+      "forza": 14,
+      "dext": 18,
+      "int": 18,
+      "cos": 14,
+      "id": 14
+    },
+    {
+      "userId": 4,
+      "name": "io",
+      "img": "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
+      "imgpng":"https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
+      "classeId": 1,
+      "forza": 0,
+      "dext": 0,
+      "int": 0,
+      "cos": 0,
+      "id": 15
+    },
+    {
+      "userId": 4,
+      "name": "italia",
+      "img": "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
+      "imgpng":"https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
+      "classeId": 1,
+      "forza": 0,
+      "dext": 0,
+      "int": 0,
+      "cos": 0,
+      "id": 16
     }
   ],
   "favoriti": [
     {
-      "idPersonaggio": 1,
+      "idPersonaggio": 12,
       "idUser": 4,
       "id": 1
     },
     {
-      "idPersonaggio": 13,
+      "idPersonaggio": 4,
       "idUser": 4,
       "id": 2
     }
@@ -320,12 +379,6 @@
       "nome": "Mazzafrusto",
       "danno": 4,
       "descrizione": "Un'arma da mischia con una testa chiodata flessibile."
-    },
-    {
-      "id": 21,
-      "nome": "Cura",
-      "danno": 6,
-      "descrizione": "Ti cura"
     }
   ]
 }

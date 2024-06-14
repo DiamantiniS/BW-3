@@ -5,6 +5,7 @@ export interface iPg {
   userId: number;
   name: string;
   img: string;
+  imgpng?: string;
   classeId: number;
   classe?: iClasse;
   forza: number;
