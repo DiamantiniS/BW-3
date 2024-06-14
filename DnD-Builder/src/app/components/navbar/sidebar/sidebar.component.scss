@@ -11,3 +11,31 @@
   flex-direction: column;
   gap: 1rem;
 }
+
+.nav-item:hover{
+  background-color: #ff00009c;
+  color: #fff;
+}
+
+
+.dropdown-menu {
+  background-color: #000 !important;
+  border: 1px solid white !important;
+  z-index: 1060;
+}
+
+.dropdown-item {
+  color: #fff !important;
+}
+
+.dropdown-divider {
+  height: 1px;
+  margin: 0.5rem 0;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.dropdown-item:hover {
+  background-color: #ff00009c;
+  color: #fff;
+}

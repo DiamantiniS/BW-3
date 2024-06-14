@@ -5,6 +5,7 @@ export interface iClasse {
   name: string;
   cA: number;
   pf: number;
+  focus : string;
   mosseId: number[];
   mosse?: iMossa[];
 }

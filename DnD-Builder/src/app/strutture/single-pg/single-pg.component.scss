@@ -6,15 +6,13 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
   transition: transform 0.3s, box-shadow 0.3s;
   height: 100%;
+  position: relative; /* Manteniamo la posizione relativa per il corretto posizionamento assoluto degli elementi figlio */
+  overflow: hidden; /* Per evitare che elementi posizionati assolutamente sforino */
 }
 
 .dnd-card:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
-}
-
-.dnd-card:hover::before {
-  opacity: 0.25;
 }
 
 .dnd-card .card-title {
@@ -28,20 +26,86 @@
   z-index: 2;
 }
 
-.dnd-card img {
-  border-bottom: 2px solid #800000;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  transition: transform 0.3s;
+/* Effetto immagine */
+.wrapper {
+  transition: all 0.5s;
+  position: relative;
   width: 100%;
   height: 300px;
-  object-fit: cover;
+  overflow: hidden;
 }
 
-.dnd-card img:hover {
-  transform: scale(1.1);
-  filter: brightness(1.1);
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s, filter 0.5s;
 }
+
+.dnd-card:hover .wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  opacity: 0;
+  width: 100%;
+  height: 80px;
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+}
+
+.wrapper::before {
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+
+.wrapper::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+
+.dnd-card:hover .wrapper::before,
+.wrapper::after {
+  opacity: 1;
+}
+
+.dnd-card:hover .wrapper::after {
+  height: 120px;
+}
+
+
+.character {
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  top: 60%;
+  left: -0.7em;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.dnd-card:hover .character {
+  opacity: 1;
+  transform: translate3d(0%, -100%, 100px);
+}
+
 
 .dnd-button {
   background-color: #800000;
@@ -52,7 +116,7 @@
   margin-top: 10px;
   position: relative;
   z-index: 2;
-  font-size: 0.9rem; /* Ridotto il font-size */
+  font-size: 0.9rem;
 }
 
 .dnd-button:hover {
@@ -65,7 +129,7 @@
   background: transparent;
   border: none;
   color: #fff;
-  font-size: 1.2rem; /* Ridotto il font-size */
+  font-size: 1.2rem;
   cursor: pointer;
   transition: transform 0.3s, color 0.3s;
   position: relative;
