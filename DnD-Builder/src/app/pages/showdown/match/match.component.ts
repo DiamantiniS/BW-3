@@ -24,6 +24,10 @@ export class MatchComponent implements OnInit {
   pfPg!: number;
   pfBot!: number;
   utente!: iUser | undefined;
+  firstRound: boolean = true;
+  pgInitiative: number = Math.floor(Math.random() * (20 - 1) + 1);
+  botInitiative: number = Math.floor(Math.random() * (20 - 1) + 1);
+
   playerLog: string[] = ['qui avrai il tuo log battaglia!'];
   constructor(
     private pgSvc: PgService,
@@ -46,7 +50,9 @@ export class MatchComponent implements OnInit {
           this.pg = pg;
           this.pgSvc.getClassbyId(pg.classeId).subscribe((classe) => {
             this.classe = classe;
-            this.pfPg = this.classe.pf;
+            let modCos = Math.floor(this.pg.cos - 10) / 2;
+            this.pfPg = this.classe.pf + modCos;
+            this.iniziativa(true);
             this.pgSvc.getMosseByIds(classe.mosseId).subscribe((mosse) => {
               this.mosse = mosse;
               this.pgSvc.getMosseById(21).subscribe((mosse) => {
@@ -58,14 +64,39 @@ export class MatchComponent implements OnInit {
       }
     });
   }
+
+  iniziativa(target: boolean) {
+    if (target) {
+      let dado = this.pgInitiative;
+      let dexMod = Math.floor((this.pg.dext - 10) / 2);
+      this.pgInitiative = this.pgInitiative + dexMod;
+      this.playerLog.push(
+        `Hai fatto un totale di ${this.pgInitiative} per la tua iniziativa(${dado} + ${dexMod} : d20 + Dext)`
+      );
+    } else {
+      let dado = this.botInitiative;
+      let dexMod = Math.floor((this.botPg.dext - 10) / 2);
+      this.botInitiative = this.botInitiative + dexMod;
+      this.playerLog.push(
+        `${this.botPg.name} fa totale di ${this.botInitiative} per la sua iniziativa (${dado} + ${dexMod} : d20 + Dext)`
+      );
+    }
+  }
   getRandomPg() {
-    const randomIdPg = Math.floor(Math.random() * this.pgArr.length + 1);
+    const arrPgId: number[] = [];
+    this.pgArr.forEach((pg) => {
+      arrPgId.push(pg.id);
+    });
+    const randArr = Math.floor(Math.random() * arrPgId.length);
+    const randomIdPg = arrPgId[randArr];
     if (randomIdPg) {
       this.pgSvc.getById(randomIdPg).subscribe((pg) => {
         this.botPg = pg;
         this.pgSvc.getClassbyId(pg.classeId).subscribe((classe) => {
           this.botClasse = classe;
-          this.pfBot = this.botClasse.pf;
+          let modCos = Math.floor(this.botPg.cos - 10) / 2;
+          this.pfBot = this.classe.pf + modCos;
+          this.iniziativa(false);
           this.pgSvc.getMosseByIds(classe.mosseId).subscribe((mosse) => {
             this.botMosse = mosse;
             this.pgSvc.getMosseById(21).subscribe((mosse) => {
@@ -76,8 +107,74 @@ export class MatchComponent implements OnInit {
       });
     }
   }
-
+  primoRound(){
+    if (this.pgInitiative > this.botInitiative){
+      this.playerLog.push(
+        `La tua prontezza nei confronti di ${this.botPg.name} è strabiliante, perciò attacchi sempre per primo`
+      );
+    }else if (this.pgInitiative < this.botInitiative) {
+      this.playerLog.push(
+        `${this.botPg.name} sembra molto piu determinato di te, di conseguenza attacchi sempre per ultimo`
+      );
+    }
+    if(this.pgInitiative === this.botInitiative){
+      if (this.pg.dext === this.botPg.dext){
+        this.pgInitiative = this.pgInitiative +1
+        this.playerLog.push(
+          `inizi tu per aver colto di sorpresa il tuo nemico`
+        );
+      }else if (this.pg.dext>this.botPg.dext){
+        this.pgInitiative = this.pgInitiative +1
+        this.playerLog.push(
+          `Sei più preparato di ${this.botPg.name} percio attacchi sempre per primo`
+        );
+      } else{
+        this.botInitiative = this.botInitiative +1
+        this.playerLog.push(
+          `non sei preparato come ${this.botPg.name} di conseguenza attacchi sempre per ultimo`
+        );
+      }
+    }
+    this.firstRound = false
+  }
   startRound(idmossa: number): void {
+    if (this.firstRound) this.primoRound()
+    if (this.pgInitiative > this.botInitiative) {
+      this.miaMossa(idmossa);
+      if (this.pfBot <= 0) {
+        alert('hai vinto');
+        setTimeout(() => {
+          this.router.navigate(['/showdown']);
+        }, 5000);
+      } else {
+        this.botMossa();
+        if (this.pfPg <= 0) {
+          alert('hai perso');
+          setTimeout(() => {
+            this.router.navigate(['/showdown']);
+          }, 5000);
+        }
+      }
+    } else {
+      this.botMossa();
+      if (this.pfPg <= 0) {
+        alert('hai perso');
+        setTimeout(() => {
+          this.router.navigate(['/showdown']);
+        }, 5000);
+      } else {
+        this.miaMossa(idmossa);
+        if (this.pfBot <= 0) {
+          alert('hai vinto');
+          setTimeout(() => {
+            this.router.navigate(['/showdown']);
+          }, 5000);
+        }
+      }
+    }
+  }
+
+  miaMossa(idmossa: number) {
     const mossa = this.mosse.find((mossa) => idmossa === mossa.id);
     if (mossa) {
       if (mossa.id === 21) {
@@ -86,12 +183,6 @@ export class MatchComponent implements OnInit {
         this.damageCalc(mossa, true);
       }
     }
-    if (this.pfBot <= 0) {
-      alert('hai vinto');
-      setTimeout(() => {
-        this.router.navigate(['/showdown']);
-      }, 5000);
-    } else this.botMossa();
   }
   botMossa() {
     const mossa =
@@ -103,13 +194,6 @@ export class MatchComponent implements OnInit {
       } else {
         this.damageCalc(mossa, false);
       }
-    }
-
-    if (this.pfPg <= 0) {
-      alert('hai perso');
-      setTimeout(() => {
-        this.router.navigate(['/showdown']);
-      }, 5000);
     }
   }
 
@@ -155,7 +239,7 @@ export class MatchComponent implements OnInit {
     foc = this.classe.focus;
     switch (this.classe.focus) {
       case 'forza': {
-        calcolo = Math.floor((this.pg.dext - 10) / 2);
+        calcolo = Math.floor((this.pg.forza - 10) / 2);
         break;
       }
       case 'dext': {
@@ -163,7 +247,7 @@ export class MatchComponent implements OnInit {
         break;
       }
       case 'int': {
-        calcolo = Math.floor((this.pg.dext - 10) / 2);
+        calcolo = Math.floor((this.pg.int - 10) / 2);
         break;
       }
     }
