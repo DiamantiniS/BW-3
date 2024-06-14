@@ -1,9 +1,9 @@
 {
   "users": [
     {
-      "username": "morgan",
       "email": "morgan@test.com",
-      "password": "$2a$10$lQPLYwpnBXKNJoFbXhhiLeamQnuQnLmVIAMjNDXf0x2a7tvUlsiu6",
+      "password": "$2a$10$zlmYi2t2JdR2N5AAxoQ84.LNkkUP9LEymw0thGiBU9/R/y5B1LakK",
+      "username": "morgan",
       "id": 4,
       "pic": "Immagine-icona4.png"
     },
@@ -12,14 +12,7 @@
       "password": "$2a$10$zlmYi2t2JdR2N5AAxoQ84.LNkkUP9LEymw0thGiBU9/R/y5B1LakK",
       "username": "admin",
       "id": 1,
-      "pic": ""
-    },
-    {
-      "email": "user@test.com",
-      "password": "$2a$10$I4cSsgGMbXBXz8I6CM.4HuvSgzBiTe2xIrp9jhKagn5jYD5KZLfZG",
-      "username": "user",
-      "proPic": "https://3.bp.blogspot.com/-lgVk1vz_MCQ/TVW1-OhDtUI/AAAAAAAAA5o/UmmAq2jrnlY/s1600/album.png",
-      "id": 5
+      "pic": "Immagine-icona4.png"
     }
   ],
   "pg": [
@@ -165,6 +158,28 @@
       "int": 18,
       "cos": 14,
       "id": 14
+    },
+    {
+      "userId": 4,
+      "name": "io",
+      "img": "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
+      "classeId": 1,
+      "forza": 0,
+      "dext": 0,
+      "int": 0,
+      "cos": 0,
+      "id": 15
+    },
+    {
+      "userId": 4,
+      "name": "italia",
+      "img": "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
+      "classeId": 1,
+      "forza": 0,
+      "dext": 0,
+      "int": 0,
+      "cos": 0,
+      "id": 16
     }
   ],
   "favoriti": [
@@ -177,26 +192,6 @@
       "idPersonaggio": 13,
       "idUser": 4,
       "id": 2
-    },
-    {
-      "idPersonaggio": 6,
-      "idUser": 5,
-      "id": 3
-    },
-    {
-      "idPersonaggio": 7,
-      "idUser": 5,
-      "id": 4
-    },
-    {
-      "idPersonaggio": 13,
-      "idUser": 5,
-      "id": 5
-    },
-    {
-      "idPersonaggio": 14,
-      "idUser": 5,
-      "id": 6
     }
   ],
   "classe": [
