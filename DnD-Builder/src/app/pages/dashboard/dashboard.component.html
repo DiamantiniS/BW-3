@@ -2,8 +2,15 @@
   <div class="container-fluid px-0 py-2 border-bottom mb-3 transparent-bg">
 
     <div class="d-flex flex-wrap justify-content-between px-3">
-      <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto">
-        <input type="search" class="form-control" placeholder="Search PG" aria-label="Search">
+      <form class="col-12 col-sm-auto mb-2 mb-lg-0 me-lg-auto">
+        <input
+          type="search"
+          class="form-control"
+          [(ngModel)]="searchTerm"
+          name="searchTerm"
+          placeholder="Search PG"
+          aria-label="Search"
+        />
       </form>
 
       <div class="text-end ">
