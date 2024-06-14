@@ -6,12 +6,19 @@
       "username": "morgan",
       "id": 4,
       "pic": "Immagine-icona4.png"
+    },
+    {
+      "email": "admin@admin",
+      "password": "$2a$10$zlmYi2t2JdR2N5AAxoQ84.LNkkUP9LEymw0thGiBU9/R/y5B1LakK",
+      "username": "admin",
+      "id": 1,
+      "pic": ""
     }
   ],
   "pg": [
     {
       "id": 1,
-      "userId": 0,
+      "userId": 1,
       "name": "Tharion",
       "img": "assets/img-pg/Guerriero.jpg",
       "classeId": 1,
@@ -22,7 +29,7 @@
     },
     {
       "id": 2,
-      "userId": 0,
+      "userId": 1,
       "name": "Eldrin",
       "img": "assets/img-pg/Abjurer.jpg.5b3d8863e4224b1a9e62195a99f576ea.jpg",
       "classeId": 3,
@@ -33,7 +40,7 @@
     },
     {
       "id": 3,
-      "userId": 0,
+      "userId": 1,
       "name": "Morrigan",
       "img": "assets/img-pg/chierico.jpg",
       "classeId": 2,
@@ -44,7 +51,7 @@
     },
     {
       "id": 4,
-      "userId": 0,
+      "userId": 1,
       "name": "Bjorn",
       "img": "assets/img-pg/rogue.jpg",
       "classeId": 1,
@@ -55,7 +62,7 @@
     },
     {
       "id": 5,
-      "userId": 0,
+      "userId": 1,
       "name": "Arannis",
       "img": "assets/img-pg/paladina.jpg",
       "classeId": 4,
@@ -66,7 +73,7 @@
     },
     {
       "id": 6,
-      "userId": 0,
+      "userId": 1,
       "name": "Liora",
       "img": "assets/img-pg/druida.webp",
       "classeId": 6,
@@ -77,7 +84,7 @@
     },
     {
       "id": 7,
-      "userId": 0,
+      "userId": 1,
       "name": "Fenric",
       "img": "assets/img-pg/female rogue.jpg",
       "classeId": 2,
@@ -88,7 +95,7 @@
     },
     {
       "id": 8,
-      "userId": 0,
+      "userId": 1,
       "name": "Calista",
       "img": "assets/img-pg/female-Paladin.webp",
       "classeId": 5,
@@ -99,7 +106,7 @@
     },
     {
       "id": 9,
-      "userId": 0,
+      "userId": 1,
       "name": "Tiberius",
       "img": "assets/img-pg/warrior.jpg",
       "classeId": 1,
@@ -110,7 +117,7 @@
     },
     {
       "id": 10,
-      "userId": 0,
+      "userId": 1,
       "name": "Nym",
       "img": "assets/img-pg/druid.webp",
       "classeId": 6,
@@ -128,7 +135,7 @@
       "int": 0,
       "cos": 0,
       "id": 12,
-      "userId": 0
+      "userId": 1
     },
     {
       "userId": 4,
@@ -171,66 +178,42 @@
       "name": "Guerriero",
       "cA": 18,
       "pf": 18,
-      "mosseId": [
-        1,
-        2,
-        3
-      ]
+      "mosseId": [1, 2, 3]
     },
     {
       "id": 2,
       "name": "Ladro",
       "cA": 16,
       "pf": 15,
-      "mosseId": [
-        4,
-        5,
-        6
-      ]
+      "mosseId": [4, 5, 6]
     },
     {
       "id": 3,
       "name": "Mago",
       "cA": 12,
       "pf": 10,
-      "mosseId": [
-        7,
-        8,
-        9
-      ]
+      "mosseId": [7, 8, 9]
     },
     {
       "id": 4,
       "name": "Chierico",
       "cA": 16,
       "pf": 16,
-      "mosseId": [
-        10,
-        11,
-        12
-      ]
+      "mosseId": [10, 11, 12]
     },
     {
       "id": 5,
       "name": "Paladino",
       "cA": 18,
       "pf": 20,
-      "mosseId": [
-        13,
-        14,
-        15
-      ]
+      "mosseId": [13, 14, 15]
     },
     {
       "id": 6,
       "name": "Druido",
       "cA": 14,
       "pf": 14,
-      "mosseId": [
-        16,
-        17,
-        18
-      ]
+      "mosseId": [16, 17, 18]
     }
   ],
   "mosse": [
