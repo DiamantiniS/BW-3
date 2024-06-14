@@ -1,8 +1,8 @@
-<div class="container-fluid bg-dnd py-5 inferno-bg">
+<div class="container-fluid bg-dnd py-3 inferno-bg">
   <div class="row justify-content-center align-items-center">
     <div class="col-md-6">
-      <div class="card shadow-lg p-5 inferno-card">
-        <h2 class="text-center mb-4 text-dnd">Iscriviti alla tua avventura</h2>
+      <div class="card shadow-lg p-1 inferno-card">
+        <h2 class="text-center mb-3 text-dnd">Iscriviti alla tua avventura</h2>
         <form [formGroup]="registerForm" (ngSubmit)="signUp()">
           <div class="mb-3">
             <label for="inputName" class="form-label text-dnd">Username</label>
@@ -27,7 +27,7 @@
               </strong>
             </div>
           </div>
-          <div class="mb-3">
+          <div class="mb-1">
             <label for="inputEmail" class="form-label text-dnd">Email</label>
             <input
               type="email"
@@ -115,7 +115,7 @@
           >
             Registrati
           </button>
-          <p class="mt-4 mb-3 text-muted text-center">&copy; DAJE</p>
+          <p class="mt-1 mb-2 text-muted text-center">&copy; DAJE</p>
           <span class="ms-3 fs-5 text-white d-block text-center">
             Already have an account?
             <a routerLink="/auth/login" class="text-primary">Sign in</a>
