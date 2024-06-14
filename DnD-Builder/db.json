@@ -1,9 +1,9 @@
 {
   "users": [
     {
-      "username": "morgan",
       "email": "morgan@test.com",
-      "password": "$2a$10$lQPLYwpnBXKNJoFbXhhiLeamQnuQnLmVIAMjNDXf0x2a7tvUlsiu6",
+      "password": "$2a$10$zlmYi2t2JdR2N5AAxoQ84.LNkkUP9LEymw0thGiBU9/R/y5B1LakK",
+      "username": "morgan",
       "id": 4,
       "pic": "Immagine-icona4.png"
     },
@@ -13,20 +13,6 @@
       "username": "admin",
       "id": 1,
       "pic": ""
-    },
-    {
-      "email": "user@test.com",
-      "password": "$2a$10$I4cSsgGMbXBXz8I6CM.4HuvSgzBiTe2xIrp9jhKagn5jYD5KZLfZG",
-      "username": "user",
-      "proPic": "https://3.bp.blogspot.com/-lgVk1vz_MCQ/TVW1-OhDtUI/AAAAAAAAA5o/UmmAq2jrnlY/s1600/album.png",
-      "id": 5
-    },
-    {
-      "email": "user@example.com",
-      "password": "$2a$10$3y5fjHblxiS0uxk0elkeFeseYALnXLVXGTj1Ti4/PFu9og912f9wm",
-      "username": "User",
-      "proPic": "https://3.bp.blogspot.com/-lgVk1vz_MCQ/TVW1-OhDtUI/AAAAAAAAA5o/UmmAq2jrnlY/s1600/album.png",
-      "id": 6
     }
   ],
   "pg": [
@@ -35,6 +21,7 @@
       "userId": 1,
       "name": "Tharion",
       "img": "assets/img-pg/Guerriero.jpg",
+      "imgpng": "assets/img-pg/Guerriero-png.png",
       "classeId": 1,
       "forza": 17,
       "dext": 17,
@@ -46,6 +33,7 @@
       "userId": 1,
       "name": "Eldrin",
       "img": "assets/img-pg/Abjurer.jpg.5b3d8863e4224b1a9e62195a99f576ea.jpg",
+      "imgpng": "assets/img-pg/abjurer-png.png",
       "classeId": 3,
       "forza": 8,
       "dext": 14,
@@ -57,6 +45,7 @@
       "userId": 1,
       "name": "Morrigan",
       "img": "assets/img-pg/chierico.jpg",
+      "imgpng": "assets/img-pg/chierico-png.png",
       "classeId": 2,
       "forza": 12,
       "dext": 18,
@@ -68,6 +57,7 @@
       "userId": 1,
       "name": "Bjorn",
       "img": "assets/img-pg/rogue.jpg",
+      "imgpng": "assets/img-pg/rogue-png.png",
       "classeId": 1,
       "forza": 18,
       "dext": 14,
@@ -79,6 +69,7 @@
       "userId": 1,
       "name": "Arannis",
       "img": "assets/img-pg/paladina.jpg",
+      "imgpng": "assets/img-pg/paladina-png.png",
       "classeId": 4,
       "forza": 10,
       "dext": 12,
@@ -90,6 +81,7 @@
       "userId": 1,
       "name": "Liora",
       "img": "assets/img-pg/druida.webp",
+      "imgpng": "assets/img-pg/druida-png.png",
       "classeId": 6,
       "forza": 9,
       "dext": 13,
@@ -101,6 +93,7 @@
       "userId": 1,
       "name": "Fenric",
       "img": "assets/img-pg/female rogue.jpg",
+      "imgpng": "assets/img-pg/female rogue-png.png",
       "classeId": 2,
       "forza": 13,
       "dext": 17,
@@ -112,6 +105,7 @@
       "userId": 1,
       "name": "Calista",
       "img": "assets/img-pg/female-Paladin.webp",
+      "imgpng": "assets/img-pg/female-Paladin-png.png",
       "classeId": 5,
       "forza": 16,
       "dext": 10,
@@ -123,6 +117,7 @@
       "userId": 1,
       "name": "Tiberius",
       "img": "assets/img-pg/warrior.jpg",
+      "imgpng": "assets/img-pg/warrior-png.png",
       "classeId": 1,
       "forza": 15,
       "dext": 14,
@@ -134,6 +129,7 @@
       "userId": 1,
       "name": "Nym",
       "img": "assets/img-pg/druid.webp",
+      "imgpng": "assets/img-pg/druid-png.png",
       "classeId": 6,
       "forza": 11,
       "dext": 13,
@@ -143,6 +139,7 @@
     {
       "name": "Paulo",
       "img": "assets/img-pg/fighter2.webp",
+      "imgpng": "assets/img-pg/fighter2-png.png",
       "classeId": 1,
       "forza": 0,
       "dext": 0,
@@ -150,60 +147,18 @@
       "cos": 0,
       "id": 12,
       "userId": 1
-    },
-    {
-      "userId": 4,
-      "name": "Guts",
-      "img": "https://img3.wikia.nocookie.net/__cb20120517182924/berserk/images/8/8c/Berserker_Armour_Version_2.png",
-      "classeId": 1,
-      "forza": 18,
-      "dext": 15,
-      "int": 16,
-      "cos": 18,
-      "id": 13
-    },
-    {
-      "userId": 4,
-      "name": "Griffith",
-      "img": "https://i.pinimg.com/originals/f8/57/9e/f8579ece9e163e07e1a90530473f1693.jpg",
-      "classeId": 5,
-      "forza": 14,
-      "dext": 18,
-      "int": 18,
-      "cos": 14,
-      "id": 14
     }
   ],
   "favoriti": [
     {
-      "idPersonaggio": 1,
+      "idPersonaggio": 12,
       "idUser": 4,
       "id": 1
     },
     {
-      "idPersonaggio": 13,
+      "idPersonaggio": 4,
       "idUser": 4,
       "id": 2
-    },
-    {
-      "idPersonaggio": 6,
-      "idUser": 5,
-      "id": 3
-    },
-    {
-      "idPersonaggio": 7,
-      "idUser": 5,
-      "id": 4
-    },
-    {
-      "idPersonaggio": 13,
-      "idUser": 5,
-      "id": 5
-    },
-    {
-      "idPersonaggio": 14,
-      "idUser": 5,
-      "id": 6
     }
   ],
   "classe": [
@@ -400,12 +355,6 @@
       "nome": "Mazzafrusto",
       "danno": 4,
       "descrizione": "Un'arma da mischia con una testa chiodata flessibile."
-    },
-    {
-      "id": 21,
-      "nome": "Cura",
-      "danno": 6,
-      "descrizione": "Ti cura"
     }
   ]
 }
