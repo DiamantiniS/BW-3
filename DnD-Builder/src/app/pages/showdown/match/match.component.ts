@@ -23,8 +23,11 @@ export class MatchComponent implements OnInit {
   pgArr: iPg[] = [];
   pfPg!: number;
   pfBot!: number;
+  pgTotpf!: number;
+  botTotpf!: number;
   utente!: iUser | undefined;
   firstRound: boolean = true;
+  roundActive: boolean = false;
   pgInitiative: number = Math.floor(Math.random() * (20 - 1) + 1);
   botInitiative: number = Math.floor(Math.random() * (20 - 1) + 1);
 
@@ -52,6 +55,7 @@ export class MatchComponent implements OnInit {
             this.classe = classe;
             let modCos = Math.floor(this.pg.cos - 10) / 2;
             this.pfPg = this.classe.pf + modCos;
+            this.pgTotpf = this.pfPg;
             this.iniziativa(true);
             this.pgSvc.getMosseByIds(classe.mosseId).subscribe((mosse) => {
               this.mosse = mosse;
@@ -63,6 +67,33 @@ export class MatchComponent implements OnInit {
         });
       }
     });
+  }
+
+  getRandomPg() {
+    const arrPgId: number[] = [];
+    this.pgArr.forEach((pg) => {
+      arrPgId.push(pg.id);
+    });
+    const randArr = Math.floor(Math.random() * arrPgId.length);
+    const randomIdPg = arrPgId[randArr];
+    if (randomIdPg) {
+      this.pgSvc.getById(randomIdPg).subscribe((pg) => {
+        this.botPg = pg;
+        this.pgSvc.getClassbyId(pg.classeId).subscribe((classe) => {
+          this.botClasse = classe;
+          let modCos = Math.floor((this.botPg.cos - 10) / 2);
+          this.pfBot = this.classe.pf + modCos;
+          this.botTotpf = this.pfBot;
+          this.iniziativa(false);
+          this.pgSvc.getMosseByIds(classe.mosseId).subscribe((mosse) => {
+            this.botMosse = mosse;
+            this.pgSvc.getMosseById(21).subscribe((mosse) => {
+              this.botMosse.push(mosse);
+            });
+          });
+        });
+      });
+    }
   }
 
   iniziativa(target: boolean) {
@@ -82,70 +113,56 @@ export class MatchComponent implements OnInit {
       );
     }
   }
-  getRandomPg() {
-    const arrPgId: number[] = [];
-    this.pgArr.forEach((pg) => {
-      arrPgId.push(pg.id);
-    });
-    const randArr = Math.floor(Math.random() * arrPgId.length);
-    const randomIdPg = arrPgId[randArr];
-    if (randomIdPg) {
-      this.pgSvc.getById(randomIdPg).subscribe((pg) => {
-        this.botPg = pg;
-        this.pgSvc.getClassbyId(pg.classeId).subscribe((classe) => {
-          this.botClasse = classe;
-          let modCos = Math.floor(this.botPg.cos - 10) / 2;
-          this.pfBot = this.classe.pf + modCos;
-          this.iniziativa(false);
-          this.pgSvc.getMosseByIds(classe.mosseId).subscribe((mosse) => {
-            this.botMosse = mosse;
-            this.pgSvc.getMosseById(21).subscribe((mosse) => {
-              this.botMosse.push(mosse);
-            });
-          });
-        });
-      });
-    }
-  }
-  primoRound(){
-    if (this.pgInitiative > this.botInitiative){
+  primoRound() {
+    if (this.pgInitiative > this.botInitiative) {
       this.playerLog.push(
         `La tua prontezza nei confronti di ${this.botPg.name} è strabiliante, perciò attacchi sempre per primo`
       );
-    }else if (this.pgInitiative < this.botInitiative) {
+    } else if (this.pgInitiative < this.botInitiative) {
       this.playerLog.push(
         `${this.botPg.name} sembra molto piu determinato di te, di conseguenza attacchi sempre per ultimo`
       );
     }
-    if(this.pgInitiative === this.botInitiative){
-      if (this.pg.dext === this.botPg.dext){
-        this.pgInitiative = this.pgInitiative +1
+    if (this.pgInitiative === this.botInitiative) {
+      if (this.pg.dext === this.botPg.dext) {
+        this.pgInitiative = this.pgInitiative + 1;
         this.playerLog.push(
           `inizi tu per aver colto di sorpresa il tuo nemico`
         );
-      }else if (this.pg.dext>this.botPg.dext){
-        this.pgInitiative = this.pgInitiative +1
+      } else if (this.pg.dext > this.botPg.dext) {
+        this.pgInitiative = this.pgInitiative + 1;
         this.playerLog.push(
           `Sei più preparato di ${this.botPg.name} percio attacchi sempre per primo`
         );
-      } else{
-        this.botInitiative = this.botInitiative +1
+      } else {
+        this.botInitiative = this.botInitiative + 1;
         this.playerLog.push(
           `non sei preparato come ${this.botPg.name} di conseguenza attacchi sempre per ultimo`
         );
       }
     }
-    this.firstRound = false
+    this.firstRound = false;
   }
   startRound(idmossa: number): void {
-    if (this.firstRound) this.primoRound()
-    if (this.pgInitiative > this.botInitiative) {
-      this.miaMossa(idmossa);
-      if (this.pfBot <= 0) {
-        this.playerLog.push('hai vinto');
-        setTimeout(() => {
-          this.router.navigate(['/showdown']);
-        }, 5000);
+    this.roundActive = true;
+    setTimeout(() => {
+      if (this.firstRound) this.primoRound();
+      if (this.pgInitiative > this.botInitiative) {
+        this.miaMossa(idmossa);
+        if (this.pfBot <= 0) {
+          this.playerLog.push('hai vinto');
+          setTimeout(() => {
+            this.router.navigate(['/showdown']);
+          }, 5000);
+        } else {
+          this.botMossa();
+          if (this.pfPg <= 0) {
+            this.playerLog.push('hai perso');
+            setTimeout(() => {
+              this.router.navigate(['/showdown']);
+            }, 5000);
+          }
+        }
       } else {
         this.botMossa();
         if (this.pfPg <= 0) {
@@ -153,25 +170,18 @@ export class MatchComponent implements OnInit {
           setTimeout(() => {
             this.router.navigate(['/showdown']);
           }, 5000);
+        } else {
+          this.miaMossa(idmossa);
+          if (this.pfBot <= 0) {
+            this.playerLog.push('hai vinto');
+            setTimeout(() => {
+              this.router.navigate(['/showdown']);
+            }, 5000);
+          }
         }
       }
-    } else {
-      this.botMossa();
-      if (this.pfPg <= 0) {
-        this.playerLog.push('hai perso');
-        setTimeout(() => {
-          this.router.navigate(['/showdown']);
-        }, 5000);
-      } else {
-        this.miaMossa(idmossa);
-        if (this.pfBot <= 0) {
-          this.playerLog.push('hai vinto');
-          setTimeout(() => {
-            this.router.navigate(['/showdown']);
-          }, 5000);
-        }
-      }
-    }
+    this.roundActive = false;
+    }, 2000);
   }
 
   miaMossa(idmossa: number) {
@@ -199,8 +209,6 @@ export class MatchComponent implements OnInit {
 
   mossaCura(m: iMossa, target: boolean) {
     if (target) {
-
-
       let cura = Math.floor(Math.random() * (m.danno - 1) + 1);
       let calcolo = Math.floor(this.pg.cos - 10) / 2;
       let valorecura = cura + calcolo;
@@ -214,16 +222,14 @@ export class MatchComponent implements OnInit {
         `Hai usato ${m.nome} e ti sei curato di ${valorecura}PF(${cura} + ${calcolo} : d${m.danno} + Cos)`
       );
     } else {
-
-
       let cura = Math.floor(Math.random() * (m.danno - 1) + 1);
       let calcolo = Math.floor(this.botPg.cos - 10) / 2;
       let valorecura = cura + calcolo;
       this.pfBot = this.pfBot + valorecura;
-      console.log(valorecura, this.pfBot, this.botClasse.pf, "primaif" );
-      if (this.pfBot >= this.botClasse.pf) {
+      console.log(valorecura, this.pfBot, this.botClasse.pf, 'primaif');
+      if (this.pfBot >= this.botTotpf) {
         valorecura = valorecura - (this.pfBot - this.botClasse.pf);
-        console.log(valorecura, this.pfBot, this.botClasse.pf, "dopoif" );
+        console.log(valorecura, this.pfBot, this.botClasse.pf, 'dopoif');
 
         this.pfBot = this.botClasse.pf;
       }
