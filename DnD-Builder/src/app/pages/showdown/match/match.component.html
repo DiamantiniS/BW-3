@@ -1,27 +1,58 @@
-<div class="game-container">
-  <div class="health-bar-container">
-    <div class="health-bar">
-      <div *ngIf="pfPg && classe.pf" class="health-bar-active" [style.width.%]="(pfPg / classe.pf) * 100"></div>
+<div class="container theme">
+  <div class="row ">
+    <div class="col-6 col-md-5 bg dark ">
+      <div class="d-flex justify-content-around flex-wrap">
+        <div class="bot-name" *ngIf="pg">
+          <p>{{ pg.name }} ({{ utente?.username }})</p>
+        </div>
+        <div *ngIf="pg"><img [src]="pg.img" class="battle-img" /></div>
+      </div>
+      <p *ngIf="pfPg">{{ pfPg }} punti ferita</p>
+      <div class="health-bar-container">
+        <div class="health-bar">
+          <div
+            *ngIf="pfPg && classe.pf"
+            class="health-bar-active"
+            [style.width.%]="(pfPg / classe.pf) * 100"
+          ></div>
+        </div>
+      </div>
+      <div class="battlefield-section" *ngIf="mosse && mosse.length > 0">
+        <button
+          class="btn btn-dark"
+          *ngFor="let m of mosse"
+          (click)="startRound(m.id)"
+
+        >
+          <p *ngIf="m">{{ m.nome }}</p>
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="bot-name" *ngIf="pg">{{ pg.name }} ({{ utente?.username }})</div>
-  <p *ngIf="pfPg" class="health-points">{{ pfPg }}</p>
-  <div class="battlefield-section" *ngIf="mosse && mosse.length > 0">
-    <button class="action-button" *ngFor="let m of mosse" (click)="startRound(m.id)">
-      <p *ngIf="m">{{ m.nome }}</p>
-    </button>
-  </div>
-  <div class="character-name" *ngIf="botPg">{{ botPg.name }}</div>
-  <p *ngIf="pfBot && botClasse" class="health-points">{{ pfBot }} / {{ botClasse.pf }}</p>
-  <div class="health-bar-container">
-    <div class="health-bar">
-      <div *ngIf="pfBot && botClasse.pf" class="health-bar-active" [style.width.%]="(pfBot / botClasse.pf) * 100"></div>
+    <div class="col-6 col-md-5">
+      <div class="d-flex justify-content-around flex-wrap">
+        <div class="bot-name" *ngIf="pg">
+          <p *ngIf="botPg">{{ botPg.name }}</p>
+        </div>
+        <div *ngIf="botPg"><img [src]="botPg.img" class="battle-img" /></div>
+      </div>
+      <p *ngIf="pfBot && botClasse">{{ pfBot }} / {{ botClasse.pf }}</p>
+      <div class="health-bar-container">
+        <div class="health-bar">
+          <div
+            *ngIf="pfBot && botClasse.pf"
+            class="health-bar-active"
+            [style.width.%]="(pfBot / botClasse.pf) * 100"
+          ></div>
+        </div>
+      </div>
+      <div class="battlefield-section" *ngIf="mosse && botMosse.length > 0">
+        <button class="btn btn-dark" *ngFor="let m of botMosse">
+          {{ m.nome }}
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="battlefield-section" *ngIf="mosse && botMosse.length > 0">
-    <button class="action-button" *ngFor="let m of botMosse">{{ m.nome }}</button>
-  </div>
-  <div class="log-section" *ngIf="playerLog">
-    <p *ngFor="let p of playerLog">{{ p }}</p>
+    <div class="col-12 col-md-2" *ngIf="playerLog">
+      <p *ngFor="let p of playerLog">{{ p }}</p>
+    </div>
   </div>
 </div>

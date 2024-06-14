@@ -1,12 +1,37 @@
-.game-container {
+
+.theme {
+  background-image: url("../../../../assets/Tiamat.webp");
+  background-size: cover;
+  background-position: center;
+  color: black;
+  font-size: bold;
+  font-family: "MedievalSharp", cursive;
+
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.col-6 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1a1a2e;
-  color: #fff;
-  padding: 2em;
-  border-radius: 1em;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.bot-name {
+  font-family: "MedievalSharp", cursive;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
 }
 
 .health-bar-container {
@@ -33,16 +58,6 @@
   transition: width 0.5s ease-in-out;
 }
 
-.bot-name,
-.character-name {
-  font-size: 1.5em;
-  margin: 0.5em 0;
-}
-
-.health-points {
-  font-size: 1.2em;
-}
-
 .battlefield-section {
   display: flex;
   flex-wrap: wrap;
@@ -50,7 +65,7 @@
   margin: 1em 0;
 }
 
-.action-button {
+.btn-dark {
   background-color: #16213e;
   color: #fff;
   border: none;
@@ -61,7 +76,7 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-.action-button:hover {
+.btn-dark:hover {
   background-color: #0f3460;
 }
 
@@ -75,6 +90,41 @@
   border-radius: 0.5em;
 }
 
+.game-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #800000;
+  color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+  padding: 2em;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.health-points {
+  font-size: 1.2em;
+  margin-top: 0.5em;
+}
+
 .battle-img {
-  height: 5em;
+  width: 100%; /* Occupa tutta la larghezza disponibile */
+  max-width: 100%; /* Imposta la larghezza massima al 100% */
+  height: auto; /* Altezza automatica per mantenere l'aspetto proporzionato */
+  border-radius: 0.5em;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .col-6 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
