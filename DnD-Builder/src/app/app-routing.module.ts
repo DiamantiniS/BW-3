@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/guard/auth.guard';
 import { GuestGuard } from './auth/guard/guest.guard';
-import { InfoComponent } from './pages/info/info.component';
 
 const routes: Routes = [
   {
@@ -46,7 +45,7 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     title: 'Profile',
   },
-  {
+  { // ROTTA INUTILIZZATA
     path: 'info',
     loadChildren: () =>
       import('./pages/info/info.module').then((m) => m.InfoModule),
@@ -65,16 +64,25 @@ const routes: Routes = [
     path: 'showdown',
     loadChildren: () =>
       import('./pages/showdown/showdown.module').then((m) => m.ShowdownModule),
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    title: 'Showdown',
   },
   {
     path: 'match',
     loadChildren: () =>
       import('./pages/showdown/match/match.module').then((m) => m.MatchModule),
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    title: 'Match',
   },
   {
     path: 'details/:id',
     loadChildren: () =>
       import('./pages/info/info.module').then((m) => m.InfoModule),
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    title: 'Dettaglio',
   },
 ];
 

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { PgService } from '../../services/pg.service';
 import { iMossa } from '../../models/i-mossa';
 import { BuilderService } from '../../services/builder.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -22,31 +22,32 @@ export class BuilderComponent {
     userId: 0,
     name: '',
     img: '',
-    classeId: 0,
-    forza: 0,
-    dext: 0,
-    int: 0,
-    cos: 0,
+    forza: 10,
+    dext: 10,
+    int: 10,
+    cos: 10,
   };
   classe!: iClasse;
   classeSelect: iClasse = {
     id: 0,
-    name: '',
+    name: '-- Seleziona classe --',
     cA: 0,
     pf: 0,
     mosseId: [],
     mosse: [],
+    focus: ''
   };
   AuthSvc: any;
 
   constructor(
     private pgSvc: PgService,
     private builderSvc: BuilderService,
-    private router: ActivatedRoute
+    private activeRouter: ActivatedRoute,
+    private router: Router,
   ) {}
   ngOnInit() {
     this.currentUser = this.pgSvc.getUserId();
-    this.router.params.subscribe((params) => {
+    this.activeRouter.params.subscribe((params) => {
       if (params['id'] && params['id'] !== '0') {
         this.isCreating = false;
         this.pgSvc.getById(params['id']).subscribe((pg) => {
@@ -85,8 +86,12 @@ export class BuilderComponent {
     this.pgCurrent.userId = this.currentUser;
 
     this.pgSvc.create(this.pgCurrent).subscribe();
+
+    //POSSIBILE SWEETALERT
+    setTimeout(() => {this.router.navigate(['/profile'])},500);
   }
   getmossebyclasse(e: Event) {
+    console.log('classe id', this.pgCurrent.classeId);
     const target = <HTMLInputElement>e.target;
     console.log(target.value);
     let classeSelect = this.classi.find(
@@ -109,18 +114,6 @@ export class BuilderComponent {
     } else {
       delete this.pgCurrent.id;
       this.create();
-    }
-  }
-
-  submitForm(form: NgForm) {
-    console.log(form);
-    if (form.invalid) {
-      return;
-    }
-    if (this.isCreating) {
-      this.create();
-    } else {
-      this.modifica();
     }
   }
 }

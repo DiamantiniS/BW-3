@@ -1,14 +1,10 @@
 <div class="dnd-theme">
   <div class="container">
     <div class="row justify-content-center align-content-center">
-      <div class="col-md-8 mb-4">
+      <div class="col-md-8 ">
         <div class="card dnd-card">
           <div class="card-body">
-            <form
-              class="pb-5"
-              (ngSubmit)="submitForm(characterForm)"
-              #characterForm="ngForm"
-            >
+            <form  #form="ngForm">
               <div class="row">
                 <div class="col-12 col-md-6">
                   <div class="form-group">
@@ -18,7 +14,15 @@
                       [(ngModel)]="pgCurrent.name"
                       name="name"
                       class="form-control"
+                      required
+                      #nome="ngModel"
                     />
+                    <div
+                      *ngIf="nome.invalid && (nome.dirty || nome.touched)"
+                      class="alert alert-danger"
+                    >
+                      Il nome è obbligatorio
+                    </div>
                   </div>
                   <div class="form-group">
                     <label for="classe">Classe</label>
@@ -32,20 +36,18 @@
                       #classe="ngModel"
                     >
                       <option [value]="pgCurrent.classeId" selected disabled>
-                        -- Seleziona una classe --
+                        {{ classeSelect.name }}
                       </option>
                       <option *ngFor="let c of classi" [value]="c.id">
                         {{ c.name }}
                       </option>
-                      <div
-                        *ngIf="
-                          classe.invalid && (classe.dirty || classe.touched)
-                        "
-                        class="invalid-feedback"
-                      >
-                        Classe is required.
-                      </div>
                     </select>
+                    <div
+                      *ngIf="classe.invalid && (classe.dirty || classe.touched)"
+                      class="alert alert-danger"
+                    >
+                      La selezione della classe è obbligatoria.
+                    </div>
                   </div>
                   <div class="form-group">
                     <label for="cos">Costituzione</label>
@@ -55,6 +57,8 @@
                       [(ngModel)]="pgCurrent.cos"
                       name="cos"
                       class="form-control"
+                      min="8"
+                      max="18"
                     />
                   </div>
                   <div class="form-group">
@@ -65,6 +69,8 @@
                       [(ngModel)]="pgCurrent.dext"
                       name="dext"
                       class="form-control"
+                      min="8"
+                      max="18"
                     />
                   </div>
                   <div class="form-group">
@@ -75,6 +81,8 @@
                       [(ngModel)]="pgCurrent.forza"
                       name="forza"
                       class="form-control"
+                      min="8"
+                      max="18"
                     />
                   </div>
                   <div class="form-group">
@@ -85,6 +93,8 @@
                       [(ngModel)]="pgCurrent.int"
                       name="int"
                       class="form-control"
+                      min="8"
+                      max="18"
                     />
                   </div>
                 </div>
@@ -120,11 +130,13 @@
                   </div>
                 </div>
               </div>
-              <div class="text-center mt-3">
+              <div class="text-center mt-2">
                 <button
                   *ngIf="isCreating"
                   class="btn btn-danger dnd-button"
                   type="submit"
+                  (click)="create()"
+                  [disabled]="form.invalid"
                 >
                   Crea
                 </button>
@@ -132,6 +144,8 @@
                   *ngIf="!isCreating"
                   class="btn btn-danger dnd-button"
                   type="submit"
+                  (click)="modifica()"
+                  [disabled]="form.invalid"
                 >
                   {{ !isMine ? "Copia Build" : "Modifica" }}
                 </button>

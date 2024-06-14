@@ -10,7 +10,7 @@ $card-bg: rgba(26, 37, 47, 0.85);
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 85vh;
+  height: 84.4vh;
 }
 
 .inferno-card {
@@ -19,6 +19,7 @@ $card-bg: rgba(26, 37, 47, 0.85);
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   padding: 2rem;
+  padding-bottom: 1rem;
 }
 
 .inferno-input {
