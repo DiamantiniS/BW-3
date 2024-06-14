@@ -74,13 +74,7 @@
                     </div>
                   </div>
                 </div>
-                <button
-                  type="submit"
-                  class="btn btn-danger mt-3"
-                  [disabled]="!profileForm.valid"
-                >
-                  Salva
-                </button>
+                <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Salva</button>
               </form>
             </div>
           </div>
@@ -88,21 +82,24 @@
       </div>
       </div>
       </div>
-      <div class="mt-5">
-        <h3 class="display-5 text-center">I tuoi Personaggi</h3>
-        <div class="row justify-content-center">
-          <div *ngIf="characters.length === 0" class="col-md-12 text-center">
-            <button class="create-character-btn" (click)="createCharacter()" >
-              Crea PG
-            </button>
-          </div>
-          <div class="col-md-12">
-            <div class="character-container">
-              <div class="character-card" *ngFor="let character of characters">
-                <app-single-pg
-                  [pg]="character"
-                  [arrayFavourites]="favouritesArray"
-                ></app-single-pg>
+      <div class=" mt-5">
+        <div class="card bg-dark text-light border-light dnd-card">
+          <div class="card-body">
+            <h3 class="display-5 text-center mb-4">I tuoi Personaggi</h3>
+            <div class="row justify-content-center align-items-center">
+              <div *ngIf="characters.length === 0" class="col-md-12 text-center">
+                <button class="create-character-btn" (click)="createCharacter()">Crea PG</button>
+              </div>
+              <div class="col-md-12">
+                <div class="character-container">
+                  <div class="row justify-content-center">
+                    <div class="col-md-4 mb-4" *ngFor="let character of characters">
+                      <div class="card bg-dark text-light border-light dnd-card d-flex flex-column character-card ">
+                        <app-single-pg [pg]="character" [arrayFavourites]="favouritesArray"></app-single-pg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
