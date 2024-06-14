@@ -115,12 +115,12 @@ export class BuilderComponent {
   submitForm(form: NgForm) {
     console.log(form);
     if (form.invalid) {
-      return;
+      console.log(form.invalid);
     }
     if (this.isCreating) {
-      this.create();
+      //this.create();
     } else {
-      this.modifica();
+      //this.modifica();
     }
   }
 }
