@@ -37,10 +37,12 @@
   <p *ngFor="let p of playerLog">{{ p }}</p>
 </div>
 
-<div>
-  <div></div>
-  <div></div>
-  <div *ngIf="playerLog">
-    <p *ngFor="let p of playerLog">{{ p }}</p>
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div></div>
+    <div *ngIf="playerLog">
+      <p *ngFor="let p of playerLog">{{ p }}</p>
+    </div>
   </div>
 </div>
