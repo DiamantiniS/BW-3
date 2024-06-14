@@ -20,6 +20,7 @@ export class SinglePgComponent {
   liked: boolean = false;
   pageFavourite: boolean = this.router.url === '/favourites';
   pageProfile: boolean = this.router.url === '/profile';
+  pageShowdown: boolean = this.router.url === '/showdown';
   characters: iPg[] = [];
 
   constructor(

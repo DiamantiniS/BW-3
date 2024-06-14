@@ -129,6 +129,28 @@
       "cos": 0,
       "id": 12,
       "userId": 0
+    },
+    {
+      "userId": 4,
+      "name": "Guts",
+      "img": "https://img3.wikia.nocookie.net/__cb20120517182924/berserk/images/8/8c/Berserker_Armour_Version_2.png",
+      "classeId": 1,
+      "forza": 18,
+      "dext": 15,
+      "int": 16,
+      "cos": 18,
+      "id": 13
+    },
+    {
+      "userId": 4,
+      "name": "Griffith",
+      "img": "https://i.pinimg.com/originals/f8/57/9e/f8579ece9e163e07e1a90530473f1693.jpg",
+      "classeId": 5,
+      "forza": 14,
+      "dext": 18,
+      "int": 18,
+      "cos": 14,
+      "id": 14
     }
   ],
   "favoriti": [
@@ -136,6 +158,11 @@
       "idPersonaggio": 1,
       "idUser": 4,
       "id": 1
+    },
+    {
+      "idPersonaggio": 13,
+      "idUser": 4,
+      "id": 2
     }
   ],
   "classe": [

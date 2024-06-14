@@ -45,8 +45,24 @@ export class ShowdownComponent implements OnInit {
     });
 
     const accessData = this.authService.getAccessData();
+    if (!accessData) return;
+    this.user = accessData.user;
+    const userId = accessData.user.id;
+
+    this.favouritesService.getFavouritePgs(userId).subscribe((favourites) => {
+      this.favouritesArray = favourites;
+    });
+
     if (accessData) {
-      const userId = accessData.user.id;
+
+      this.pgService.getClasses().subscribe({
+        next: (classes) => {
+          this.classPgArray = classes;
+        },
+        error: (err) => {
+          console.error('Errore durante il recupero delle classi', err);
+        },
+      });
 
       this.userService.getUserProfile(userId).subscribe({
         next: (user) => {
@@ -59,22 +75,16 @@ export class ShowdownComponent implements OnInit {
 
       this.userService.getUserCharacters(userId).subscribe({
         next: (characters) => {
-          this.characters = characters;
+          characters.forEach(character => {
+            this.favouritesService.addClassToPg(character, this.classPgArray);
+              this.characters.push(character);
+          })
         },
         error: (err) => {
           console.error(
             'Errore durante il recupero dei personaggi utente',
             err
           );
-        },
-      });
-
-      this.pgService.getClasses().subscribe({
-        next: (classes) => {
-          this.classPgArray = classes;
-        },
-        error: (err) => {
-          console.error('Errore durante il recupero delle classi', err);
         },
       });
 

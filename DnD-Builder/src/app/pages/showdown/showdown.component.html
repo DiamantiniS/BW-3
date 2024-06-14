@@ -3,29 +3,10 @@
   <div class="row">
     <div *ngIf="characters.length === 0" class="col-md-12 text-center"></div>
     <div class="col-md-6" *ngFor="let character of characters">
-      <div class="card bg-dark text-light border-light dnd-card mb-4">
-        <img
-          [src]="character.img"
-          class="card-img-top"
-          [alt]="character.name"
-          style="max-height: 200px"
-        />
-        <div class="card-body">
-          <h5 class="card-title">{{ character.name }}</h5>
-          <p class="card-text">
-            <strong>Forza:</strong> {{ character.forza }}<br />
-            <strong>Destrezza:</strong> {{ character.dext }}<br />
-            <strong>Intelligenza:</strong> {{ character.int }}<br />
-            <strong>Costituzione:</strong> {{ character.cos }}
-          </p>
-          <button
-            [routerLink]="['match', character.id]"
-            class="btn btn-danger btn-sm mt-2"
-          >
-            Seleziona
-          </button>
-        </div>
-      </div>
+      <app-single-pg
+        [pg]="character"
+        [arrayFavourites]="favouritesArray"
+      ></app-single-pg>
     </div>
   </div>
 </div>
