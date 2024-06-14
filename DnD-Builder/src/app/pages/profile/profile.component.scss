@@ -11,6 +11,16 @@
   align-items: center;
 }
 
+.equal-height {
+  display: flex;
+}
+
+.equal-height > .col-md-4,
+.equal-height > .col-md-8 {
+  display: flex;
+  flex-direction: column;
+}
+
 .dnd-card {
   background-color: rgba(0, 0, 0, 0.7);
   border: 2px solid #800000;
@@ -20,13 +30,14 @@
   width: 100%;
   max-width: 1000px;
   margin-bottom: 20px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   font-family: "MedievalSharp", cursive;
   text-align: center;
-  margin-bottom: 10px;
   font-size: 1.5rem;
-  border-bottom: 1px solid #800000;
   padding-bottom: 5px;
+  height: 100%;
 }
 
 img {
@@ -39,6 +50,8 @@ img {
 }
 
 .card-body {
+  flex: 1;
+
   .form-group {
     label {
       color: #fff;
@@ -73,5 +86,104 @@ img {
       background-color: #6c757d;
       border-color: #6c757d;
     }
+  }
+}
+
+.create-character-btn {
+  background: url('/assets/dnd-button-bg.png') no-repeat center center; /* Usa un'immagine di sfondo a tema D&D */
+  background-size: cover;
+  border: 2px solid #800000; /* Colore del bordo ispirato al tema D&D */
+  border-radius: 15px; /* Angoli arrotondati per un aspetto elegante */
+  width: 150px; /* Larghezza del pulsante */
+  height: 150px; /* Altezza del pulsante */
+  display: inline-block;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Aggiunge un'ombra per dare profondità */
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.create-character-btn {
+  background-color: #800000; /* Colore di sfondo ispirato a D&D */
+  color: #fff; /* Colore del testo */
+  border: 2px solid #800000; /* Bordo rosso scuro */
+  border-radius: 10px; /* Angoli arrotondati */
+  width: 200px; /* Larghezza del pulsante */
+  height: 60px; /* Altezza del pulsante */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: "MedievalSharp", cursive; /* Font a tema medievale */
+  font-size: 1.2rem; /* Dimensione del testo */
+  text-transform: uppercase; /* Testo in maiuscolo */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Transizioni fluide */
+  outline: none; /* Rimuove il bordo di selezione */
+  position: relative;
+}
+
+.create-character-btn::before {
+  content: ""; /* Pseudo-elemento per il bordo curvo */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #800000; /* Bordo rosso scuro */
+  border-radius: 10px; /* Angoli arrotondati */
+  z-index: -1; /* Sposta il bordo dietro al contenuto */
+  transition: transform 0.3s; /* Animazione al passaggio del mouse */
+}
+
+.create-character-btn:hover::before {
+  transform: scale(1.1); /* Effetto di ingrandimento al passaggio del mouse */
+}
+
+.create-character-btn:hover {
+  background-color: #5c0000; /* Cambia colore di sfondo al passaggio del mouse */
+  border-color: #5c0000; /* Cambia colore del bordo al passaggio del mouse */
+}
+
+.create-character-btn:active {
+  transform: translateY(1px); /* Effetto di pressione */
+}
+
+.character-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.character-card {
+  background-color: rgba(0, 0, 0, 0.7); /* Colore di sfondo */
+  border: 2px solid #800000; /* Bordo rosso scuro */
+  border-radius: 15px; /* Angoli arrotondati */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); /* Ombra */
+  color: #fff; /* Colore del testo */
+  padding: 15px; /* Spaziatura interna */
+  margin: 10px; /* Margine tra le card */
+  width: 250px; /* Larghezza base (una card per riga su schermi grandi) */
+  min-width: 200px; /* Larghezza minima */
+  max-width: 300px; /* Larghezza massima */
+  height: 500px; /* Altezza base */
+  overflow: hidden; /* Contenuti extra nascosti */
+}
+
+@media (max-width: 991px) {
+  .character-card {
+    width: calc(33.33% - 20px); /* Tre card per riga su schermi medi */
+  }
+}
+
+@media (max-width: 767px) {
+  .character-card {
+    width: calc(50% - 20px); /* Due card per riga su schermi piccoli */
+  }
+}
+
+@media (max-width: 575px) {
+  .character-card {
+    width: calc(100% - 20px); /* Una card per riga su schermi extra piccoli */
   }
 }

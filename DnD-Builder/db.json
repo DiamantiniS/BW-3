@@ -1,134 +1,52 @@
 {
   "users": [
     {
-      "email": "morgan@test.com",
-      "password": "$2a$10$zlmYi2t2JdR2N5AAxoQ84.LNkkUP9LEymw0thGiBU9/R/y5B1LakK",
       "username": "morgan",
-      "id": 4,
-      "pic": "Immagine-icona4.png"
+      "email": "morgan@test.com",
+      "password": "$2a$10$p0d7NGbN3Qj4OwaDhg4VgOPtqwJJ6lgVYstTb5.VPD.mx.QHrfrfa",
+      "id": 4
+    },
+    {
+      "email": "user@user.com",
+      "password": "$2a$10$r9uGZxzIOPHfbs2sUvMCCeguGxyAFKsYY4YXvksmuBzPR48CaLkAS",
+      "username": "niko",
+      "proPic": "https://t4.ftcdn.net/jpg/05/24/31/31/360_F_524313153_jCA3gWeWAIDzjuKR5HQMQSqRr51X8HzZ.jpg",
+      "id": 5
     }
   ],
   "pg": [
     {
-      "id": 1,
-      "userId": 0,
-      "name": "Tharion",
-      "img": "assets/img-pg/Guerriero.jpg",
-      "classeId": 1,
-      "forza": 17,
-      "dext": 17,
-      "int": 13,
-      "cos": 16
-    },
-    {
-      "id": 2,
-      "userId": 0,
-      "name": "Eldrin",
-      "img": "assets/img-pg/Abjurer.jpg.5b3d8863e4224b1a9e62195a99f576ea.jpg",
-      "classeId": 3,
-      "forza": 8,
-      "dext": 14,
-      "int": 18,
-      "cos": 12
-    },
-    {
-      "id": 3,
-      "userId": 0,
-      "name": "Morrigan",
-      "img": "assets/img-pg/chierico.jpg",
-      "classeId": 2,
-      "forza": 12,
-      "dext": 18,
-      "int": 14,
-      "cos": 10
-    },
-    {
-      "id": 4,
-      "userId": 0,
-      "name": "Bjorn",
-      "img": "assets/img-pg/rogue.jpg",
-      "classeId": 1,
-      "forza": 18,
-      "dext": 14,
-      "int": 8,
-      "cos": 16
-    },
-    {
-      "id": 5,
-      "userId": 0,
-      "name": "Arannis",
-      "img": "assets/img-pg/paladina.jpg",
-      "classeId": 4,
-      "forza": 10,
-      "dext": 12,
-      "int": 14,
-      "cos": 16
-    },
-    {
-      "id": 6,
-      "userId": 0,
-      "name": "Liora",
-      "img": "assets/img-pg/druida.webp",
-      "classeId": 6,
-      "forza": 9,
-      "dext": 13,
-      "int": 17,
-      "cos": 14
-    },
-    {
-      "id": 7,
-      "userId": 0,
-      "name": "Fenric",
-      "img": "assets/img-pg/female rogue.jpg",
-      "classeId": 2,
-      "forza": 13,
-      "dext": 17,
-      "int": 12,
-      "cos": 14
-    },
-    {
-      "id": 8,
-      "userId": 0,
-      "name": "Calista",
-      "img": "assets/img-pg/female-Paladin.webp",
-      "classeId": 5,
-      "forza": 16,
-      "dext": 10,
-      "int": 13,
-      "cos": 15
-    },
-    {
-      "id": 9,
-      "userId": 0,
-      "name": "Tiberius",
-      "img": "assets/img-pg/warrior.jpg",
-      "classeId": 1,
-      "forza": 15,
-      "dext": 14,
-      "int": 12,
-      "cos": 17
-    },
-    {
-      "id": 10,
-      "userId": 0,
-      "name": "Nym",
-      "img": "assets/img-pg/druid.webp",
-      "classeId": 6,
-      "forza": 11,
-      "dext": 13,
-      "int": 15,
-      "cos": 14
-    },
-    {
-      "name": "Paulo",
-      "img": "assets/img-pg/fighter2.webp",
+      "userId": 4,
+      "name": "io",
+      "img": "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
       "classeId": 1,
       "forza": 0,
       "dext": 0,
       "int": 0,
       "cos": 0,
-      "id": 12,
-      "userId": 0
+      "id": 1
+    },
+    {
+      "userId": 4,
+      "name": "io",
+      "img": "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
+      "classeId": 1,
+      "forza": 0,
+      "dext": 0,
+      "int": 0,
+      "cos": 0,
+      "id": 6
+    },
+    {
+      "userId": 4,
+      "name": "io",
+      "img": "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
+      "classeId": 1,
+      "forza": 0,
+      "dext": 0,
+      "int": 0,
+      "cos": 0,
+      "id": 7
     }
   ],
   "favoriti": [
