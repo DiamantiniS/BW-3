@@ -151,42 +151,66 @@
       "name": "Guerriero",
       "cA": 18,
       "pf": 18,
-      "mosseId": [1, 2, 3]
+      "mosseId": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "id": 2,
       "name": "Ladro",
       "cA": 16,
       "pf": 15,
-      "mosseId": [4, 5, 6]
+      "mosseId": [
+        4,
+        5,
+        6
+      ]
     },
     {
       "id": 3,
       "name": "Mago",
       "cA": 12,
       "pf": 10,
-      "mosseId": [7, 8, 9]
+      "mosseId": [
+        7,
+        8,
+        9
+      ]
     },
     {
       "id": 4,
       "name": "Chierico",
       "cA": 16,
       "pf": 16,
-      "mosseId": [10, 11, 12]
+      "mosseId": [
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 5,
       "name": "Paladino",
       "cA": 18,
       "pf": 20,
-      "mosseId": [13, 14, 15]
+      "mosseId": [
+        13,
+        14,
+        15
+      ]
     },
     {
       "id": 6,
       "name": "Druido",
       "cA": 14,
       "pf": 14,
-      "mosseId": [16, 17, 18]
+      "mosseId": [
+        16,
+        17,
+        18
+      ]
     }
   ],
   "mosse": [
