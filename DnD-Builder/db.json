@@ -20,6 +20,13 @@
       "username": "persona",
       "proPic": "",
       "id": 5
+    },
+    {
+      "email": "aaa@aaa.com",
+      "password": "$2a$10$42Cf5RZSe0BL77FARp8l2eZMg1YCcVYRPnbkuJvUU8rMJG4xWwDeS",
+      "username": "aaa",
+      "proPic": "assadasd",
+      "id": 6
     }
   ],
   "pg": [
@@ -176,6 +183,21 @@
       "idPersonaggio": 2,
       "idUser": 5,
       "id": 4
+    },
+    {
+      "idPersonaggio": 3,
+      "idUser": 6,
+      "id": 5
+    },
+    {
+      "idPersonaggio": 4,
+      "idUser": 6,
+      "id": 6
+    },
+    {
+      "idPersonaggio": 5,
+      "idUser": 6,
+      "id": 7
     }
   ],
   "classe": [
