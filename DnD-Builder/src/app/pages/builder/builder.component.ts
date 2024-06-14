@@ -23,10 +23,10 @@ export class BuilderComponent {
     name: '',
     img: '',
     classeId: 0,
-    forza: 0,
-    dext: 0,
-    int: 0,
-    cos: 0,
+    forza: 10,
+    dext: 10,
+    int: 10,
+    cos: 10,
   };
   classe!: iClasse;
   classeSelect: iClasse = {
