@@ -3,29 +3,10 @@
   <div class="row">
     <div *ngIf="characters.length === 0" class="col-md-12 text-center"></div>
     <div class="col-md-6" *ngFor="let character of characters">
-      <div class="card bg-dark text-light border-light dnd-card mb-4">
-        <img
-          [src]="character.img"
-          class="card-img-top"
-          [alt]="character.name"
-          style="max-height: 200px"
-        />
-        <div class="card-body">
-          <h5 class="card-title">{{ character.name }}</h5>
-          <p class="card-text">
-            <strong>Forza:</strong> {{ character.forza }}<br />
-            <strong>Destrezza:</strong> {{ character.dext }}<br />
-            <strong>Intelligenza:</strong> {{ character.int }}<br />
-            <strong>Costituzione:</strong> {{ character.cos }}
-          </p>
-          <button
-            [routerLink]="['match', character.id]"
-            class="btn btn-danger btn-sm mt-2"
-          >
-            Seleziona
-          </button>
-        </div>
-      </div>
+      <app-single-pg
+        [pg]="character"
+        [arrayFavourites]="favouritesArray"
+      ></app-single-pg>
     </div>
   </div>
 </div>
@@ -34,46 +15,10 @@
     <h1 class="text-center"><b>Aggiunti ai preferiti</b></h1>
     <div class="row p-3 g-4" *ngIf="arrayPgs">
       <div class="col-lg-4 col-md-6 col-sm-12 mb-4" *ngFor="let pg of arrayPgs">
-        <div class="card dnd-card h-100">
-          <img [src]="pg.img" class="card-img-top" alt="pg pic" />
-          <div class="card-body">
-            <h5 class="card-title">
-              <b>{{ pg.name }}</b>
-            </h5>
-            <p><b>Classe:</b> {{ pg.classe?.name }}</p>
-            <p><b>Statistiche</b></p>
-            <div class="table-responsive">
-              <table class="table table-dark table-striped mb-0">
-                <thead>
-                  <tr>
-                    <th>Forza</th>
-                    <th>Destrezza</th>
-                    <th>Intelligenza</th>
-                    <th>Cos</th>
-                    <th>Armatura</th>
-                    <th>Punti ferita</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{{ pg.forza }}</td>
-                    <td>{{ pg.dext }}</td>
-                    <td>{{ pg.int }}</td>
-                    <td>{{ pg.cos }}</td>
-                    <td>{{ pg.classe?.cA }}</td>
-                    <td>{{ pg.classe?.pf }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <button
-              [routerLink]="['match', pg.id]"
-              class="btn btn-danger btn-sm mt-2"
-            >
-              Seleziona
-            </button>
-          </div>
-        </div>
+        <app-single-pg
+          [pg]="pg"
+          [arrayFavourites]="favouritesArray"
+        ></app-single-pg>
       </div>
     </div>
   </div>
