@@ -6,19 +6,12 @@
       "username": "morgan",
       "id": 4,
       "pic": "Immagine-icona4.png"
-    },
-    {
-      "email": "admin@admin",
-      "password": "$2a$10$zlmYi2t2JdR2N5AAxoQ84.LNkkUP9LEymw0thGiBU9/R/y5B1LakK",
-      "username": "admin",
-      "id": 1,
-      "pic": ""
     }
   ],
   "pg": [
     {
       "id": 1,
-      "userId": 1,
+      "userId": 0,
       "name": "Tharion",
       "img": "assets/img-pg/Guerriero.jpg",
       "classeId": 1,
@@ -29,7 +22,7 @@
     },
     {
       "id": 2,
-      "userId": 1,
+      "userId": 0,
       "name": "Eldrin",
       "img": "assets/img-pg/Abjurer.jpg.5b3d8863e4224b1a9e62195a99f576ea.jpg",
       "classeId": 3,
@@ -40,7 +33,7 @@
     },
     {
       "id": 3,
-      "userId": 1,
+      "userId": 0,
       "name": "Morrigan",
       "img": "assets/img-pg/chierico.jpg",
       "classeId": 2,
@@ -51,7 +44,7 @@
     },
     {
       "id": 4,
-      "userId": 1,
+      "userId": 0,
       "name": "Bjorn",
       "img": "assets/img-pg/rogue.jpg",
       "classeId": 1,
@@ -62,7 +55,7 @@
     },
     {
       "id": 5,
-      "userId": 1,
+      "userId": 0,
       "name": "Arannis",
       "img": "assets/img-pg/paladina.jpg",
       "classeId": 4,
@@ -73,7 +66,7 @@
     },
     {
       "id": 6,
-      "userId": 1,
+      "userId": 0,
       "name": "Liora",
       "img": "assets/img-pg/druida.webp",
       "classeId": 6,
@@ -84,7 +77,7 @@
     },
     {
       "id": 7,
-      "userId": 1,
+      "userId": 0,
       "name": "Fenric",
       "img": "assets/img-pg/female rogue.jpg",
       "classeId": 2,
@@ -95,7 +88,7 @@
     },
     {
       "id": 8,
-      "userId": 1,
+      "userId": 0,
       "name": "Calista",
       "img": "assets/img-pg/female-Paladin.webp",
       "classeId": 5,
@@ -106,7 +99,7 @@
     },
     {
       "id": 9,
-      "userId": 1,
+      "userId": 0,
       "name": "Tiberius",
       "img": "assets/img-pg/warrior.jpg",
       "classeId": 1,
@@ -117,7 +110,7 @@
     },
     {
       "id": 10,
-      "userId": 1,
+      "userId": 0,
       "name": "Nym",
       "img": "assets/img-pg/druid.webp",
       "classeId": 6,
@@ -135,39 +128,17 @@
       "int": 0,
       "cos": 0,
       "id": 12,
-      "userId": 1
-    },
-    {
-      "userId": 4,
-      "name": "Guts",
-      "img": "https://img3.wikia.nocookie.net/__cb20120517182924/berserk/images/8/8c/Berserker_Armour_Version_2.png",
-      "classeId": 1,
-      "forza": 18,
-      "dext": 15,
-      "int": 16,
-      "cos": 18,
-      "id": 13
-    },
-    {
-      "userId": 4,
-      "name": "Griffith",
-      "img": "https://i.pinimg.com/originals/f8/57/9e/f8579ece9e163e07e1a90530473f1693.jpg",
-      "classeId": 5,
-      "forza": 14,
-      "dext": 18,
-      "int": 18,
-      "cos": 14,
-      "id": 14
+      "userId": 0
     }
   ],
   "favoriti": [
     {
-      "idPersonaggio": 1,
+      "idPersonaggio": 12,
       "idUser": 4,
       "id": 1
     },
     {
-      "idPersonaggio": 13,
+      "idPersonaggio": 4,
       "idUser": 4,
       "id": 2
     }
@@ -178,7 +149,6 @@
       "name": "Guerriero",
       "cA": 18,
       "pf": 18,
-      "focus":"forza",
       "mosseId": [
         1,
         2,
@@ -190,7 +160,6 @@
       "name": "Ladro",
       "cA": 16,
       "pf": 15,
-      "focus":"dext",
       "mosseId": [
         4,
         5,
@@ -202,7 +171,6 @@
       "name": "Mago",
       "cA": 12,
       "pf": 10,
-      "focus":"int",
       "mosseId": [
         7,
         8,
@@ -214,7 +182,6 @@
       "name": "Chierico",
       "cA": 16,
       "pf": 16,
-      "focus":"int",
       "mosseId": [
         10,
         11,
@@ -226,7 +193,6 @@
       "name": "Paladino",
       "cA": 18,
       "pf": 20,
-      "focus":"forza",
       "mosseId": [
         13,
         14,
@@ -238,7 +204,6 @@
       "name": "Druido",
       "cA": 14,
       "pf": 14,
-      "focus":"dext",
       "mosseId": [
         16,
         17,
@@ -366,12 +331,6 @@
       "nome": "Mazzafrusto",
       "danno": 4,
       "descrizione": "Un'arma da mischia con una testa chiodata flessibile."
-    },
-    {
-      "id": 21,
-      "nome": "Cura",
-      "danno": 6,
-      "descrizione": "Ti cura"
     }
   ]
 }
