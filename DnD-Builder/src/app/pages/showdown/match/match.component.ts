@@ -199,28 +199,32 @@ export class MatchComponent implements OnInit {
 
   mossaCura(m: iMossa, target: boolean) {
     if (target) {
-      this.pfPg = this.pfPg + m.danno;
+
 
       let cura = Math.floor(Math.random() * (m.danno - 1) + 1);
       let calcolo = Math.floor(this.pg.cos - 10) / 2;
       let valorecura = cura + calcolo;
+      this.pfPg = this.pfPg + m.danno;
       if (this.pfPg >= this.classe.pf) {
-        valorecura = this.pfPg - this.classe.pf;
+        valorecura = valorecura - (this.pfPg - this.classe.pf);
         this.pfPg = this.classe.pf;
         console.log('pfmassimi', valorecura);
       }
-
       this.playerLog.push(
         `Hai usato ${m.nome} e ti sei curato di ${valorecura}PF(${cura} + ${calcolo} : d${m.danno} + Cos)`
       );
     } else {
-      this.pfBot = this.pfBot + m.danno;
+
 
       let cura = Math.floor(Math.random() * (m.danno - 1) + 1);
-      let calcolo = Math.floor(this.pg.cos - 10) / 2;
+      let calcolo = Math.floor(this.botPg.cos - 10) / 2;
       let valorecura = cura + calcolo;
+      this.pfBot = this.pfBot + valorecura;
+      console.log(valorecura, this.pfBot, this.botClasse.pf, "primaif" );
       if (this.pfBot >= this.botClasse.pf) {
-        valorecura = this.pfBot - this.classe.pf;
+        valorecura = valorecura - (this.pfBot - this.botClasse.pf);
+        console.log(valorecura, this.pfBot, this.botClasse.pf, "dopoif" );
+
         this.pfBot = this.botClasse.pf;
       }
       this.playerLog.push(
@@ -255,12 +259,12 @@ export class MatchComponent implements OnInit {
     if (target) {
       this.pfBot = this.pfBot - tot;
       this.playerLog.push(
-        `usi ${mossa.nome} danneggiando ${this.botPg.name} per un ammontare di ${mossa.danno}PF(${danno} + ${calcolo} : d${mossa.danno} + ${this.classe.focus})`
+        `usi ${mossa.nome} danneggiando ${this.botPg.name} per un ammontare di ${tot}PF(${danno} + ${calcolo} : d${mossa.danno} + ${this.classe.focus})`
       );
     } else {
       this.pfPg = this.pfPg - tot;
       this.playerLog.push(
-        `${this.botPg.name} usa ${mossa.nome} danneggiandoti per un ammontare di ${mossa.danno}PF(${danno} + ${calcolo} : d${mossa.danno} + ${this.classe.focus})`
+        `${this.botPg.name} usa ${mossa.nome} danneggiandoti per un ammontare di ${tot}PF(${danno} + ${calcolo} : d${mossa.danno} + ${this.botClasse.focus})`
       );
     }
   }
