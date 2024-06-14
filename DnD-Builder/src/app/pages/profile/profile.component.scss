@@ -113,9 +113,9 @@ img {
   min-width: 200px;
   max-width: 300px;
   overflow: hidden;
+  flex: 1 1 auto;
+  max-width: 100%;
 }
-
-/* Stile per i pulsanti principali */
 .btn-primary {
   background-color: #800000;
   border-color: #800000;
