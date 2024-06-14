@@ -53,7 +53,7 @@ export class MatchComponent implements OnInit {
           this.pg = pg;
           this.pgSvc.getClassbyId(pg.classeId).subscribe((classe) => {
             this.classe = classe;
-            let modCos = Math.floor(this.pg.cos - 10) / 2;
+            let modCos = Math.floor((this.pg.cos - 10) / 2);
             this.pfPg = this.classe.pf + modCos;
             this.pgTotpf = this.pfPg;
             this.iniziativa(true);
@@ -82,7 +82,9 @@ export class MatchComponent implements OnInit {
         this.pgSvc.getClassbyId(pg.classeId).subscribe((classe) => {
           this.botClasse = classe;
           let modCos = Math.floor((this.botPg.cos - 10) / 2);
+          let modCos = Math.floor((this.botPg.cos - 10) / 2);
           this.pfBot = this.classe.pf + modCos;
+          this.botTotpf = this.pfBot;
           this.botTotpf = this.pfBot;
           this.iniziativa(false);
           this.pgSvc.getMosseByIds(classe.mosseId).subscribe((mosse) => {
@@ -213,7 +215,7 @@ export class MatchComponent implements OnInit {
       let calcolo = Math.floor(this.pg.cos - 10) / 2;
       let valorecura = cura + calcolo;
       this.pfPg = this.pfPg + m.danno;
-      if (this.pfPg >= this.classe.pf) {
+      if (this.pfPg >= this.pgTotpf) {
         valorecura = valorecura - (this.pfPg - this.classe.pf);
         this.pfPg = this.classe.pf;
         console.log('pfmassimi', valorecura);

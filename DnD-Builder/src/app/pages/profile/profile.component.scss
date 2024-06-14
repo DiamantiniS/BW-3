@@ -5,7 +5,7 @@
   padding: 20px;
   color: #fff;
   font-family: "MedievalSharp", cursive;
-  min-height: 85.4vh;
+  min-height: 84.4vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,9 +113,9 @@ img {
   min-width: 200px;
   max-width: 300px;
   overflow: hidden;
+  flex: 1 1 auto;
+  max-width: 100%;
 }
-
-/* Stile per i pulsanti principali */
 .btn-primary {
   background-color: #800000;
   border-color: #800000;
@@ -127,5 +127,8 @@ img {
   border-color: #5c0000 !important;
 }
 #card{
-  height: 356px;
+  height: 343px;
+}
+#profilo{
+   height: 337px;
 }
