@@ -12,7 +12,7 @@
       "password": "$2a$10$zlmYi2t2JdR2N5AAxoQ84.LNkkUP9LEymw0thGiBU9/R/y5B1LakK",
       "username": "admin",
       "id": 1,
-      "pic": "Immagine-icona4.png"
+      "pic": ""
     }
   ],
   "pg": [
@@ -136,50 +136,6 @@
       "cos": 0,
       "id": 12,
       "userId": 1
-    },
-    {
-      "userId": 4,
-      "name": "Guts",
-      "img": "https://img3.wikia.nocookie.net/__cb20120517182924/berserk/images/8/8c/Berserker_Armour_Version_2.png",
-      "classeId": 1,
-      "forza": 18,
-      "dext": 15,
-      "int": 16,
-      "cos": 18,
-      "id": 13
-    },
-    {
-      "userId": 4,
-      "name": "Griffith",
-      "img": "https://i.pinimg.com/originals/f8/57/9e/f8579ece9e163e07e1a90530473f1693.jpg",
-      "classeId": 5,
-      "forza": 14,
-      "dext": 18,
-      "int": 18,
-      "cos": 14,
-      "id": 14
-    },
-    {
-      "userId": 4,
-      "name": "io",
-      "img": "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
-      "classeId": 1,
-      "forza": 0,
-      "dext": 0,
-      "int": 0,
-      "cos": 0,
-      "id": 15
-    },
-    {
-      "userId": 4,
-      "name": "italia",
-      "img": "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
-      "classeId": 1,
-      "forza": 0,
-      "dext": 0,
-      "int": 0,
-      "cos": 0,
-      "id": 16
     }
   ],
   "favoriti": [
