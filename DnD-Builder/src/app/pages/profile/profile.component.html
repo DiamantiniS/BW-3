@@ -96,7 +96,10 @@
             </button>
           </div>
           <div class="col-md-6" *ngFor="let character of characters">
-            <app-single-pg [pg]="character"></app-single-pg>
+            <app-single-pg
+              [pg]="character"
+              [arrayFavourites]="favouritesArray"
+            ></app-single-pg>
           </div>
         </div>
       </div>

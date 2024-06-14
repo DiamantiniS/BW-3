@@ -3,11 +3,9 @@ $flame-color: #ff4500;
 $bg-color: #2c3e50;
 $card-bg: rgba(26, 37, 47, 0.85);
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap");
 
-
-
-.container-fluid{
+.container-fluid {
   background-image: url("../../../assets/img-auth/new-dnd-5e-starter-set-artwork.webp");
   background-position: left;
   background-repeat: no-repeat;
@@ -54,7 +52,7 @@ $card-bg: rgba(26, 37, 47, 0.85);
 
 .text-dnd {
   color: $flame-color !important;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 .form-check-input {

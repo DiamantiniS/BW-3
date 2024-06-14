@@ -1,38 +1,25 @@
 {
   "users": [
     {
-      "username": "io",
-      "email": "user@example.com",
-      "password": "$2a$10$D/ivIwaBr4TfKxsIBnY4V.kYX17QZf.XPo5lkB1oXHe5yagNjdQZ.",
-      "id": 1,
-      "pic": "Immagine-icona.png"
-    },
-    {
-      "email": "asa@example",
-      "password": "$2a$10$/WNZWRuk/DSKDkblULZEouFgPVsRSxSyF8uLpWbE4mtwxoy6M45la",
-      "id": 2,
-      "pic": "Immagine-icona1.png"
-    },
-    {
-      "email": "re@example.com",
-      "password": "$2a$10$YoKSuSIwTvyosdYKthdAqeeO3GL31BEYiWj4e/JtEyDTCTFhPVJ9i",
-      "username": "re",
-      "id": 3,
-      "pic": "Immagine-icona2.png"
-    },
-    {
       "email": "morgan@test.com",
       "password": "$2a$10$zlmYi2t2JdR2N5AAxoQ84.LNkkUP9LEymw0thGiBU9/R/y5B1LakK",
       "username": "morgan",
       "id": 4,
       "pic": "Immagine-icona4.png"
+    },
+    {
+      "email": "admin@admin",
+      "password": "$2a$10$zlmYi2t2JdR2N5AAxoQ84.LNkkUP9LEymw0thGiBU9/R/y5B1LakK",
+      "username": "admin",
+      "id": 1,
+      "pic": ""
     }
   ],
   "pg": [
     {
       "id": 1,
       "userId": 1,
-      "name": "Tharion123",
+      "name": "Tharion",
       "img": "assets/img-pg/Guerriero.jpg",
       "classeId": 1,
       "forza": 17,
@@ -147,86 +134,42 @@
       "dext": 0,
       "int": 0,
       "cos": 0,
-      "id": 12
+      "id": 12,
+      "userId": 1
     },
     {
       "userId": 4,
-      "name": "Tharion12345",
-      "img": "assets/img-pg/male-Paladin.webp",
-      "classeId": 5,
-      "forza": 17,
-      "dext": 17,
-      "int": 13,
-      "cos": 16,
+      "name": "Guts",
+      "img": "https://img3.wikia.nocookie.net/__cb20120517182924/berserk/images/8/8c/Berserker_Armour_Version_2.png",
+      "classeId": 1,
+      "forza": 18,
+      "dext": 15,
+      "int": 16,
+      "cos": 18,
       "id": 13
     },
     {
       "userId": 4,
-      "name": "Tharion",
-      "img": "assets/img-pg/Guerriero.jpg",
-      "classeId": 1,
-      "forza": 17,
-      "dext": 17,
-      "int": 13,
-      "cos": 16,
-      "id": 15
+      "name": "Griffith",
+      "img": "https://i.pinimg.com/originals/f8/57/9e/f8579ece9e163e07e1a90530473f1693.jpg",
+      "classeId": 5,
+      "forza": 14,
+      "dext": 18,
+      "int": 18,
+      "cos": 14,
+      "id": 14
     }
   ],
   "favoriti": [
     {
-      "idPersonaggio": 3,
-      "idUser": 5,
-      "id": 5
-    },
-    {
-      "idPersonaggio": 4,
-      "idUser": 5,
-      "id": 7
-    },
-    {
       "idPersonaggio": 1,
-      "idUser": 5,
-      "id": 8
-    },
-    {
-      "idPersonaggio": 9,
-      "idUser": 5,
-      "id": 9
-    },
-    {
-      "idPersonaggio": 2,
       "idUser": 4,
-      "id": 14
+      "id": 1
     },
     {
-      "idPersonaggio": 3,
+      "idPersonaggio": 13,
       "idUser": 4,
-      "id": 11
-    },
-    {
-      "idPersonaggio": 4,
-      "idUser": 4,
-      "id": 12
-    },
-    {
-      "idPersonaggio": 5,
-      "idUser": 4,
-      "id": 13
-    },
-    {
-      "idPersonaggio": 6,
-      "idUser": 4,
-      "id": 14
-    },
-    {
-      "idPersonaggio": 8,
-      "idUser": 4,
-      "id": 15
-    },
-    {
-      "idPersonaggio": 7,
-      "idUser": 4,
-      "id": 16
+      "id": 2
     }
   ],
   "classe": [

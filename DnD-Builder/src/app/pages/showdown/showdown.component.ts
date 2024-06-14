@@ -15,7 +15,7 @@ import { FavouritesService } from '../../services/favourites.service';
 @Component({
   selector: 'app-showdown',
   templateUrl: './showdown.component.html',
-  styleUrls: ['./showdown.component.scss']
+  styleUrls: ['./showdown.component.scss'],
 })
 export class ShowdownComponent implements OnInit {
   profileForm!: FormGroup;
@@ -45,8 +45,24 @@ export class ShowdownComponent implements OnInit {
     });
 
     const accessData = this.authService.getAccessData();
+    if (!accessData) return;
+    this.user = accessData.user;
+    const userId = accessData.user.id;
+
+    this.favouritesService.getFavouritePgs(userId).subscribe((favourites) => {
+      this.favouritesArray = favourites;
+    });
+
     if (accessData) {
-      const userId = accessData.user.id;
+
+      this.pgService.getClasses().subscribe({
+        next: (classes) => {
+          this.classPgArray = classes;
+        },
+        error: (err) => {
+          console.error('Errore durante il recupero delle classi', err);
+        },
+      });
 
       this.userService.getUserProfile(userId).subscribe({
         next: (user) => {
@@ -59,19 +75,16 @@ export class ShowdownComponent implements OnInit {
 
       this.userService.getUserCharacters(userId).subscribe({
         next: (characters) => {
-          this.characters = characters;
+          characters.forEach(character => {
+            this.favouritesService.addClassToPg(character, this.classPgArray);
+              this.characters.push(character);
+          })
         },
         error: (err) => {
-          console.error('Errore durante il recupero dei personaggi utente', err);
-        },
-      });
-
-      this.pgService.getClasses().subscribe({
-        next: (classes) => {
-          this.classPgArray = classes;
-        },
-        error: (err) => {
-          console.error('Errore durante il recupero delle classi', err);
+          console.error(
+            'Errore durante il recupero dei personaggi utente',
+            err
+          );
         },
       });
 
@@ -81,7 +94,10 @@ export class ShowdownComponent implements OnInit {
           this.caricaPersonaggiPreferiti();
         },
         error: (err) => {
-          console.error('Errore durante il recupero dei personaggi preferiti', err);
+          console.error(
+            'Errore durante il recupero dei personaggi preferiti',
+            err
+          );
         },
       });
     } else {
@@ -97,7 +113,10 @@ export class ShowdownComponent implements OnInit {
           this.arrayPgs.push(pg);
         },
         error: (err) => {
-          console.error(`Errore durante il recupero del personaggio con ID ${favorite.idPersonaggio}`, err);
+          console.error(
+            `Errore durante il recupero del personaggio con ID ${favorite.idPersonaggio}`,
+            err
+          );
         },
       });
     });
