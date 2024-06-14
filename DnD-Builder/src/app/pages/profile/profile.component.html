@@ -82,10 +82,9 @@
       </div>
       </div>
       </div>
-      <div class=" mt-5">
-        <div class="card bg-dark text-light border-light dnd-card">
-          <div class="card-body">
-            <h3 class="display-5 text-center mb-4">I tuoi Personaggi</h3>
+      <div class="mt-5">
+        <div class="card bg-dark text-light border-light ">
+            <h1 class=" text-center mb-4 mt-2">I tuoi Personaggi</h1>
             <div class="row justify-content-center align-items-center">
               <div *ngIf="characters.length === 0" class="col-md-12 text-center">
                 <button class="create-character-btn" (click)="createCharacter()">Crea PG</button>
@@ -93,8 +92,8 @@
               <div class="col-md-12">
                 <div class="character-container">
                   <div class="row justify-content-center">
-                    <div class="col-md-4 mb-4" *ngFor="let character of characters">
-                      <div class="card bg-dark text-light border-light dnd-card d-flex flex-column character-card ">
+                    <div class="col-md-6 col-lg-4 m-2" *ngFor="let character of characters">
+                      <div class="card bg-dark text-light dnd-card d-flex flex-column character-card">
                         <app-single-pg [pg]="character" [arrayFavourites]="favouritesArray"></app-single-pg>
                       </div>
                     </div>

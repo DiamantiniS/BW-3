@@ -158,6 +158,28 @@
       "int": 18,
       "cos": 14,
       "id": 14
+    },
+    {
+      "userId": 4,
+      "name": "io",
+      "img": "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
+      "classeId": 1,
+      "forza": 0,
+      "dext": 0,
+      "int": 0,
+      "cos": 0,
+      "id": 15
+    },
+    {
+      "userId": 4,
+      "name": "italia",
+      "img": "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/249996800/original/2e26a291a8ee073620574a3468a103708b5c7f91/create-you-dnd-characters-or-dd-character.png",
+      "classeId": 1,
+      "forza": 0,
+      "dext": 0,
+      "int": 0,
+      "cos": 0,
+      "id": 16
     }
   ],
   "favoriti": [
@@ -178,7 +200,7 @@
       "name": "Guerriero",
       "cA": 18,
       "pf": 18,
-      "focus":"forza",
+      "focus": "forza",
       "mosseId": [
         1,
         2,
@@ -190,7 +212,7 @@
       "name": "Ladro",
       "cA": 16,
       "pf": 15,
-      "focus":"dext",
+      "focus": "dext",
       "mosseId": [
         4,
         5,
@@ -202,7 +224,7 @@
       "name": "Mago",
       "cA": 12,
       "pf": 10,
-      "focus":"int",
+      "focus": "int",
       "mosseId": [
         7,
         8,
@@ -214,7 +236,7 @@
       "name": "Chierico",
       "cA": 16,
       "pf": 16,
-      "focus":"int",
+      "focus": "int",
       "mosseId": [
         10,
         11,
@@ -226,7 +248,7 @@
       "name": "Paladino",
       "cA": 18,
       "pf": 20,
-      "focus":"forza",
+      "focus": "forza",
       "mosseId": [
         13,
         14,
@@ -238,7 +260,7 @@
       "name": "Druido",
       "cA": 14,
       "pf": 14,
-      "focus":"dext",
+      "focus": "dext",
       "mosseId": [
         16,
         17,
