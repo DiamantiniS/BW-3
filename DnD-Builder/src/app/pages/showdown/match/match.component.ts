@@ -23,6 +23,8 @@ export class MatchComponent implements OnInit {
   pgArr: iPg[] = [];
   pfPg!: number;
   pfBot!: number;
+  pgTotpf!:number;
+  botTotpf!:number;
   utente!: iUser | undefined;
   firstRound: boolean = true;
   pgInitiative: number = Math.floor(Math.random() * (20 - 1) + 1);
@@ -50,8 +52,9 @@ export class MatchComponent implements OnInit {
           this.pg = pg;
           this.pgSvc.getClassbyId(pg.classeId).subscribe((classe) => {
             this.classe = classe;
-            let modCos = Math.floor(this.pg.cos - 10) / 2;
+            let modCos = Math.floor((this.pg.cos - 10) / 2);
             this.pfPg = this.classe.pf + modCos;
+            this.pgTotpf = this.pfPg
             this.iniziativa(true);
             this.pgSvc.getMosseByIds(classe.mosseId).subscribe((mosse) => {
               this.mosse = mosse;
@@ -63,6 +66,34 @@ export class MatchComponent implements OnInit {
         });
       }
     });
+  }
+
+
+  getRandomPg() {
+    const arrPgId: number[] = [];
+    this.pgArr.forEach((pg) => {
+      arrPgId.push(pg.id);
+    });
+    const randArr = Math.floor(Math.random() * arrPgId.length);
+    const randomIdPg = arrPgId[randArr];
+    if (randomIdPg) {
+      this.pgSvc.getById(randomIdPg).subscribe((pg) => {
+        this.botPg = pg;
+        this.pgSvc.getClassbyId(pg.classeId).subscribe((classe) => {
+          this.botClasse = classe;
+          let modCos = Math.floor((this.botPg.cos - 10) / 2);
+          this.pfBot = this.classe.pf + modCos;
+          this.botTotpf = this.pfBot;
+          this.iniziativa(false);
+          this.pgSvc.getMosseByIds(classe.mosseId).subscribe((mosse) => {
+            this.botMosse = mosse;
+            this.pgSvc.getMosseById(21).subscribe((mosse) => {
+              this.botMosse.push(mosse);
+            });
+          });
+        });
+      });
+    }
   }
 
   iniziativa(target: boolean) {
@@ -80,31 +111,6 @@ export class MatchComponent implements OnInit {
       this.playerLog.push(
         `${this.botPg.name} fa totale di ${this.botInitiative} per la sua iniziativa (${dado} + ${dexMod} : d20 + Dext)`
       );
-    }
-  }
-  getRandomPg() {
-    const arrPgId: number[] = [];
-    this.pgArr.forEach((pg) => {
-      arrPgId.push(pg.id);
-    });
-    const randArr = Math.floor(Math.random() * arrPgId.length);
-    const randomIdPg = arrPgId[randArr];
-    if (randomIdPg) {
-      this.pgSvc.getById(randomIdPg).subscribe((pg) => {
-        this.botPg = pg;
-        this.pgSvc.getClassbyId(pg.classeId).subscribe((classe) => {
-          this.botClasse = classe;
-          let modCos = Math.floor(this.botPg.cos - 10) / 2;
-          this.pfBot = this.classe.pf + modCos;
-          this.iniziativa(false);
-          this.pgSvc.getMosseByIds(classe.mosseId).subscribe((mosse) => {
-            this.botMosse = mosse;
-            this.pgSvc.getMosseById(21).subscribe((mosse) => {
-              this.botMosse.push(mosse);
-            });
-          });
-        });
-      });
     }
   }
   primoRound(){
@@ -205,7 +211,7 @@ export class MatchComponent implements OnInit {
       let calcolo = Math.floor(this.pg.cos - 10) / 2;
       let valorecura = cura + calcolo;
       this.pfPg = this.pfPg + m.danno;
-      if (this.pfPg >= this.classe.pf) {
+      if (this.pfPg >= this.pgTotpf) {
         valorecura = valorecura - (this.pfPg - this.classe.pf);
         this.pfPg = this.classe.pf;
         console.log('pfmassimi', valorecura);
@@ -221,7 +227,7 @@ export class MatchComponent implements OnInit {
       let valorecura = cura + calcolo;
       this.pfBot = this.pfBot + valorecura;
       console.log(valorecura, this.pfBot, this.botClasse.pf, "primaif" );
-      if (this.pfBot >= this.botClasse.pf) {
+      if (this.pfBot >= this.botTotpf) {
         valorecura = valorecura - (this.pfBot - this.botClasse.pf);
         console.log(valorecura, this.pfBot, this.botClasse.pf, "dopoif" );
 
