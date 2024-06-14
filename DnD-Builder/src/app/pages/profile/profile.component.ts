@@ -92,6 +92,7 @@ export class ProfileComponent implements OnInit {
         ...this.profileForm.value,
         id: this.user!.id,
       };
+      delete userProfile.password
       this.userService.saveUserProfile(userProfile).subscribe({
         next: (response) => {
           console.log('Form Submitted', response);

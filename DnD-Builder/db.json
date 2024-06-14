@@ -1,9 +1,9 @@
 {
   "users": [
     {
-      "email": "morgan@test.com",
-      "password": "$2a$10$zlmYi2t2JdR2N5AAxoQ84.LNkkUP9LEymw0thGiBU9/R/y5B1LakK",
       "username": "morgan",
+      "email": "morgan@test.com",
+      "password": "$2a$10$lQPLYwpnBXKNJoFbXhhiLeamQnuQnLmVIAMjNDXf0x2a7tvUlsiu6",
       "id": 4,
       "pic": "Immagine-icona4.png"
     },
@@ -13,6 +13,13 @@
       "username": "admin",
       "id": 1,
       "pic": ""
+    },
+    {
+      "email": "user@test.com",
+      "password": "$2a$10$I4cSsgGMbXBXz8I6CM.4HuvSgzBiTe2xIrp9jhKagn5jYD5KZLfZG",
+      "username": "user",
+      "proPic": "https://3.bp.blogspot.com/-lgVk1vz_MCQ/TVW1-OhDtUI/AAAAAAAAA5o/UmmAq2jrnlY/s1600/album.png",
+      "id": 5
     }
   ],
   "pg": [
@@ -170,6 +177,26 @@
       "idPersonaggio": 13,
       "idUser": 4,
       "id": 2
+    },
+    {
+      "idPersonaggio": 6,
+      "idUser": 5,
+      "id": 3
+    },
+    {
+      "idPersonaggio": 7,
+      "idUser": 5,
+      "id": 4
+    },
+    {
+      "idPersonaggio": 13,
+      "idUser": 5,
+      "id": 5
+    },
+    {
+      "idPersonaggio": 14,
+      "idUser": 5,
+      "id": 6
     }
   ],
   "classe": [
@@ -178,7 +205,7 @@
       "name": "Guerriero",
       "cA": 18,
       "pf": 18,
-      "focus":"forza",
+      "focus": "forza",
       "mosseId": [
         1,
         2,
@@ -190,7 +217,7 @@
       "name": "Ladro",
       "cA": 16,
       "pf": 15,
-      "focus":"dext",
+      "focus": "dext",
       "mosseId": [
         4,
         5,
@@ -202,7 +229,7 @@
       "name": "Mago",
       "cA": 12,
       "pf": 10,
-      "focus":"int",
+      "focus": "int",
       "mosseId": [
         7,
         8,
@@ -214,7 +241,7 @@
       "name": "Chierico",
       "cA": 16,
       "pf": 16,
-      "focus":"int",
+      "focus": "int",
       "mosseId": [
         10,
         11,
@@ -226,7 +253,7 @@
       "name": "Paladino",
       "cA": 18,
       "pf": 20,
-      "focus":"forza",
+      "focus": "forza",
       "mosseId": [
         13,
         14,
@@ -238,7 +265,7 @@
       "name": "Druido",
       "cA": 14,
       "pf": 14,
-      "focus":"dext",
+      "focus": "dext",
       "mosseId": [
         16,
         17,
