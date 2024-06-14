@@ -22,16 +22,15 @@ export class BuilderComponent {
     userId: 0,
     name: '',
     img: '',
-    classeId: 0,
-    forza: 0,
-    dext: 0,
-    int: 0,
-    cos: 0,
+    forza: 10,
+    dext: 10,
+    int: 10,
+    cos: 10,
   };
   classe!: iClasse;
   classeSelect: iClasse = {
     id: 0,
-    name: '',
+    name: '-- Seleziona classe --',
     cA: 0,
     pf: 0,
     mosseId: [],
@@ -92,6 +91,7 @@ export class BuilderComponent {
     setTimeout(() => {this.router.navigate(['/profile'])},500);
   }
   getmossebyclasse(e: Event) {
+    console.log('classe id', this.pgCurrent.classeId);
     const target = <HTMLInputElement>e.target;
     console.log(target.value);
     let classeSelect = this.classi.find(
@@ -114,18 +114,6 @@ export class BuilderComponent {
     } else {
       delete this.pgCurrent.id;
       this.create();
-    }
-  }
-
-  submitForm(form: NgForm) {
-    console.log(form);
-    if (form.invalid) {
-      return;
-    }
-    if (this.isCreating) {
-      this.create();
-    } else {
-      this.modifica();
     }
   }
 }
