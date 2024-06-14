@@ -13,6 +13,13 @@
       "username": "admin",
       "id": 1,
       "pic": ""
+    },
+    {
+      "email": "user@example.com",
+      "password": "$2a$10$mPPdPxjK1sZrZLAVDGNmqOXN/rwYgUUctVUGedzAvXmOOICKSjQW.",
+      "username": "User",
+      "proPic": "https://3.bp.blogspot.com/-lgVk1vz_MCQ/TVW1-OhDtUI/AAAAAAAAA5o/UmmAq2jrnlY/s1600/album.png",
+      "id": 5
     }
   ],
   "pg": [
@@ -147,6 +154,17 @@
       "cos": 0,
       "id": 12,
       "userId": 1
+    },
+    {
+      "userId": 5,
+      "name": "Pippo",
+      "img": "https://3.bp.blogspot.com/-lgVk1vz_MCQ/TVW1-OhDtUI/AAAAAAAAA5o/UmmAq2jrnlY/s1600/album.png",
+      "forza": 10,
+      "dext": 10,
+      "int": 10,
+      "cos": 10,
+      "classeId": 1,
+      "id": 13
     }
   ],
   "favoriti": [
@@ -159,6 +177,21 @@
       "idPersonaggio": 4,
       "idUser": 4,
       "id": 2
+    },
+    {
+      "idPersonaggio": 4,
+      "idUser": 5,
+      "id": 3
+    },
+    {
+      "idPersonaggio": 6,
+      "idUser": 5,
+      "id": 4
+    },
+    {
+      "idPersonaggio": 12,
+      "idUser": 5,
+      "id": 5
     }
   ],
   "classe": [
