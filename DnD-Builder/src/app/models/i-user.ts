@@ -4,7 +4,7 @@ export interface iUser {
   username: string;
   id: number;
   email: string;
-  password: string;
+  password?: string;
   pic: string;
   pg: iPg;
 }

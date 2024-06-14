@@ -2,8 +2,18 @@
   .carousel-inner {
     .carousel-item {
       img {
-        height: 80vh;
+        height: 95vh;
       }
     }
+  }
+
+  .btn-primary {
+    background-color: #800000;
+    border-color: #800000;
+  }
+
+  .btn-primary:hover {
+    background-color: #5c0000 !important;
+    border-color: #5c0000 !important;
   }
 }

@@ -12,7 +12,7 @@
       "password": "$2a$10$zlmYi2t2JdR2N5AAxoQ84.LNkkUP9LEymw0thGiBU9/R/y5B1LakK",
       "username": "admin",
       "id": 1,
-      "pic": "Immagine-icona4.png"
+      "pic": ""
     }
   ],
   "pg": [
@@ -216,11 +216,7 @@
       "cA": 18,
       "pf": 18,
       "focus": "forza",
-      "mosseId": [
-        1,
-        2,
-        3
-      ]
+      "mosseId": [1, 2, 3]
     },
     {
       "id": 2,
@@ -228,11 +224,7 @@
       "cA": 16,
       "pf": 15,
       "focus": "dext",
-      "mosseId": [
-        4,
-        5,
-        6
-      ]
+      "mosseId": [4, 5, 6]
     },
     {
       "id": 3,
@@ -240,11 +232,7 @@
       "cA": 12,
       "pf": 10,
       "focus": "int",
-      "mosseId": [
-        7,
-        8,
-        9
-      ]
+      "mosseId": [7, 8, 9]
     },
     {
       "id": 4,
@@ -252,11 +240,7 @@
       "cA": 16,
       "pf": 16,
       "focus": "int",
-      "mosseId": [
-        10,
-        11,
-        12
-      ]
+      "mosseId": [10, 11, 12]
     },
     {
       "id": 5,
@@ -264,11 +248,7 @@
       "cA": 18,
       "pf": 20,
       "focus": "forza",
-      "mosseId": [
-        13,
-        14,
-        15
-      ]
+      "mosseId": [13, 14, 15]
     },
     {
       "id": 6,
@@ -276,11 +256,7 @@
       "cA": 14,
       "pf": 14,
       "focus": "dext",
-      "mosseId": [
-        16,
-        17,
-        18
-      ]
+      "mosseId": [16, 17, 18]
     }
   ],
   "mosse": [

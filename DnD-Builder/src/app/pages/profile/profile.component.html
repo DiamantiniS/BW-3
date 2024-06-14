@@ -34,7 +34,7 @@
     <div class="col-md-8">
       <div class="tab-content">
         <div class="tab-pane fade active show altezza" id="account-general">
-          <div class="card bg-dark text-light border-light dnd-card d-flex flex-column">
+          <div id="card"class="card bg-dark text-light border-light dnd-card d-flex flex-column" >
             <div class="card-header">
               <h3 class="display-5">Profilo Generale</h3>
             </div>
@@ -83,8 +83,8 @@
       </div>
       </div>
       <div class="mt-5">
-        <div class="card bg-dark text-light border-light ">
-            <h1 class=" text-center mb-4 mt-2">I tuoi Personaggi</h1>
+        <div class="card bg-dark text-light border-light pb-3">
+            <h1 class=" text-center p-3 mb-4 mt-2">I tuoi Personaggi</h1>
             <div class="row justify-content-center align-items-center">
               <div *ngIf="characters.length === 0" class="col-md-12 text-center">
                 <button class="create-character-btn" (click)="createCharacter()">Crea PG</button>

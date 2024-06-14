@@ -18,7 +18,7 @@ export class UserService {
   }
 
   saveUserProfile(userProfile: iUser): Observable<iUser> {
-    return this.http.put<iUser>(
+    return this.http.patch<iUser>(
       `${this.apiUrl}/${userProfile.id}`,
       userProfile
     );
