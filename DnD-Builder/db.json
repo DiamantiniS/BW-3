@@ -176,6 +176,16 @@
       "idPersonaggio": 2,
       "idUser": 5,
       "id": 4
+    },
+    {
+      "idPersonaggio": 5,
+      "idUser": 4,
+      "id": 5
+    },
+    {
+      "idPersonaggio": 2,
+      "idUser": 4,
+      "id": 6
     }
   ],
   "classe": [
