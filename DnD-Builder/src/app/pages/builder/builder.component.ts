@@ -5,6 +5,7 @@ import { PgService } from '../../services/pg.service';
 import { iMossa } from '../../models/i-mossa';
 import { BuilderService } from '../../services/builder.service';
 import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-builder',
@@ -111,15 +112,15 @@ export class BuilderComponent {
     }
   }
 
-  onFileSelected(e: any) {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        const imageUrl = e.target.result;
-        this.pgCurrent.img = imageUrl; // Aggiorna l'immagine corrente
-      };
-      reader.readAsDataURL(file);
+  submitForm(form: NgForm) {
+    console.log(form);
+    if (form.invalid) {
+      return;
+    }
+    if (this.isCreating) {
+      this.create();
+    } else {
+      this.modifica();
     }
   }
 }

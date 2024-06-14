@@ -10,27 +10,24 @@ import {
 } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class AuthGuard{
-
-  constructor(
-    private AuthSvc:AuthService,
-    private router: Router
-  ){}
+export class AuthGuard {
+  constructor(private AuthSvc: AuthService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): MaybeAsync<GuardResult> {
-    if(this.AuthSvc.loggedIn) return true;
+    state: RouterStateSnapshot
+  ): MaybeAsync<GuardResult> {
+    if (this.AuthSvc.loggedIn) return true;
 
     this.router.navigate(['/auth/login']);
     return false;
   }
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): MaybeAsync<GuardResult> {
+    state: RouterStateSnapshot
+  ): MaybeAsync<GuardResult> {
     return this.canActivate(childRoute, state);
   }
-
 }

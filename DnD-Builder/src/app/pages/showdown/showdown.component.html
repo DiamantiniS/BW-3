@@ -1,20 +1,29 @@
 <div class="mt-5">
   <h3 class="display-5">I tuoi Personaggi</h3>
   <div class="row">
-    <div *ngIf="characters.length === 0" class="col-md-12 text-center">
-    </div>
+    <div *ngIf="characters.length === 0" class="col-md-12 text-center"></div>
     <div class="col-md-6" *ngFor="let character of characters">
       <div class="card bg-dark text-light border-light dnd-card mb-4">
-        <img [src]="character.img" class="card-img-top" [alt]="character.name" style="max-height: 200px;">
+        <img
+          [src]="character.img"
+          class="card-img-top"
+          [alt]="character.name"
+          style="max-height: 200px"
+        />
         <div class="card-body">
           <h5 class="card-title">{{ character.name }}</h5>
           <p class="card-text">
-            <strong>Forza:</strong> {{ character.forza }}<br>
-            <strong>Destrezza:</strong> {{ character.dext }}<br>
-            <strong>Intelligenza:</strong> {{ character.int }}<br>
+            <strong>Forza:</strong> {{ character.forza }}<br />
+            <strong>Destrezza:</strong> {{ character.dext }}<br />
+            <strong>Intelligenza:</strong> {{ character.int }}<br />
             <strong>Costituzione:</strong> {{ character.cos }}
           </p>
-          <button [routerLink]="['match',character.id]" class="btn btn-danger btn-sm mt-2">Seleziona</button>
+          <button
+            [routerLink]="['match', character.id]"
+            class="btn btn-danger btn-sm mt-2"
+          >
+            Seleziona
+          </button>
         </div>
       </div>
     </div>
@@ -28,7 +37,9 @@
         <div class="card dnd-card h-100">
           <img [src]="pg.img" class="card-img-top" alt="pg pic" />
           <div class="card-body">
-            <h5 class="card-title"><b>{{ pg.name }}</b></h5>
+            <h5 class="card-title">
+              <b>{{ pg.name }}</b>
+            </h5>
             <p><b>Classe:</b> {{ pg.classe?.name }}</p>
             <p><b>Statistiche</b></p>
             <div class="table-responsive">
@@ -55,11 +66,15 @@
                 </tbody>
               </table>
             </div>
-            <button [routerLink]="['match',pg.id]" class="btn btn-danger btn-sm mt-2">Seleziona</button>
+            <button
+              [routerLink]="['match', pg.id]"
+              class="btn btn-danger btn-sm mt-2"
+            >
+              Seleziona
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-

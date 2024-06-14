@@ -4,7 +4,11 @@
       <div class="col-md-8 mb-4">
         <div class="card dnd-card">
           <div class="card-body">
-            <form class="pb-5">
+            <form
+              class="pb-5"
+              (ngSubmit)="submitForm(characterForm)"
+              #characterForm="ngForm"
+            >
               <div class="row">
                 <div class="col-12 col-md-6">
                   <div class="form-group">
@@ -24,10 +28,23 @@
                       name="class"
                       [(ngModel)]="pgCurrent.classeId"
                       (change)="getmossebyclasse($event)"
+                      required
+                      #classe="ngModel"
                     >
+                      <option [value]="pgCurrent.classeId" selected disabled>
+                        -- Seleziona una classe --
+                      </option>
                       <option *ngFor="let c of classi" [value]="c.id">
                         {{ c.name }}
                       </option>
+                      <div
+                        *ngIf="
+                          classe.invalid && (classe.dirty || classe.touched)
+                        "
+                        class="invalid-feedback"
+                      >
+                        Classe is required.
+                      </div>
                     </select>
                   </div>
                   <div class="form-group">
@@ -73,14 +90,13 @@
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="form-group">
-                    <label for="imagen">Immagine</label>
+                    <label for="imagen">Url immagine</label>
                     <input
-                      type="file"
+                      type="text"
                       id="imagen"
                       [(ngModel)]="pgCurrent.img"
                       name="imagen"
                       class="form-control"
-                      (change)="onFileSelected($event)"
                     />
                     <img
                       *ngIf="pgCurrent.img"
@@ -108,14 +124,14 @@
                 <button
                   *ngIf="isCreating"
                   class="btn btn-danger dnd-button"
-                  (click)="create()"
+                  type="submit"
                 >
                   Crea
                 </button>
                 <button
                   *ngIf="!isCreating"
                   class="btn btn-danger dnd-button"
-                  (click)="modifica()"
+                  type="submit"
                 >
                   {{ !isMine ? "Copia Build" : "Modifica" }}
                 </button>

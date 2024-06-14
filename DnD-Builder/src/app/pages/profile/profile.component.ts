@@ -5,6 +5,10 @@ import { UserService } from '../../services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
+import { iFavourites } from '../../models/i-favourites';
+import { FavouritesService } from '../../services/favourites.service';
+import { PgService } from '../../services/pg.service';
+import { iClasse } from '../../models/i-classe';
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +17,9 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
+  favouritesArray: iFavourites[] = [];
+  classPgArray: iClasse[] = [];
+  arrayPgs: iPg[] = [];
   user: iUser | null = null;
   characters: iPg[] = [];
 
@@ -20,6 +27,8 @@ export class ProfileComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private authService: AuthService,
+    private FavortiteSvc: FavouritesService,
+    private PgSvc: PgService,
     private router: Router
   ) {
     this.profileForm = this.fb.group({
@@ -30,15 +39,35 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    // Array favoriti + classe
+    /*this.PgSvc.getClasses().subscribe(classes => {
+      this.classPgArray = classes
+      console.log('classi',this.classPgArray)
+    })*/
+
     const accessData = this.authService.getAccessData();
-    console.log('Access Data:', accessData); // Debugging line
+    if (!accessData) return;
+    this.user = accessData.user;
+    const userId = accessData.user.id;
+
+    this.FavortiteSvc.getFavouritePgs(userId).subscribe((favourites) => {
+      this.favouritesArray = favourites;
+
+      /*this.favouritesArray.forEach(favorite => {
+        this.PgSvc.getById(favorite.idPersonaggio).subscribe(pg => {
+          this.FavortiteSvc.addClassToPg(pg, this.classPgArray)
+          this.arrayPgs.push(pg)
+        })
+      })*/
+    });
+
+    //const accessData = this.authService.getAccessData();
+    //ELIMINATE LINEE DI DEBUG
     if (accessData) {
       const userId = accessData.user.id;
-      console.log('User ID:', userId); // Debugging line
       this.userService.getUserProfile(userId).subscribe({
         next: (user) => {
-          console.log('Fetched User:', user); // Debugging line
           this.user = user;
           this.profileForm.patchValue(user);
         },
@@ -49,7 +78,6 @@ export class ProfileComponent implements OnInit {
 
       this.userService.getUserCharacters(userId).subscribe({
         next: (characters) => {
-          console.log('Fetched Characters:', characters); // Debugging line
           this.characters = characters;
         },
         error: (err) => {

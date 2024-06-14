@@ -1,8 +1,32 @@
-<div class="bot-name">Tu</div>
-<div class="battlefield-section" *ngIf="mosse && mosse.length > 0">
-  <button class="move-button" *ngFor="let m of mosse">{{ m.nome }}</button>
+<div class="character-name">Tu</div>
+{{ pfPg }} / {{ classe.pf }}
+<div class="health-bar-container">
+  <div class="health-bar">
+    <div
+      class="health-bar-active"
+      [style.width.%]="(pfPg / classe.pf) * 100"
+    ></div>
+  </div>
 </div>
-<div class="bot-name">{{ botPg.name }}</div>
+<div class="battlefield-section" *ngIf="mosse && mosse.length > 0">
+  <button
+    class="action-button"
+    *ngFor="let m of mosse"
+    (click)="startRound(m.id)"
+  >
+    {{ m.nome }}
+  </button>
+</div>
+<div class="character-name" *ngIf="botPg">{{ botPg.name }}</div>
+{{ pfBot }} / {{ botClasse.pf }}
+<div class="health-bar-container">
+  <div class="health-bar">
+    <div
+      class="health-bar-active"
+      [style.width.%]="(pfBot / botClasse.pf) * 100"
+    ></div>
+  </div>
+</div>
 <div class="battlefield-section" *ngIf="mosse && botMosse.length > 0">
-  <button class="move-button" *ngFor="let m of botMosse">{{ m.nome }}</button>
+  <button class="action-button" *ngFor="let m of botMosse">{{ m.nome }}</button>
 </div>

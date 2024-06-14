@@ -6,47 +6,115 @@
         <form [formGroup]="registerForm" (ngSubmit)="signUp()">
           <div class="mb-3">
             <label for="inputName" class="form-label text-dnd">Username</label>
-            <input type="text" class="form-control inferno-input" formControlName="username" id="inputName" placeholder="Il tuo nome" />
-            <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
-              <strong class="text-danger" *ngIf="registerForm.get('username')?.errors?.['required']">
+            <input
+              type="text"
+              class="form-control inferno-input"
+              formControlName="username"
+              id="inputName"
+              placeholder="Il tuo nome"
+            />
+            <div
+              *ngIf="
+                registerForm.get('username')?.invalid &&
+                registerForm.get('username')?.touched
+              "
+            >
+              <strong
+                class="text-danger"
+                *ngIf="registerForm.get('username')?.errors?.['required']"
+              >
                 Username is required
               </strong>
             </div>
           </div>
           <div class="mb-3">
             <label for="inputEmail" class="form-label text-dnd">Email</label>
-            <input type="email" class="form-control inferno-input" formControlName="email" id="inputEmail" placeholder="name@example.com" />
-            <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
-              <strong class="text-danger" *ngIf="registerForm.get('email')?.errors?.['required']">
+            <input
+              type="email"
+              class="form-control inferno-input"
+              formControlName="email"
+              id="inputEmail"
+              placeholder="name@example.com"
+            />
+            <div
+              *ngIf="
+                registerForm.get('email')?.invalid &&
+                registerForm.get('email')?.touched
+              "
+            >
+              <strong
+                class="text-danger"
+                *ngIf="registerForm.get('email')?.errors?.['required']"
+              >
                 Email is required
               </strong>
-              <strong class="text-danger" *ngIf="registerForm.get('email')?.errors?.['email']">
+              <strong
+                class="text-danger"
+                *ngIf="registerForm.get('email')?.errors?.['email']"
+              >
                 Enter a valid email
               </strong>
             </div>
           </div>
           <div class="mb-3 position-relative">
-            <label for="inputPassword" class="form-label text-dnd">Password</label>
+            <label for="inputPassword" class="form-label text-dnd"
+              >Password</label
+            >
             <div class="position-relative">
-              <input type="{{ hidePassword ? 'password' : 'text' }}" class="form-control inferno-input pe-5" formControlName="password" id="inputPassword" placeholder="La tua password" />
-              <button type="button" class="btn btn-outline-light position-absolute end-0 top-50 translate-middle-y me-2" (click)="togglePasswordVisibility()">
+              <input
+                type="{{ hidePassword ? 'password' : 'text' }}"
+                class="form-control inferno-input pe-5"
+                formControlName="password"
+                id="inputPassword"
+                placeholder="La tua password"
+              />
+              <button
+                type="button"
+                class="btn btn-outline-light position-absolute end-0 top-50 translate-middle-y me-2"
+                (click)="togglePasswordVisibility()"
+              >
                 <i class="bi bi-eye{{ hidePassword ? '-slash' : '' }}"></i>
               </button>
             </div>
-            <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
-              <strong class="text-danger" *ngIf="registerForm.get('password')?.errors?.['required']">
+            <div
+              *ngIf="
+                registerForm.get('password')?.invalid &&
+                registerForm.get('password')?.touched
+              "
+            >
+              <strong
+                class="text-danger"
+                *ngIf="registerForm.get('password')?.errors?.['required']"
+              >
                 Password is required
               </strong>
-              <strong class="text-danger" *ngIf="registerForm.get('password')?.errors?.['minlength']">
+              <strong
+                class="text-danger"
+                *ngIf="registerForm.get('password')?.errors?.['minlength']"
+              >
                 Password must be at least 6 characters
               </strong>
             </div>
           </div>
           <div class="mb-3">
-            <label for="inputProPic" class="form-label text-dnd">URL della tua foto profilo</label>
-            <input type="text" class="form-control inferno-input" formControlName="proPic" id="inputProPic" placeholder="URL della tua foto profilo" />
+            <label for="inputProPic" class="form-label text-dnd"
+              >URL della tua foto profilo</label
+            >
+            <input
+              type="text"
+              class="form-control inferno-input"
+              formControlName="proPic"
+              id="inputProPic"
+              placeholder="URL della tua foto profilo"
+            />
           </div>
-          <button class="btn btn-primary w-100 py-2 inferno-btn" type="submit" [disabled]="registerForm.invalid">Registrati</button>
+          <button
+            class="btn btn-primary w-100 py-2 inferno-btn"
+            type="submit"
+            [disabled]="registerForm.invalid"
+          >
+            Registrati
+          </button>
           <p class="mt-4 mb-3 text-muted text-center">&copy; DAJE</p>
           <span class="ms-3 fs-5 text-white d-block text-center">
             Already have an account?

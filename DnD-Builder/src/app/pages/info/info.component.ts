@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { PgService } from '../../services/pg.service';
 import { iPg } from '../../models/i-pg';
 import { iClasse } from '../../models/i-classe';
