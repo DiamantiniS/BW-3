@@ -72,6 +72,64 @@ img {
     &:disabled {
       background-color: #6c757d;
       border-color: #6c757d;
+
+      .dnd-card {
+        background-color: rgba(0, 0, 0, 0.7);
+        border: 2px solid #800000;
+        color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+        width: 100%;
+        max-width: 1000px;
+        margin-bottom: 20px;
+        height: calc(100% - 150px); /* Altezza ridotta */
+        font-family: "MedievalSharp", cursive;
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+        border-bottom: 1px solid #800000;
+        padding-bottom: 5px;
+
+
+        /* Prima sezione: Riduci la larghezza delle colonne */
+.col-md-4 {
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+
+.col-md-8 {
+  flex: 0 0 70%;
+  max-width: 70%;
+}
+
+/* Card Style */
+.card {
+  height: auto;
+}
+
+/* Seconda sezione: Espandi le card */
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.col-md-6 {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+@media (max-width: 768px) {
+  .col-md-4, .col-md-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+      }
     }
   }
 }
