@@ -82,7 +82,6 @@ export class MatchComponent implements OnInit {
         this.pgSvc.getClassbyId(pg.classeId).subscribe((classe) => {
           this.botClasse = classe;
           let modCos = Math.floor((this.botPg.cos - 10) / 2);
-          let modCos = Math.floor((this.botPg.cos - 10) / 2);
           this.pfBot = this.classe.pf + modCos;
           this.botTotpf = this.pfBot;
           this.botTotpf = this.pfBot;
