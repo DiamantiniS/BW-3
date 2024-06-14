@@ -4,7 +4,11 @@
   [ngClass]="{ 'd-none': pageFavourite && !liked }"
 >
   <a [routerLink]="['/details', pg.id]" class="text-decoration-none">
-    <img class="card-img-top" [src]="pg.img" [alt]="pg.name" />
+    <div class="wrapper">
+      <img class="cover-image" [src]="pg.img" [alt]="pg.name" />
+    </div>
+
+    <img class="character" src="../../../assets/img-pg/chierico-png.png" alt="character image" />
   </a>
   <div class="card-body">
     <h4 class="card-title">{{ pg.name }}</h4>
