@@ -1,11 +1,10 @@
 <div class="container-fluid text-light dnd-theme">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card bg-dark text-light border-light dnd-card">
+  <div class="row ">
+    <div class="col-md-4" style="  height: 355px;">
+      <div class="card bg-dark text-light border-light dnd-card d-flex flex-column " style="  height: 357px;">
         <img
           *ngIf="user?.pic"
           [src]="'/assets/img-user/' + user?.pic"
-          class="rounded-circle"
           alt="Profile Picture"
           width="50"
           height="50"
@@ -14,7 +13,7 @@
           *ngIf="!user?.pic"
           class="card-img-top"
           style="
-            max-height: 200px;
+            max-height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -24,7 +23,7 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">{{ user?.username }}</h5>
-          <p class="card-text">
+          <p class="card-text" style="font-size: 17px;">
             Informazioni aggiuntive dell'utente. Clicca
             <a href="favourites" class="text-light">qui</a> per visualizzare i
             tuoi preferiti.
@@ -34,8 +33,8 @@
     </div>
     <div class="col-md-8">
       <div class="tab-content">
-        <div class="tab-pane fade active show" id="account-general">
-          <div class="card bg-dark text-light border-light dnd-card">
+        <div class="tab-pane fade active show altezza" id="account-general">
+          <div class="card bg-dark text-light border-light dnd-card d-flex flex-column">
             <div class="card-header">
               <h3 class="display-5">Profilo Generale</h3>
             </div>
@@ -75,34 +74,33 @@
                     </div>
                   </div>
                 </div>
-                <button
-                  type="submit"
-                  class="btn btn-primary mt-3"
-                  [disabled]="!profileForm.valid"
-                >
-                  Salva
-                </button>
+                <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Salva</button>
               </form>
             </div>
           </div>
         </div>
       </div>
+      </div>
+      </div>
       <div class="mt-5">
-        <h3 class="display-5">I tuoi Personaggi</h3>
-        <div class="row">
-          <div *ngIf="characters.length === 0" class="col-md-12 text-center">
-            <button class="btn btn-primary" (click)="createCharacter()">
-              Crea PG
-            </button>
-          </div>
-          <div class="col-md-6" *ngFor="let character of characters">
-            <app-single-pg
-              [pg]="character"
-              [arrayFavourites]="favouritesArray"
-            ></app-single-pg>
+        <div class="card bg-dark text-light border-light ">
+            <h1 class=" text-center mb-4 mt-2">I tuoi Personaggi</h1>
+            <div class="row justify-content-center align-items-center">
+              <div *ngIf="characters.length === 0" class="col-md-12 text-center">
+                <button class="create-character-btn" (click)="createCharacter()">Crea PG</button>
+              </div>
+              <div class="col-md-12">
+                <div class="character-container">
+                  <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-4 m-2" *ngFor="let character of characters">
+                      <div class="card bg-dark text-light dnd-card d-flex flex-column character-card">
+                        <app-single-pg [pg]="character" [arrayFavourites]="favouritesArray"></app-single-pg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
