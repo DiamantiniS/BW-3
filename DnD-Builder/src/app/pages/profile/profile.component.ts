@@ -40,11 +40,11 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Array favoriti + classe
-    /*this.PgSvc.getClasses().subscribe(classes => {
+
+    this.PgSvc.getClasses().subscribe(classes => {
       this.classPgArray = classes
       console.log('classi',this.classPgArray)
-    })*/
+    })
 
     const accessData = this.authService.getAccessData();
     if (!accessData) return;
@@ -54,39 +54,36 @@ export class ProfileComponent implements OnInit {
     this.FavortiteSvc.getFavouritePgs(userId).subscribe((favourites) => {
       this.favouritesArray = favourites;
 
-      /*this.favouritesArray.forEach(favorite => {
+      this.favouritesArray.forEach(favorite => {
         this.PgSvc.getById(favorite.idPersonaggio).subscribe(pg => {
           this.FavortiteSvc.addClassToPg(pg, this.classPgArray)
           this.arrayPgs.push(pg)
         })
-      })*/
+      })
     });
 
-    //const accessData = this.authService.getAccessData();
-    //ELIMINATE LINEE DI DEBUG
-    if (accessData) {
-      const userId = accessData.user.id;
-      this.userService.getUserProfile(userId).subscribe({
-        next: (user) => {
-          this.user = user;
-          this.profileForm.patchValue(user);
-        },
-        error: (err) => {
-          console.error('Error fetching user profile', err);
-        },
-      });
+    this.userService.getUserProfile(userId).subscribe({
+      next: (user) => {
+        this.user = user;
+        this.profileForm.patchValue(user);
+      },
+      error: (err) => {
+        console.error('Error fetching user profile', err);
+      },
+    });
 
-      this.userService.getUserCharacters(userId).subscribe({
-        next: (characters) => {
-          this.characters = characters;
-        },
-        error: (err) => {
-          console.error('Error fetching user characters', err);
-        },
-      });
-    } else {
-      console.error('No user is currently logged in.');
-    }
+    this.userService.getUserCharacters(userId).subscribe({
+      next: (characters) => {
+        characters.forEach(character => {
+          this.FavortiteSvc.addClassToPg(character, this.classPgArray);
+            this.characters.push(character);
+        })
+      },
+      error: (err) => {
+        console.error('Error fetching user characters', err);
+      },
+    });
+
   }
 
   onSubmit() {

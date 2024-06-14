@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { PgService } from '../../services/pg.service';
 import { iMossa } from '../../models/i-mossa';
 import { BuilderService } from '../../services/builder.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -35,17 +35,19 @@ export class BuilderComponent {
     pf: 0,
     mosseId: [],
     mosse: [],
+    focus: ''
   };
   AuthSvc: any;
 
   constructor(
     private pgSvc: PgService,
     private builderSvc: BuilderService,
-    private router: ActivatedRoute
+    private activeRouter: ActivatedRoute,
+    private router: Router,
   ) {}
   ngOnInit() {
     this.currentUser = this.pgSvc.getUserId();
-    this.router.params.subscribe((params) => {
+    this.activeRouter.params.subscribe((params) => {
       if (params['id'] && params['id'] !== '0') {
         this.isCreating = false;
         this.pgSvc.getById(params['id']).subscribe((pg) => {
@@ -84,6 +86,9 @@ export class BuilderComponent {
     this.pgCurrent.userId = this.currentUser;
 
     this.pgSvc.create(this.pgCurrent).subscribe();
+
+    //POSSIBILE SWEETALERT
+    setTimeout(() => {this.router.navigate(['/profile'])},500);
   }
   getmossebyclasse(e: Event) {
     console.log('classe id', this.pgCurrent.classeId);
