@@ -13,6 +13,13 @@
       "username": "admin",
       "id": 1,
       "pic": ""
+    },
+    {
+      "email": "persona@email.com",
+      "password": "$2a$10$z8DtBkG.ckKDIY93xiepYeC8FA8wu3HEslJhNJbhayrshbFUtUWaG",
+      "username": "persona",
+      "proPic": "",
+      "id": 5
     }
   ],
   "pg": [

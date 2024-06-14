@@ -142,14 +142,14 @@ export class MatchComponent implements OnInit {
     if (this.pgInitiative > this.botInitiative) {
       this.miaMossa(idmossa);
       if (this.pfBot <= 0) {
-        alert('hai vinto');
+        this.playerLog.push('hai vinto');
         setTimeout(() => {
           this.router.navigate(['/showdown']);
         }, 5000);
       } else {
         this.botMossa();
         if (this.pfPg <= 0) {
-          alert('hai perso');
+          this.playerLog.push('hai perso');
           setTimeout(() => {
             this.router.navigate(['/showdown']);
           }, 5000);
@@ -158,14 +158,14 @@ export class MatchComponent implements OnInit {
     } else {
       this.botMossa();
       if (this.pfPg <= 0) {
-        alert('hai perso');
+        this.playerLog.push('hai perso');
         setTimeout(() => {
           this.router.navigate(['/showdown']);
         }, 5000);
       } else {
         this.miaMossa(idmossa);
         if (this.pfBot <= 0) {
-          alert('hai vinto');
+          this.playerLog.push('hai vinto');
           setTimeout(() => {
             this.router.navigate(['/showdown']);
           }, 5000);
