@@ -17,6 +17,7 @@ export class SinglePgComponent {
   @Input() arrayFavourites!: iFavourites[];
 
   currentUser!: iUser;
+  deleted:boolean = false
   liked: boolean = false;
   pageFavourite: boolean = this.router.url === '/favourites';
   pageProfile: boolean = this.router.url === '/profile';
@@ -58,6 +59,7 @@ export class SinglePgComponent {
     this.UserSvc.deleteUserCharacter(characterId).subscribe({
       next: () => {
         console.log(`Character with ID ${characterId} deleted`);
+        this.deleted = true
         this.characters = this.characters.filter((c) => c.id !== characterId);
       },
       error: (err) => {

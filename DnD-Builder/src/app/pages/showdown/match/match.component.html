@@ -1,6 +1,6 @@
-<div class="container theme">
-  <div class="row">
-    <div class="col-6 col-md-5 bg dark">
+<div class="container-fluid theme">
+  <div class="row text-light">
+    <div class="col-6 col-md-4 bg dark">
       <div class="d-flex justify-content-around flex-wrap">
         <div class="bot-name" *ngIf="pg">
           <p>{{ pg.name }} ({{ utente?.username }})</p>
@@ -28,7 +28,7 @@
         </button>
       </div>
     </div>
-    <div class="col-6 col-md-5">
+    <div class="col-6 col-md-4">
       <div class="d-flex justify-content-around flex-wrap">
         <div class="bot-name" *ngIf="pg">
           <p *ngIf="botPg">{{ botPg.name }}</p>
@@ -53,7 +53,7 @@
         </button>
       </div>
     </div>
-    <div class="col-12 col-md-2" *ngIf="playerLog">
+    <div class="col-12 col-md-4" id="battle-log" *ngIf="playerLog">
       <p *ngFor="let p of playerLog">{{ p }}</p>
     </div>
   </div>

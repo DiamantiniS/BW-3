@@ -1,4 +1,3 @@
-
 .theme {
   background-image: url("../../../../assets/Tiamat.webp");
   background-size: cover;
@@ -6,13 +5,16 @@
   color: black;
   font-size: bold;
   font-family: "MedievalSharp", cursive;
-
 }
 
-.container {
+.container-fluid {
   display: flex;
   justify-content: space-around;
-  margin: 20px 0;
+  padding-top: 5vh;
+}
+
+.row {
+  min-height: 85vh;
 }
 
 .col-6 {
@@ -111,10 +113,15 @@
 }
 
 .battle-img {
-  width: 100%; /* Occupa tutta la larghezza disponibile */
-  max-width: 100%; /* Imposta la larghezza massima al 100% */
-  height: auto; /* Altezza automatica per mantenere l'aspetto proporzionato */
+  height: 9em;
   border-radius: 0.5em;
+  margin-left: 1em;
+}
+
+#battle-log {
+  background-image: url("https://www.pngkey.com/png/full/9-93927_parchment-png.png");
+  background-size: cover;
+  padding: 4em 0 4em 3em;
 }
 
 @media (max-width: 768px) {

@@ -6,6 +6,7 @@ import { iMossa } from '../../models/i-mossa';
 import { BuilderService } from '../../services/builder.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-builder',
@@ -22,6 +23,7 @@ export class BuilderComponent {
     userId: 0,
     name: '',
     img: '',
+    imgpng: '', // facoltativa
     forza: 10,
     dext: 10,
     int: 10,
@@ -87,7 +89,7 @@ export class BuilderComponent {
 
     this.pgSvc.create(this.pgCurrent).subscribe();
 
-    //POSSIBILE SWEETALERT
+    swal("Creazione avvenuta", "", "success");
     setTimeout(() => {this.router.navigate(['/profile'])},500);
   }
   getmossebyclasse(e: Event) {
@@ -111,6 +113,8 @@ export class BuilderComponent {
   modifica() {
     if (this.pgCurrent.userId === this.currentUser) {
       this.pgSvc.edit(this.pgCurrent).subscribe();
+      swal("Modifica avvenuta", "", "success");
+      setTimeout(() => {this.router.navigate(['/profile'])},500);
     } else {
       delete this.pgCurrent.id;
       this.create();

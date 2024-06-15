@@ -7,6 +7,7 @@ import { iPg } from '../../../models/i-pg';
 import { iClasse } from '../../../models/i-classe';
 import { AuthService } from '../../../auth/auth.service';
 import { iUser } from '../../../models/i-user';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-match',
@@ -152,32 +153,36 @@ export class MatchComponent implements OnInit {
         this.miaMossa(idmossa);
         if (this.pfBot <= 0) {
           this.playerLog.push('hai vinto');
+          swal("You won", "", "success");
           setTimeout(() => {
             this.router.navigate(['/showdown']);
-          }, 5000);
+          }, 3000);
         } else {
           this.botMossa();
           if (this.pfPg <= 0) {
             this.playerLog.push('hai perso');
+            swal("You lost", "", "error");
             setTimeout(() => {
               this.router.navigate(['/showdown']);
-            }, 5000);
+            }, 3000);
           }
         }
       } else {
         this.botMossa();
         if (this.pfPg <= 0) {
           this.playerLog.push('hai perso');
+          swal("You lost", "", "error");
           setTimeout(() => {
             this.router.navigate(['/showdown']);
-          }, 5000);
+          }, 3000);
         } else {
           this.miaMossa(idmossa);
           if (this.pfBot <= 0) {
             this.playerLog.push('hai vinto');
+            swal("You won", "", "success");
             setTimeout(() => {
               this.router.navigate(['/showdown']);
-            }, 5000);
+            }, 3000);
           }
         }
       }
