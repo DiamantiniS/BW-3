@@ -7,7 +7,7 @@
         </div>
         <div *ngIf="pg"><img [src]="pg.img" class="battle-img" /></div>
       </div>
-      <p *ngIf="pfPg">{{ pfPg }} punti ferita</p>
+      <p *ngIf="pfPg">{{ pfPg }} / {{ pgTotpf }} punti ferita</p>
       <div class="health-bar-container">
         <div class="health-bar">
           <div
@@ -22,6 +22,7 @@
           class="btn btn-dark"
           *ngFor="let m of mosse"
           (click)="startRound(m.id)"
+          [disabled]="roundActive"
         >
           <p *ngIf="m">{{ m.nome }}</p>
         </button>
@@ -34,7 +35,9 @@
         </div>
         <div *ngIf="botPg"><img [src]="botPg.img" class="battle-img" /></div>
       </div>
-      <p *ngIf="pfBot && botClasse">{{ pfBot }} / {{ botClasse.pf }}</p>
+      <p *ngIf="pfBot && botClasse">
+        {{ pfBot }} / {{ botTotpf }} punti ferita
+      </p>
       <div class="health-bar-container">
         <div class="health-bar">
           <div

@@ -141,24 +141,24 @@
       "img": "assets/img-pg/fighter2.webp",
       "imgpng": "assets/img-pg/fighter2-png.png",
       "classeId": 1,
-      "forza": 0,
-      "dext": 0,
-      "int": 0,
-      "cos": 0,
+      "forza": 10,
+      "dext": 10,
+      "int": 10,
+      "cos": 10,
       "id": 12,
       "userId": 1
     }
   ],
   "favoriti": [
     {
-      "idPersonaggio": 12,
-      "idUser": 4,
-      "id": 1
-    },
-    {
       "idPersonaggio": 4,
       "idUser": 4,
       "id": 2
+    },
+    {
+      "idPersonaggio": 12,
+      "idUser": 4,
+      "id": 3
     }
   ],
   "classe": [
